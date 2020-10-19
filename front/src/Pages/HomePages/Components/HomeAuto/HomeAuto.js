@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './HomeAuto.css';
  class HomeAuto extends Component {
     render() {
         return (
@@ -168,50 +169,48 @@ import { Link } from 'react-router-dom';
 								</div>
 							</div>
 							<div className="b-article__main-related s-shadow">
-											<div className="s-lineDownLeft  s-titleLeft">
+							<div className="s-lineDownLeft  s-titleLeft">
 												<div>
-													<h2 className="s-titleDet wow zoomInUp" data-wow-delay="0.5s">More Related Articles</h2>
+													<h2 className="s-titleDet wow zoomInUp" data-wow-delay="0.5s">Partenariat</h2>
 												</div>
 											</div>
 											<div className="clearfix"></div>
-											<div className="row">
-												<div className="col-sm-6 col-xs-12">
-													<div className="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
-														<div className="row m-smallPadding">
-															<div className="col-xs-12">
-																<img className="center-block img-responsive" src="media/100x80/related1.jpg" alt="related" />       
-															</div>
-															
-														</div>
-													</div>
-												</div>
-												<div className="col-sm-6 col-xs-12">
-													<div className="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
-														<div className="row m-smallPadding">
-															<div className="col-xs-12">
-																<img className="center-block img-responsive" src="media/100x80/related2.jpg" alt="related" />       
+												<div className="row">
+													<div className="col-sm-6 col-xs-12">
+														<div className="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
+															<div className="row m-smallPadding">
+																<div className="col-xs-12">
+																	<img className="center-block img-responsive" src="media/100x80/related1.jpg" alt="related" />       
+																</div>
+																
 															</div>
 														</div>
 													</div>
-												</div>
-											</div>  
+													<div className="col-sm-6 col-xs-12">
+														<div className="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
+															<div className="row m-smallPadding">
+																<div className="col-xs-12">
+																	<img className="center-block img-responsive" src="media/100x80/related2.jpg" alt="related" />       
+																</div>
+															</div>
+														</div>
+													</div>
+												
+												</div>  
 										</div>
+								
 										<div className="b-article__main-author wow zoomInUp" data-wow-delay="0.5s">
+										
 											<div className="row">
-												<div className="col-xs-2 pull-right">
-													<div className="b-blog__posts-one-author-img pull-right"></div>
-												</div>
-												<div className="col-xs-10 pull-right">
-													<h3><span>AUTHOR: </span> JOHN SMITH</h3>
-													<div className="b-article__main-author-social">
-														<a href="#" className=""><span className="fa fa-facebook"></span></a>
-														<a href="#" className=""><span className="fa fa-twitter"></span></a>
-														<a href='#' className=""><span className="fa fa-google-plus"></span></a>
-													</div>
+												
+												<div className="col-xs-12 pull-right">
+													<div className="col-xs-3">
+													<h3><span>Avis de nos clients</span></h3>
 													<div className="clearfix"></div>
-													<p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-														Neen ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntu mag dolores eo quv
-														ol up tatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor.</p>
+													</div>
+													<div className="col-xs-9">
+													<p className="soratra"><strong>Marcellin.D pour une location à Aéroport de la Réunion Roland Garros du Dimanche 02 Août 2020 au <br></br> Mardi 25 Août 2020 : <br></br>“Oui”</strong></p>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -222,4 +221,4 @@ import { Link } from 'react-router-dom';
     }
 }
 
-export default HomeAuto
+export default HomeAuto		
