@@ -1,0 +1,13 @@
+@import '~tailwindcss/dist/base.css';
+@import '~tailwindcss/dist/components.css';
+@import '~tailwindcss/dist/utilities.css';
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.error-field {
+  color: red;
+  padding-top: 3px;
+}
