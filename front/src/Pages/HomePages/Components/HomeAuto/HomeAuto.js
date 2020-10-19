@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
     render() {
         return (
             <div>
-                <section class="b-article">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-9 col-xs-12">
-									<div class="b-article__main">
-										<div class="b-blog__posts-one">
-											<div class="row m-noBlockPadding">
-												<div class="col-sm-11 col-xs-10">
-													<div class="b-blog__posts-one-body">
-														<header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
-															<h2 class="s-titleDet">Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
+                <section className="b-article">
+						<div className="container">
+							<div className="row">
+								<div className="col-md-9 col-xs-12">
+									<div className="b-article__main">
+										<div className="b-blog__posts-one">
+											<div className="row m-noBlockPadding">
+												<div className="col-sm-11 col-xs-10">
+													<div className="text-justify b-blog__posts-one-body">
+														<header className="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+															<h2 className="s-titleDet">Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
 														</header>
-														<div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
-															<div class="b-blog__posts-one-body-main-img">
-																<ul class="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
-																	<img class="img-responsive" src="media/750x300/blogBig1.jpg" alt="jaguar" />
+														<div className="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+															<div className="b-blog__posts-one-body-main-img">
+																<ul className="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
+																	<img className="img-responsive" src="media/750x300/blogBig1.jpg" alt="jaguar" />
 																</ul>
 															</div>
 															<p>Pour découvrir l'île de la Réunion, une voiture est indispensable. En effet, le réseau de transport public étant limité, avec une voiture de location vous serez libre dans vos déplacements.</p>
@@ -31,32 +31,32 @@ import { Link } from 'react-router-dom';
 
 																	D’un rapport qualité/prix très attractif, notre offre de location de voiture aura de quoi vous séduire !</p>
 														</div>
-														<div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s">
-															<div class="s-lineDownLeft  s-titleLeft">
+														<div className="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s">
+															<div className="s-lineDownLeft  s-titleLeft">
 																<div>
-																	<h2 class="s-titleDet">Les avantages GP Location</h2>
+																	<h2 className="s-titleDet">Les avantages GP Location</h2>
 																</div>
 															</div>
-															<div class="clearfix"></div>
+															<div className="clearfix"></div>
 															
-															<ul class="s-list">
-																<li><span class="fa fa-check"></span>Prise en charge à l'aéroport ou au port avec votre véhicule </li>
-																<li><span class="fa fa-check"></span>Kilométrage illimité, assurances incluses </li>
-																<li><span class="fa fa-check"></span>Assistance 7j/7, 24h/24  </li>
-																<li><span class="fa fa-check"></span>Large choix de véhicules récents </li>
-																<li><span class="fa fa-check"></span>Ouvert 7j/7 y compris jours fériés </li>
+															<ul className="s-list">
+																<li><span className="fa fa-check"></span>Prise en charge à l'aéroport ou au port avec votre véhicule </li>
+																<li><span className="fa fa-check"></span>Kilométrage illimité, assurances incluses </li>
+																<li><span className="fa fa-check"></span>Assistance 7j/7, 24h/24  </li>
+																<li><span className="fa fa-check"></span>Large choix de véhicules récents </li>
+																<li><span className="fa fa-check"></span>Ouvert 7j/7 y compris jours fériés </li>
 
 															</ul>
-															<div class="row">
-															<header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
-															<h2 class="s-titleDet">Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
+															<div className="row">
+															<header className="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+															<h2 className="s-titleDet">Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
 														</header>
-																<div class="col-sm-6 col-xs-12">
+																<div className="col-sm-6 col-xs-12">
 																	
-																	<img src="media/articles/article.jpg" class="img-responsive"  alt="nissan"/>
+																	<img src="media/articles/article.jpg" className="img-responsive"  alt="nissan"/>
 																</div>
-																<div class="col-sm-6 col-xs-12">
-																	<p class="m-smallMargin">Lorem ipsum dolor sit amet, consectetur adipisic aing elit sed do eiusmod tempor incididunt ut labore etern dolore magna aliqua. Ut enim ad minim veniam, quis nost ruder exercitation ullamco laboris nisi ut aliquip ex commod oil consequat. Duis aute irure do reprehenderit ind voluptat velit esse cillum dolore fugiat nulla pariatur. </p>
+																<div className="col-sm-6 col-xs-12">
+																	<p className="m-smallMargin">Lorem ipsum dolor sit amet, consectetur adipisic aing elit sed do eiusmod tempor incididunt ut labore etern dolore magna aliqua. Ut enim ad minim veniam, quis nost ruder exercitation ullamco laboris nisi ut aliquip ex commod oil consequat. Duis aute irure do reprehenderit ind voluptat velit esse cillum dolore fugiat nulla pariatur. </p>
 																	<p>Excepteur sint occaecat cupidatat non proident sunter in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
 																</div>
 															</div>
@@ -74,118 +74,89 @@ import { Link } from 'react-router-dom';
 										
 									</div>
 								</div>
-								<div class="col-md-3 col-xs-12">
-									<aside class="b-blog__aside">
+								<div className="col-md-3 col-xs-12">
+									<aside className="b-blog__aside">
 										
-										<div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
-											<header class="s-lineDownLeft">
-												<h2 class="s-titleDet"> nos agence</h2>
+										<div className="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+											<header className="s-lineDownLeft">
+												<h2 className="s-titleDet"> nos agences</h2>
 											</header>
 											<nav>
-												<ul class="b-blog__aside-categories-list">
+												<ul className="b-blog__aside-categories-list">
 													<li><Link to="/Aeroport">Aéroport de la Réunion Roland-Garros</Link></li>
 													<li><Link to="/Sainte-Marie">Sainte-Marie</Link></li>
-													<li class="m-active"><Link to="/">Accueil</Link></li>
+													<li className="m-active"><Link to="/">Accueil</Link></li>
 													<br></br><br></br>
 												</ul>
 											</nav>
 										</div>
-										<div class="b-blog__aside-popular wow zoomInUp" data-wow-delay="0.5s">
-											<header class="s-lineDownLeft">
-												<h2 class="s-titleDet">Aéroport de la Réunion Roland-Garros</h2>
+										<div className="b-blog__aside-popular wow zoomInUp" data-wow-delay="0.5s">
+											<header className="s-lineDownLeft">
+												<h2 className="s-titleDet">Aéroport de la Réunion Roland-Garros</h2>
 											</header>
-											<div class="b-blog__aside-popular-posts">
-												<div class="b-blog__aside-popular-posts-one">
-													<img class="img-responsive" src="media/270x150/acura.jpg" alt="merc" />
+											<div className="b-blog__aside-popular-posts">
+												<div className="b-blog__aside-popular-posts-one">
+													<img className="img-responsive" src="media/270x150/acura.jpg" alt="merc" />
 													
 												</div>
-												<header class="s-lineDownLeft">
-												<h2 class="s-titleDet">Sainte-Marie</h2>
+												<header className="s-lineDownLeft">
+												<h2 className="s-titleDet">Sainte-Marie</h2>
 											</header>
-												<div class="b-blog__aside-popular-posts-one">
-													<img class="img-responsive" src="media/270x150/amg.jpg" alt="outlander" />
+												<div className="b-blog__aside-popular-posts-one">
+													<img className="img-responsive" src="media/270x150/amg.jpg" alt="outlander" />
 													
 												</div>
 											</div>
 										</div>
-										<div class="b-blog__aside-text wow zoomInUp" data-wow-delay="0.5s">
-											<header class="s-lineDownLeft">
-												<h2 class="s-titleDet">WHY CHOOSE US?</h2>
+										<div className="b-blog__aside-text wow zoomInUp" data-wow-delay="0.5s">
+											<header className="s-lineDownLeft">
+												<h2 className="s-titleDet">La Réunion?</h2>
 											</header>
-											<p>Curabitur libero. Donec facilisis velit edu est
-												Phasellus conside quat. Aenean vitae quam.
-												Vivamus etdu nunc. Nunc conseq sem velde
-												metus imperdiet lacinia. Cras ornare pretum
-												tortor. Donec sed augue sed nunc rutru me
-												egestas. Bulum ante ipsum primisn faucibus
-												orci luctus et ultrices posuere.</p>
+											<p>Située dans l’archipel des Mascareignes, l’île de La Réunion, département français d’Outre-mer, offre au voyageur le dépaysement d’une île tropicale de l’océan Indien. Au carrefour des influences de l’Afrique, de l’Asie et de l’Europe, La Réunion est une terre de métissage.</p>
 										</div>
-										<div class="b-blog__aside-reviews wow zoomInUp" data-wow-delay="0.5s">
-											<header class="s-lineDownLeft">
-												<h2 class="s-titleDet">LATEST REVIEWS</h2>
+										<div className="b-blog__aside-reviews wow zoomInUp" data-wow-delay="0.5s">
+											<header className="s-lineDownLeft">
+												<h2 className="s-titleDet">La Réunion vous offre la beauté des paysages tropicaux du littoral</h2>
 											</header>
-											<div class="b-blog__aside-reviews-posts">
-												<div class="b-blog__aside-reviews-posts-one">
-													<div class="row m-smallPadding">
-														<div class="col-xs-5">
-															<img src="media/100x80/audiRev.jpg" alt="audi" class="img-responsive pull-right" />
+											<div className="b-blog__aside-reviews-posts">
+												<div className="b-blog__aside-reviews-posts-one">
+													<div className="row m-smallPadding">
+														<div className="col-xs-5">
+															<img src="media/100x80/audiRev.jpg" alt="audi" className="img-responsive pull-right" />
 														</div>
-														<div class="col-xs-7">
-															<div class="b-blog__aside-reviews-posts-one-info">
-																<p>First Drive:<br/>2016 Audi Q3</p>
-																<div class="b-world__item-val">
-																	<div class="b-world__item-val-circles">
-																		<span></span>
-																		<span></span>
-																		<span></span>
-																		<span></span>
-																		<span class="m-empty"></span>
-																	</div>
-																	<span class="b-world__item-num">4.1</span>
+														<div className="col-xs-7">
+															<div className="b-blog__aside-reviews-posts-one-info">
+																<p>Volcan<br/>Piton de la fournaise </p>
+																<div className="b-world__item-val">
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-												<div class="b-blog__aside-reviews-posts-one">
-													<div class="row m-smallPadding">
-														<div class="col-xs-5">
-															<img src="media/100x80/mercRev.jpg" alt="merc" class="img-responsive  pull-right" />
+												<div className="b-blog__aside-reviews-posts-one">
+													<div className="row m-smallPadding">
+														<div className="col-xs-5">
+															<img src="media/100x80/mercRev.jpg" alt="merc" className="img-responsive  pull-right" />
 														</div>
-														<div class="col-xs-7">
-															<div class="b-blog__aside-reviews-posts-one-info">
-																<p>Mercedes-Benz GLA Class 2015 Hottest Hatch</p>
-																<div class="b-world__item-val">
-																	<div class="b-world__item-val-circles">
-																		<span></span>
-																		<span></span>
-																		<span></span>
-																		<span></span>
-																		<span class="m-empty"></span>
-																	</div>
-																	<span class="b-world__item-num">4.1</span>
+														<div className="col-xs-7">
+															<div className="b-blog__aside-reviews-posts-one-info">
+																<p>La Réserve Naturelle<br/> Marine</p>
+																<div className="b-world__item-val">
+																	
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-												<div class="b-blog__aside-reviews-posts-one">
-													<div class="row m-smallPadding">
-														<div class="col-xs-5">
-															<img src="media/100x80/mazdaRev.jpg" alt="" class="img-responsive  pull-right" />
+												<div className="b-blog__aside-reviews-posts-one">
+													<div className="row m-smallPadding">
+														<div className="col-xs-5">
+															<img src="media/100x80/mazdaRev.jpg" alt="" className="img-responsive  pull-right" />
 														</div>
-														<div class="col-xs-7">
-															<div class="b-blog__aside-reviews-posts-one-info">
-																<p>First Look: <br />2016 Mazda CX-3</p>
-																<div class="b-world__item-val">
-																	<div class="b-world__item-val-circles">
-																		<span></span>
-																		<span></span>
-																		<span></span>
-																		<span></span>
-																		<span class="m-empty"></span>
-																	</div>
-																	<span class="b-world__item-num">4.1</span>
+														<div className="col-xs-7">
+															<div className="b-blog__aside-reviews-posts-one-info">
+																<p>Belouve <br /> la forêt primaire</p>
+																<div className="b-world__item-val">
 																</div>
 															</div>
 														</div>
@@ -196,48 +167,48 @@ import { Link } from 'react-router-dom';
 									</aside>
 								</div>
 							</div>
-							<div class="b-article__main-related s-shadow">
-											<div class="s-lineDownLeft  s-titleLeft">
+							<div className="b-article__main-related s-shadow">
+											<div className="s-lineDownLeft  s-titleLeft">
 												<div>
-													<h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">More Related Articles</h2>
+													<h2 className="s-titleDet wow zoomInUp" data-wow-delay="0.5s">More Related Articles</h2>
 												</div>
 											</div>
-											<div class="clearfix"></div>
-											<div class="row">
-												<div class="col-sm-6 col-xs-12">
-													<div class="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
-														<div class="row m-smallPadding">
-															<div class="col-xs-12">
-																<img class="center-block img-responsive" src="media/100x80/related1.jpg" alt="related" />       
+											<div className="clearfix"></div>
+											<div className="row">
+												<div className="col-sm-6 col-xs-12">
+													<div className="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
+														<div className="row m-smallPadding">
+															<div className="col-xs-12">
+																<img className="center-block img-responsive" src="media/100x80/related1.jpg" alt="related" />       
 															</div>
 															
 														</div>
 													</div>
 												</div>
-												<div class="col-sm-6 col-xs-12">
-													<div class="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
-														<div class="row m-smallPadding">
-															<div class="col-xs-12">
-																<img class="center-block img-responsive" src="media/100x80/related2.jpg" alt="related" />       
+												<div className="col-sm-6 col-xs-12">
+													<div className="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
+														<div className="row m-smallPadding">
+															<div className="col-xs-12">
+																<img className="center-block img-responsive" src="media/100x80/related2.jpg" alt="related" />       
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>  
 										</div>
-										<div class="b-article__main-author wow zoomInUp" data-wow-delay="0.5s">
-											<div class="row">
-												<div class="col-xs-2 pull-right">
-													<div class="b-blog__posts-one-author-img pull-right"></div>
+										<div className="b-article__main-author wow zoomInUp" data-wow-delay="0.5s">
+											<div className="row">
+												<div className="col-xs-2 pull-right">
+													<div className="b-blog__posts-one-author-img pull-right"></div>
 												</div>
-												<div class="col-xs-10 pull-right">
+												<div className="col-xs-10 pull-right">
 													<h3><span>AUTHOR: </span> JOHN SMITH</h3>
-													<div class="b-article__main-author-social">
-														<a href="#" class=""><span class="fa fa-facebook"></span></a>
-														<a href="#" class=""><span class="fa fa-twitter"></span></a>
-														<a href='#' class=""><span class="fa fa-google-plus"></span></a>
+													<div className="b-article__main-author-social">
+														<a href="#" className=""><span className="fa fa-facebook"></span></a>
+														<a href="#" className=""><span className="fa fa-twitter"></span></a>
+														<a href='#' className=""><span className="fa fa-google-plus"></span></a>
 													</div>
-													<div class="clearfix"></div>
+													<div className="clearfix"></div>
 													<p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 														Neen ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntu mag dolores eo quv
 														ol up tatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor.</p>
