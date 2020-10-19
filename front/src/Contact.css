@@ -1,0 +1,133 @@
+/*= Contacts =*/
+.m-contacts .b-pageHeader__search h3{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.b-contacts{
+    padding: 75px 0 140px 0;
+}
+
+.b-contacts__form-header{
+    padding-bottom: 20px;
+    margin: 10px 0 45px 0;
+}
+
+.b-contacts__form-header h2{
+    text-transform: none;
+    font-size:22px;
+    margin: 0;
+}
+
+.b-contacts__form p{
+    font: 600 14px 'Open Sans',sans-serif;
+    margin:  0 0 40px 0;
+}
+
+.b-contacts__form textarea{
+    height:140px;
+}
+
+.b-contacts__address{
+    margin-left: 50px;
+}
+
+.b-contacts__address-hours{
+    margin-bottom: 45px;
+}
+
+.b-contacts__address-hours-main,.b-contacts__address-info-main{
+    padding: 35px;
+}
+
+.b-contacts__address-hours-main h5{
+    font: 700 13px 'Open Sans',sans-serif;
+    margin: 0 0 10px 0;
+}
+
+.b-contacts__address-hours-main p{
+    font: 400 13px 'Open Sans',sans-serif;
+}
+
+.b-contacts__address-info{
+    
+}
+
+.b-contacts__address-info-main-item{
+    font: 700 13px 'Open Sans',sans-serif;
+    margin-bottom: 20px;
+}
+
+.b-contacts__address-info-main-item span.fa{
+    font-size:16px;
+    margin-right: 10px;
+}
+
+.b-contacts__address-info-main-item span.fa-envelope,.b-contacts__address-info-main-item span.fa-fax{
+    font-size:14px;
+}
+
+.b-contacts__address-info-main-item p{
+    font: 400 13px 'Open Sans',sans-serif;
+    margin: 5px 0 10px 30px;
+}
+
+.b-contacts__address-info-main-item em{
+    font: 400 13px 'Open Sans',sans-serif;
+}
+
+/* Page 404 */
+/* Error */
+.b-error{
+    padding: 100px 0 0 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.b-error h1{
+    font: 800 44px 'Open Sans',sans-serif;
+    text-transform: uppercase;
+    letter-spacing:5px;
+    margin: 0 0 10px 0;
+}
+
+.b-error h2{
+    font: 700 40px 'Open Sans',sans-serif;
+    margin: 25px 0 60px 0;
+    display: inline-block;
+    padding:0 30px 50px 30px;
+    text-transform: uppercase;
+}
+
+.b-error p{
+    font: 600 14px 'Open Sans',sans-serif;
+    margin: 0 0 90px 0;
+}
+
+.b-error h3.s-title{
+    font: 700 14px 'Open Sans',sans-serif;
+    color:#202020;
+    letter-spacing: 0;
+    margin: 0 0 40px 0;
+}
+
+.b-error .b-blog__aside-search{
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.b-error-img{
+    width:100%;
+}
+
+
+.b-breadCumbs{
+    height:70px;
+}
+
+.b-breadCumbs__page{
+    padding: 5px;
+}
+
+.container{
+    padding-top:26px;
+}

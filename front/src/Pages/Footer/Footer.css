@@ -1,0 +1,8 @@
+.text{
+	text-decoration: none;
+	color: white;
+}
+
+.text:hover{
+	color: gray;
+}

@@ -1,0 +1,25 @@
+
+
+#editeur{
+	padding: 5px;
+	color: #0011a7;
+	font-size: 20px;
+
+	margin-left: 100px;
+    /*display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    */
+}
+
+#content{
+	margin-left: 75px;
+	margin-right: 75px;
+}
+
+#list{
+	margin-left: 90px;
+}
