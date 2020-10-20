@@ -1,0 +1,18 @@
+.start{
+    width: 100%;
+    height: auto;
+  
+}
+.start ul{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: -24px;
+}
+
+.start ul li{
+   
+    color: rgb(243, 247, 0);
+    letter-spacing: 6px;
+}
