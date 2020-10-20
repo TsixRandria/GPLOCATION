@@ -3,18 +3,26 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 
 import Navbar from './components/Navbar/Navbar';
-import AddVoiture from './pages/Voitures/AddVoiture';
-import ListeVoiture from './pages/Voitures/ListeVoiture'
+import Sidebar from './components/Sidebar/Sidebar'
+
+import Voitures from './pages/Voitures/Voitures';
+import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
+import DetailVoiture from './pages/Voitures/DetailVoiture';
 
 function App() {
   return (
     <Router>
+
       <Navbar />
-      <Switch>
-      
-        <Route exact path="/voitures/liste" component={ListeVoiture} />
-        <Route exact path="/voitures/add" component={AddVoiture} />
-      </Switch>
+      <Sidebar />
+      <div className="main-container">
+        <Switch>
+          <Route exact path="/voitures" component={Voitures} />
+          <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
+          
+          <Route exact path="/utilisateurs" component={Utilisateurs} />
+        </Switch>
+      </div>
     </Router>
   );
 }

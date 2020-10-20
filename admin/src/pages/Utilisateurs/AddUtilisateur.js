@@ -5,30 +5,33 @@ import * as Yup from 'yup';
 import ErrorField from '../../components/ErrorField/ErrorField';
 import axios from '../../axios';
  
-const VoitureSchema = Yup.object().shape({
-    marque: Yup.string()
-        .required('Le marque ne doit pas être vide'),
-    model: Yup.string()
-        .required('Le model ne doit pas être vide')
+const UtilisateurSchema = Yup.object().shape({
+    username: Yup.string()
+        .required('L\'identifiant ne doit pas être vide'),
+    email: Yup.string()
+        .required('L\'email ne doit pas être vide'),
+    password: Yup.string()
+        .required('Le mot de passe ne doit pas être vide')
 });
  
-class AddVoiture extends Component {
+class AddUtilisateur extends Component {
     render() {
         return (
         <div>
             <h2>Insertion d'une nouvelle voiture</h2>
             <Formik
             initialValues={{
-                marque: '',
-                model: ''
+                username: '',
+                email: '',
+                password: ''
             }}
-            validationSchema={VoitureSchema}
+            validationSchema={UtilisateurSchema}
             onSubmit={(values, { resetForm }) => {
-                axios.post('/voitures', values).then(response => {
+                axios.post('/admin_users', values).then(response => {
                     const { action } = this.props;
                     if (response.status === 201) {
                         resetForm();
-                        action.getVoiture();
+                        action.getUtilisateur();
                     }
                 })
             }}
@@ -38,23 +41,33 @@ class AddVoiture extends Component {
                     autoComplete="off">
                     <div className="mb-2">
                         <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                            Marque
+                            Identifiant
                         </label>
                         <Field
                             autoFocus
-                            name="marque"
+                            name="username"
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
-                        <ErrorField errors={errors} touched={touched} row="marque"/>
+                        <ErrorField errors={errors} touched={touched} row="username"/>
                     </div>
                     
                     <div className="mb-2">
                         <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                            Model
+                            Email
                         </label>
                         <Field
-                            name="model"
+                            name="email"
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
-                        <ErrorField errors={errors} touched={touched} row="model"/>
+                        <ErrorField errors={errors} touched={touched} row="email"/>
+                    </div>
+
+                    <div className="mb-2">
+                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                            Mot de passe
+                        </label>
+                        <Field
+                            name="password"
+                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
+                        <ErrorField errors={errors} touched={touched} row="password"/>
                     </div>
                     <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
                 </Form>
@@ -64,4 +77,4 @@ class AddVoiture extends Component {
     }
 }
 
-export default AddVoiture;
+export default AddUtilisateur;
