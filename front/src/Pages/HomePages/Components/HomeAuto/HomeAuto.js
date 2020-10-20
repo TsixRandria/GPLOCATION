@@ -50,21 +50,18 @@ import './HomeAuto.css';
 															</ul>
 															<div className="row">
 															<header className="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
-															<h2 className="s-titleDet">Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
+															<h2 className="s-titleDet">Des visites incontournables sur l'île de la Réunion</h2>
 														</header>
 																<div className="col-sm-6 col-xs-12">
 																	
 																	<img src="media/articles/article.jpg" className="img-responsive"  alt="nissan"/>
 																</div>
 																<div className="col-sm-6 col-xs-12">
-																	<p className="m-smallMargin">Lorem ipsum dolor sit amet, consectetur adipisic aing elit sed do eiusmod tempor incididunt ut labore etern dolore magna aliqua. Ut enim ad minim veniam, quis nost ruder exercitation ullamco laboris nisi ut aliquip ex commod oil consequat. Duis aute irure do reprehenderit ind voluptat velit esse cillum dolore fugiat nulla pariatur. </p>
-																	<p>Excepteur sint occaecat cupidatat non proident sunter in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+																	<p className="m-smallMargin">Cette île volcanique, située en plein cœur de l'océan Indien, vous offrira des expériences inoubliables. Comme la plongée sous-marine, au milieu des différentes espèces aquatiques telles que les dauphins, les baleines, les tortues marines ou encore les requins. Avec votre voiture de location, vous pourrez rejoindre le point de départ de nombreuses randonnées qui cheminent jusqu'en haut des différents pitons, dont le fameux Piton de la Fournaise, toujours en activité volcanique. Grâce à notre assistance, disponible sept jours sur sept et 24 h/24, vous n’aurez pas à vous soucier d’un quelconque ennui mécanique. </p>
+																	
 																</div>
 															</div>
-															<p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en
-																ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magn dolores eos qu rat voluptatem
-																sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectet derur adipisci velit sed quia non
-																numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+															<p>En voiture, vous pourrez rallier le sud de l’île pour rejoindre la ville de Saint-Pierre et profiter de son front de mer très animé. Ne manquez pas non plus la visite du Cirque de Mafate ou encore celui de Cilaos, qui vous offriront une vue grandiose et panoramique de l’île. L’île de la Réunion ayant une superficie de 2 500 km² environ, de nombreux endroits paradisiaques sont à découvrir. Les plages de sable fin aux eaux turquoise n’attendent que vous. C'est pourquoi notre gamme de véhicules de location est aussi variée, pour vous offrir un séjour unique et sécurisant.</p>
 														</div>
 													</div>
 												</div>
@@ -199,21 +196,43 @@ import './HomeAuto.css';
 												</div>  
 										</div>
 								
-										<div className="b-article__main-author wow zoomInUp" data-wow-delay="0.5s">
-										
-											<div className="row">
-												
-												<div className="col-xs-12 pull-right">
-													<div className="col-xs-3">
-													<h3><span>Avis de nos clients</span></h3>
-													<div className="clearfix"></div>
-													</div>
-													<div className="col-xs-9">
-													<p className="soratra"><strong>Marcellin.D pour une location à Aéroport de la Réunion Roland Garros du Dimanche 02 Août 2020 au <br></br> Mardi 25 Août 2020 : <br></br>“Oui”</strong></p>
-													</div>
-												</div>
-											</div>
-										</div>
+										<br></br><br></br>
+
+<div className="b-article__main-author wow zoomInUp" data-wow-delay="0.5s">
+							
+							<div className="row">
+								
+								<div className="col-xs-12 pull-right">
+									<div className="col-xs-3">
+									<h3><span>Avis de nos clients</span></h3><br /><br />
+									<div className="start">
+										<ul>
+											<li>
+												<span className="fa fa-star"></span>
+											</li>
+											<li>
+												<span className="fa fa-star"></span>
+											</li>
+											<li>
+												<span className="fa fa-star"></span>
+											</li>
+											<li>
+												<span className="fa fa-star"></span>
+											</li>
+											<li>
+												<span className="fa fa-star"></span>
+											</li>
+										</ul>
+									</div>
+									<div className="clearfix"></div>
+									</div>
+									<div className="col-xs-9">
+									<p className="soratra"><strong>Marcellin.D pour une location à Aéroport de la Réunion Roland Garros du Dimanche 02 Août 2020 au <br></br> Mardi 25 Août 2020 : <br></br>“Oui”</strong></p>
+									</div>
+								</div>
+							</div>
+
+						</div>
 						</div>
 					</section>
             </div>

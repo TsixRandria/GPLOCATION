@@ -517,7 +517,7 @@
 }
 
 .b-article__main-author p{
-    margin: 20px 0 0 0;
+    margin: -4px 0 0 0;
     font: 300 13px 'Open Sans',sans-serif;
     line-height: 1.9;
 }
