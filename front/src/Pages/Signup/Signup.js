@@ -33,13 +33,10 @@ import './Signup.css';
                         >
                             <Form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
                                 <div className="flex">
-<<<<<<< HEAD
-                                    <Field type="text" placeholder="VOTRE NOM" defaultValue="" name="nom"/> &nbsp;
+
+                                    <Field type="text" placeholder="VOTRE NOM" defaultValue="" name="nom"/>
                                     <Field type="text" placeholder="VOTRE PRENOM" defaultValue="" name="prenom"/>
-=======
-                                    <input type="text" placeholder="VOTRE NOM" defaultValue="" name="user-name"/> 
-                                    <input type="text" placeholder="VOTRE PRENOM" defaultValue="" name="user-name"/>
->>>>>>> 30e3754e9180c60215efd2eeffeff15db1893829
+                                    
                                 </div>
                                 <Field type="text" placeholder="TELEPHONE" defaultValue="" name="telephone"/>
                                 <Field type="text" placeholder="VOTRE EMAIL" defaultValue="" name="email"/>
