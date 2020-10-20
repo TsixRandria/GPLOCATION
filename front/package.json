@@ -6,9 +6,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "css-loader": "^4.3.0",
     "es6-promise": "^4.2.8",
+    "formik": "^2.2.0",
     "isomorphic-fetch": "^3.0.0",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
@@ -18,7 +20,8 @@
     "react-google-recaptcha": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
