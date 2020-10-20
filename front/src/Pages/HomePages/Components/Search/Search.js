@@ -1,8 +1,13 @@
 import React from 'react';
+
+
+
+
 import './Style.css';
 
 
 class Search extends React.Component {
+	
 	render() {
 		return (
 			<>
@@ -28,7 +33,13 @@ class Search extends React.Component {
 											<div className="col-xs-3">
 											<p>Date de départ</p>
 												<select name="select2">
-												<option value="1" selected="selected">11/02/2020</option>			
+												<option value="0" selected="selected">14/12/2020</option>
+													<option value="1">15/12/2020</option>
+													<option value="2">16/12/2020</option>
+													<option value="3">17/12/2020</option>
+													<option value="4">18/12/2020</option>
+													<option value="5">19/12/2020</option>
+													
 													
 												</select>
 												{/* <span className="fa fa-caret-down"></span> */}

@@ -11,7 +11,7 @@ import './Signup.css';
                         <h1 className="title">Inscription</h1>  
                             <form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
                                 <div className="flex">
-                                    <input type="text" placeholder="VOTRE NOM" defaultValue="" name="user-name"/> &nbsp;
+                                    <input type="text" placeholder="VOTRE NOM" defaultValue="" name="user-name"/> 
                                     <input type="text" placeholder="VOTRE PRENOM" defaultValue="" name="user-name"/>
                                 </div>
                                 <input type="text" placeholder="TELEPHONE" defaultValue="" name="user-phone"/>
@@ -20,7 +20,7 @@ import './Signup.css';
                                 
                                 <span className="md:text-xl" id="text-color"> *Champs obligatoires</span>
                                     <div className="button">
-                                    <button type="submit" className="btn m-btn" id="button1">INSCRIPTION<span className="fa fa-angle-right"></span></button>
+                                    <button type="submit" className="btn m-btn" id="button1">S'INSCRIRE<span className="fa fa-angle-right"></span></button>
                                     </div>
                                 <p className="teny text-justify  md:text-xl   ">
                                     <h2 className="sous">Protection des données</h2> 

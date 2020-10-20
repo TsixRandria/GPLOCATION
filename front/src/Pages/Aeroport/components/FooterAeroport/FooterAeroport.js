@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './Footer.css';
  class FooterAeroport extends Component {
     render() {
         return (
@@ -47,186 +47,46 @@ import React, { Component } from 'react'
 						</div>
 						
 					</div>
-				</div>
+
+					<br></br><br></br>
+
+			<div className="b-article__main-author wow zoomInUp" data-wow-delay="0.5s">
+										
+										<div className="row">
+											
+											<div className="col-xs-12 pull-right">
+												<div className="col-xs-3">
+												<h3><span>Avis de nos clients</span></h3><br /><br />
+												<div className="start">
+													<ul>
+														<li>
+															<span className="fa fa-star"></span>
+														</li>
+														<li>
+															<span className="fa fa-star"></span>
+														</li>
+														<li>
+															<span className="fa fa-star"></span>
+														</li>
+														<li>
+															<span className="fa fa-star"></span>
+														</li>
+														<li>
+															<span className="fa fa-star"></span>
+														</li>
+													</ul>
+												</div>
+												<div className="clearfix"></div>
+												</div>
+												<div className="col-xs-9">
+												<p className="soratra"><strong>Marcellin.D pour une location à Aéroport de la Réunion Roland Garros du Dimanche 02 Août 2020 au <br></br> Mardi 25 Août 2020 : <br></br>“Oui”</strong></p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									</div>
 			</section>
-
-
-			<section className="b-personal s-shadow">
-			<div className="container">
-				
-				<h2 className="s-title wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>Avis de nos clients</h2>
-				<div id="carousel-small" className="owl-carousel enable-owl-carousel owl-theme" data-items="4" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="4" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="2" style={{opacity: "1", display: "block"}}>
-					<div className="owl-wrapper-outer"><div className="owl-wrapper" style={{width: "6080px", left: "0px", display: "block", transition: "all 800ms ease 0s", transform: "translate3d(-1140px, 0px, 0px)"}}><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/jason.jpg" className="img-responsive" alt="jason"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Owner / Co-Invester</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Jason Roy</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/paul.jpg" className="img-responsive" alt="paul"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Delivery Incharge</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Paul Richard</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/peter.jpg" className="img-responsive" alt="peter"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Auto Reviewer / Technican</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Peter Harold</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/maria.jpg" className="img-responsive" alt="maria"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Sales Representative</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Maria Susan</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/jason.jpg" className="img-responsive" alt="jason"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Owner / Co-Invester</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Jason Roy</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/paul.jpg" className="img-responsive" alt="paul"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Delivery Incharge</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Paul Richard</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/peter.jpg" className="img-responsive" alt="peter"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Auto Reviewer / Technican</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Peter Harold</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div></div><div className="owl-item" style={{width: "380px"}}><div>
-						<div className="b-personal__worker wow zoomInUp" data-wow-delay="0.5s" style={{visibility: "visible", animationDelay: "0.5s", animationName: "ZoomInUp"}}>
-							<div className="b-personal__worker-img">
-								<img src="media/persons/maria.jpg" className="img-responsive" alt="maria"/>
-								<div className="b-personal__worker-img-social">
-									<div className="b-personal__worker-img-social-main">
-										<a href="/"><span className="fa fa-facebook-square"></span></a>
-										<a href="/"><span className="fa fa-twitter-square"></span></a>
-										<a href="/"><span className="fa fa-pinterest-square"></span></a>
-										<a href="/"><span className="fa fa-google-plus-square"></span></a>
-									</div>
-								</div>
-							</div>
-							<h6>Sales Representative</h6>
-							<div className="b-personal__worker-name s-lineDownLeft">
-								<h4 className="s-titleDet">Maria Susan</h4>
-							</div>
-							<p>Owner of AutoClub, started the company
-								in 2005. A very hard working person who loves to drive the cars.</p>
-						</div>
-					</div>
-					</div>
-					</div>
-					</div>
-		
-					
-				<div className="owl-controls clickable"><div className="owl-buttons"><div className="owl-prev"></div><div className="owl-next"></div></div></div></div>
-			</div>
-		</section>
-
-		
 		</>
         )
     }
