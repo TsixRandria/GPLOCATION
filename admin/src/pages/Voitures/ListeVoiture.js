@@ -1,47 +1,47 @@
 import React, { Component } from 'react';
-import axios from '../../axios';
+import { NavLink } from 'react-router-dom';
 
 export default class ListeVoiture extends Component {
-    state = {
-        voitures: []
-    }
-
     componentDidMount() {
-        this.getVoiture()
-    }
-
-    getVoiture = () => {
-        axios.get('/voitures').then(response => {
-            if (response.status === 200) {
-                this.setState({
-                    voitures: response.data
-                })
-            }
-        })
-    }
-
-    deleteVoiture = (voiture) => {
-        axios.delete(`/voitures/${voiture.id}`).then(response => {
-            if (response.status === 204) {
-                this.getVoiture();
-            }
-        })
+        const { action } = this.props;
+        action.getVoiture();
     }
 
     render() {
-        const { voitures } = this.state;
+        const { voitures, action } = this.props;
         return (
-            <div className="container mx-auto p-5">
-                <h1>Liste des voitures</h1>
-
-                { voitures && voitures.map(voiture => {
-                    return (
-                        <div>
-                            { voiture.marque } { voiture.model } <span className="text-red-500" onClick={() => this.deleteVoiture(voiture)}>Supprimer</span>
-                        </div>
-                    )
-                }) }
+            <div className="py-4">
+                <h2>Liste des voitures</h2>
+                <div className="mt-2">
+                    <table className="table-auto">
+                        <thead>
+                            <tr>
+                            <th className="border px-4 py-2">Marque</th>
+                            <th className="border px-4 py-2">Modèle</th>
+                            <th className="border px-4 py-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { voitures && voitures.map(voiture => {
+                                return (
+                                    <tr>
+                                        <td className="border px-4 py-2">{ voiture.marque }</td>
+                                        <td className="border px-4 py-2">{ voiture.model }</td>
+                                        <td className="border px-4 py-2">
+                                            <NavLink to={`/voitures/detail/${voiture.id}`}>
+                                                <span className="text-blue-500 cursor-pointer">Voir détail</span> &nbsp;
+                                            </NavLink>
+                                            <span className="text-red-500 cursor-pointer" onClick={() => action.deleteVoiture(voiture)}>Supprimer</span>
+                                        </td>
+                                    </tr>
+                                )
+                            }) }
+                            
+                        </tbody>
+                    </table>
+                </div>
                 
+                { voitures && voitures.length === 0 ? (<>Aucune voiture disponible pour le moment.</>) : null }
             </div>
         )
     }
