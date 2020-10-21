@@ -13,6 +13,9 @@ export default class Sidebar extends Component {
                     <NavLink to="/" className="hover:text-white">
                         <div className="menu-item">Tableau de bord</div>
                     </NavLink>
+                    <NavLink to="/reservations" className="hover:text-white">
+                        <div className="menu-item">Liste des réservations</div>
+                    </NavLink>
                     <NavLink to="/voitures" className="hover:text-white">
                         <div className="menu-item">Voitures</div>
                     </NavLink>
