@@ -77,7 +77,7 @@ import './HomeAuto.css';
 										
 										<div className="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
 											<header className="s-lineDownLeft">
-												<h2 className="s-titleDet"> nos agences</h2>
+												<h2 className="s-titleDet"> Locations</h2>
 											</header>
 											<nav>
 												<ul className="b-blog__aside-categories-list">
