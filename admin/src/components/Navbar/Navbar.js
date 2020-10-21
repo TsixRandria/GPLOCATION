@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom';
 import './Navbar.styles.scss';
+import { connect } from 'react-redux';
+import UserProfil from './UserProfil';
 
 class Navbar extends Component {
     render() {
+        const { user } = this.props;
         return (
             <>
                 <header className="navbar-block text-white body-font bg-black">
                     <div className="flex flex-wrap p-5 flex-col md:flex-row items-center">
-                        <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-                            <span className="ml-3 text-xl">GPLOCATION</span>
-                        </a>
-                        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                            Utilisateur
+                        <nav className="md:ml-auto text-base justify-center">
+                            <UserProfil user={user}/>
                         </nav>
                     </div>
                 </header>
@@ -21,4 +20,10 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        ...state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Navbar);

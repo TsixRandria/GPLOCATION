@@ -1,5 +1,6 @@
 class AdminUsersController < ApplicationController
     before_action :set_utilisateur, only: [:show, :update, :destroy]
+    before_action :authorized, only: [:auto_login]
 
     # GET /utilisateurs
     def index
@@ -10,7 +11,12 @@ class AdminUsersController < ApplicationController
     # POST /utilisateurs
     def create
         @utilisateur = AdminUser.create!(utilisateur_params)
-        json_response(@utilisateur, :created)
+        if @utilisateur.valid?
+            token = encode_token({user_id: @utilisateur.id})
+            render json: {user: @utilisateur, token: token}
+        else
+            render json: {error: "Invalid username or password"}
+        end
     end
 
     # GET /utilisateurs/:id
@@ -28,6 +34,22 @@ class AdminUsersController < ApplicationController
     def destroy
         @utilisateur.destroy
         head :no_content
+    end
+
+    # LOGGING IN
+    def login
+        @admin_user = AdminUser.find_by(username: params[:username])
+        if @admin_user && @admin_user.authenticate(params[:password])
+            token = encode_token({user_id: @admin_user.id})
+            render json: {user: @admin_user, token: token}
+        else
+            render json: {error: "Identifiant ou mot de passe incorrect"}
+        end
+    end
+
+
+    def auto_login
+        render json: @user
     end
 
     private

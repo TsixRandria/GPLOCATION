@@ -95,7 +95,7 @@ class InlineEdit extends Component {
     }
 
     render() {
-        const { defaultValue, value, labelText, isEdit } = this.state;
+        const { value, labelText, isEdit } = this.state;
         const { disabled, setEdit } = this.props;
 
         let defaultEdit = (

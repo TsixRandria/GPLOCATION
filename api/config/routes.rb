@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :contacts
 
   resources :admin_users
+
+  post "/login", to: "admin_users#login"
+  get "/auto_login", to: "admin_users#auto_login"
 end

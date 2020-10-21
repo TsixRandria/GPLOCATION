@@ -18,7 +18,7 @@ class AddUtilisateur extends Component {
     render() {
         return (
         <div>
-            <h2>Insertion d'une nouvelle voiture</h2>
+            <h2>Insertion d'un nouvel utilisateur</h2>
             <Formik
             initialValues={{
                 username: '',
