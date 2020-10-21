@@ -7,6 +7,9 @@ import ErrorField from '../ErrorField/ErrorField';
 import axios from '../../axios'
 import './Contact.css';
 
+import ListeContact from './ListeContact';
+import axios from '../../axios';
+
 const ContactSchema = Yup.object().shape({
     nom: Yup.string()
         .required('Le nom ne doit pas être vide'),
@@ -22,11 +25,25 @@ const ContactSchema = Yup.object().shape({
 		
 });
 
+
+
 function onChange(value) {
   console.log("Captcha value:", value)
 }
 
 class Contact extends React.Component {
+	state ={
+		contacts: []
+	}
+
+	getContat: () => {
+		axios.get('/contacts').then(response => {
+			if (response.status === 200) {
+				this.setState({
+					contacts: response.data
+				})
+			}
+	}
 	render() {
 		return (
 
@@ -59,38 +76,38 @@ class Contact extends React.Component {
 											message: ''
 										}}
 										validationSchema={ContactSchema}
-										onSubmit={(values, { resetForm }) => {
-											axios.post('/voitures', values).then(response => {
-												if (response.status === 201) {
-													resetForm();
-												}
-											})
-										}}
+											onSubmit={(values, { resetForm }) => {
+												axios.post('/contacts', values).then(response => {
+													if (response.status === 201) {
+														resetForm();
+													}
+												})
+											}}
 									>
-									{({ errors, touched }) => (
-									<form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
-										
-										<Field type="text" placeholder="Nom" defaultValue="" name="user-name" id="user-name" />
-										<ErrorField errors={errors} touched={touched} row="nom"/>
-										
-										<Field type="text" placeholder="Prénom" defaultValue="" name="user-name" id="user-lastname" />
-										<ErrorField errors={errors} touched={touched} row="prenom"/>
-										
-										<Field type="text" placeholder="Email" defaultValue="" name="user-email" id="user-email" />
-										<ErrorField errors={errors} touched={touched} row="mail"/>
-										
-										<Field type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
-										<ErrorField errors={errors} touched={touched} row="telephone"/>
-										
-										<textarea id="user-message" name="user-message" placeholder="Message"></textarea>
-										
-										<p className="p">* Champs obligatoires</p>
-										<fieldset><ReCAPTCHA sitekey="6LdXP9cZAAAAAOjXVT_t6gXbM8gNuQXyvK9qPhr2" onChange={onChange} /></fieldset>
+										{({ errors, touched }) => (
+										<form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
+											
+											<Field type="text" placeholder="Nom" defaultValue="" name="user-name" id="user-name" />
+											<ErrorField errors={errors} touched={touched} row="nom"/>
+											
+											<Field type="text" placeholder="Prénom" defaultValue="" name="user-name" id="user-lastname" />
+											<ErrorField errors={errors} touched={touched} row="prenom"/>
+											
+											<Field type="text" placeholder="Email" defaultValue="" name="user-email" id="user-email" />
+											<ErrorField errors={errors} touched={touched} row="mail"/>
+											
+											<Field type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
+											<ErrorField errors={errors} touched={touched} row="telephone"/>
+											
+											<textarea id="user-message" name="user-message" placeholder="Message"></textarea>
+											
+											<p className="p">* Champs obligatoires</p>
+											<fieldset><ReCAPTCHA sitekey="6LdXP9cZAAAAAOjXVT_t6gXbM8gNuQXyvK9qPhr2" onChange={onChange} /></fieldset>
 
-										<button type="submit" className="btn m-btn" id="button">VALIDER    <span className="fa fa-angle-right"></span></button>
-										
-									</form>)}
-									  </Formik>
+											<button type="submit" className="btn m-btn" id="button">VALIDER    <span className="fa fa-angle-right"></span></button>
+											
+										</form>)}
+									</Formik>
 								</div>
 							</div>
 							<div className="col-md-6" textAlign ="">
