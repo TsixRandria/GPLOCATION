@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_130346) do
+ActiveRecord::Schema.define(version: 2020_10_20_114338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,38 @@ ActiveRecord::Schema.define(version: 2020_10_16_130346) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "jwt_blacklists", force: :cascade do |t|
+    t.string "jti"
+    t.datetime "exp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jti"], name: "index_jwt_blacklists_on_jti"
+  end
+
   create_table "tarifs", force: :cascade do |t|
     t.integer "prix"
     t.bigint "voiture_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["voiture_id"], name: "index_tarifs_on_voiture_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nom", default: "", null: false
+    t.string "prenom", default: "", null: false
+    t.string "telephone", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["nom"], name: "index_users_on_nom"
+    t.index ["prenom"], name: "index_users_on_prenom"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["telephone"], name: "index_users_on_telephone", unique: true
   end
 
   create_table "voiture_descriptions", force: :cascade do |t|
