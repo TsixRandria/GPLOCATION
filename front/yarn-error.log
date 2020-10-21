@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add yup
 
 PATH: 
-  /home/lenovo/.rvm/gems/ruby-2.7.1/bin:/home/lenovo/.rvm/gems/ruby-2.7.1@global/bin:/home/lenovo/.rvm/rubies/ruby-2.7.1/bin:/home/lenovo/.rbenv/plugins/ruby-build/bin:/home/lenovo/.rbenv/shims:/home/lenovo/.rbenv/bin:/home/lenovo/.rbenv/bin:/home/lenovo/.rvm/gems/ruby-2.7.1/bin:/home/lenovo/.rvm/gems/ruby-2.7.1@global/bin:/home/lenovo/.rvm/rubies/ruby-2.7.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/lenovo/.rvm/bin:/home/lenovo/.rvm/bin:/home/lenovo/.rvm/bin
+  /home/jean-claude/.rbenv/plugins/ruby-build/bin:/home/jean-claude/.rbenv/shims:/home/jean-claude/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.22.5
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/lenovo/Desktop/gpl mode7/GPLOC/front/node_modules/react-app-polyfill/node_modules/whatwg-fetch/LICENSE'
+  Error: ENOENT: no such file or directory, copyfile '/home/jean-claude/.cache/yarn/v6/npm-lodash-es-4.17.15-21bd96839354412f23d7a10340e5eac6ee455d78-integrity/node_modules/lodash-es/_baseSortedIndex.js' -> '/home/jean-claude/Documents/gplocation/front/node_modules/lodash-es/_baseSortedIndex.js'
 
 npm manifest: 
   {

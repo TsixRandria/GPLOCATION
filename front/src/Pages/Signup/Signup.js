@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import axios from '../../axios';
+
 
  class Signup extends Component {
     render() {
@@ -9,14 +13,32 @@ import './Signup.css';
                 <div className="contenu ">
                     <div className="success1" >
                         <h1 className="title">Inscription</h1>  
-                            <form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
+                        <Formik
+                        initialValues={{
+                            nom: '',
+                            prenom: '',
+                            telephone: '',
+                            email: '',
+                            password: ''
+                        }}
+
+                        onSubmit={(values, { resetForm }) => {
+               
+                            axios.post('/users', values).then(response => {
+                                if (response.status === 201) {
+                                    resetForm();
+                                }
+                            })
+                        }}
+                        >
+                            <Form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
                                 <div className="flex">
-                                    <input type="text" placeholder="VOTRE NOM" defaultValue="" name="user-name"/> &nbsp;
-                                    <input type="text" placeholder="VOTRE PRENOM" defaultValue="" name="user-name"/>
+                                    <Field type="text" placeholder="VOTRE NOM" defaultValue="" name="nom"/>
+                                    <Field type="text" placeholder="VOTRE PRENOM" defaultValue="" name="prenom"/>
                                 </div>
-                                <input type="text" placeholder="TELEPHONE" defaultValue="" name="user-phone"/>
-                                <input type="text" placeholder="VOTRE EMAIL" defaultValue="" name="email"/>
-                                <input type="password" placeholder="VOTRE MOT DE PASSE" defaultValue="" name="password"/>
+                                <Field type="text" placeholder="TELEPHONE" defaultValue="" name="telephone"/>
+                                <Field type="text" placeholder="VOTRE EMAIL" defaultValue="" name="email"/>
+                                <Field type="password" placeholder="VOTRE MOT DE PASSE" defaultValue="" name="password"/>
                                 
                                 <span className="md:text-xl" id="text-color"> *Champs obligatoires</span>
                                     <div className="button">
@@ -27,7 +49,8 @@ import './Signup.css';
                                     Les informations recueillies font l'objet d'un traitemant informatique pour permettre à GP Location d'exécuter la réservation à distance. Si vous ne remplissez pas les champs obligatoires nous ne serons pas en mesure de vous fournir votre bon de réservation.
                                     Conformément à la loi "informatique et libertés" du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au service client internet via notre <Link to="/Contact">formulaire de contact.</Link> 
                                 </p>
-                            </form>
+                            </Form>
+                        </Formik>
                     </div>                                                                                                                                                                                                                                      
 				</div>
             </div>
