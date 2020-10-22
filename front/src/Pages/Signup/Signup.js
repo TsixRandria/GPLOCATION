@@ -4,9 +4,6 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from '../../axios';
 import './Signup.css';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import axios from '../../axios';
 
 const ClientSchema = Yup.object().shape({
     nom: Yup.string()
