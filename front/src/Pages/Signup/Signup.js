@@ -4,9 +4,6 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from '../../axios';
 import './Signup.css';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import axios from '../../axios';
 
 const ClientSchema = Yup.object().shape({
     nom: Yup.string()
@@ -44,7 +41,7 @@ const ClientSchema = Yup.object().shape({
                         onSubmit={(values, { resetForm }) => {
                
                             axios.post('/users', values).then(response => {
-                                if (response.status === 200) {
+                                if (response.status === 201) {
                                     resetForm();
                                 }
                                 console.log(values);
