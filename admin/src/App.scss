@@ -2,9 +2,20 @@
 @import '~tailwindcss/dist/components.css';
 @import '~tailwindcss/dist/utilities.css';
 
+@import './assets/Modal.scss';
+
 h1 {
   font-size: 24px;
   font-weight: 600;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.main-container {
+  margin-left: 250px;
 }
 
 .error-field {

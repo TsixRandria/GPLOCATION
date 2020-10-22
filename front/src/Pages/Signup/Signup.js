@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import axios from '../../axios';
 import './Signup.css';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -36,7 +39,7 @@ const ClientSchema = Yup.object().shape({
                             email: '',
                             password: ''
                         }}
-                        
+
                         
                         onSubmit={(values, { resetForm }) => {
                
@@ -54,6 +57,9 @@ const ClientSchema = Yup.object().shape({
                                 <div className="flex">
                                     <Field type="text" placeholder="VOTRE NOM" defaultValue="" name="nom"/>
                                     <Field type="text" placeholder="VOTRE PRENOM" defaultValue="" name="prenom"/>
+
+
+                       
                                 </div>
                                 <Field type="text" placeholder="TELEPHONE" defaultValue="" name="telephone"/>
                                 <Field type="text" placeholder="VOTRE EMAIL" defaultValue="" name="email"/>
@@ -61,15 +67,17 @@ const ClientSchema = Yup.object().shape({
                                 
                                 <span className="md:text-xl" id="text-color"> *Champs obligatoires</span>
                                     <div className="button">
-                                    <button type="submit" className="btn m-btn" id="button1">INSCRIPTION<span className="fa fa-angle-right"></span></button>
+                                    <button type="submit" className="btn m-btn" id="button1">S'INSCRIRE<span className="fa fa-angle-right"></span></button>
                                     </div>
                                 <p className="teny text-justify  md:text-xl   ">
                                     <h2 className="sous">Protection des données</h2> 
                                     Les informations recueillies font l'objet d'un traitemant informatique pour permettre à GP Location d'exécuter la réservation à distance. Si vous ne remplissez pas les champs obligatoires nous ne serons pas en mesure de vous fournir votre bon de réservation.
                                     Conformément à la loi "informatique et libertés" du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au service client internet via notre <Link to="/Contact">formulaire de contact.</Link> 
                                 </p>
+
                             </Form>)
                         }
+
                         </Formik>
                     </div>                                                                                                                                                                                                                                      
 				</div>

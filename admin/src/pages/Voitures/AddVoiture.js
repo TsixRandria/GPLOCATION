@@ -14,10 +14,8 @@ const VoitureSchema = Yup.object().shape({
  
 class AddVoiture extends Component {
     render() {
-
         return (
         <div>
-            <h2>Insertion d'une nouvelle voiture</h2>
             <Formik
             initialValues={{
                 marque: '',
@@ -26,34 +24,43 @@ class AddVoiture extends Component {
             validationSchema={VoitureSchema}
             onSubmit={(values, { resetForm }) => {
                 axios.post('/voitures', values).then(response => {
+                    const { action } = this.props;
                     if (response.status === 201) {
+                        action.toggleModal(false);
                         resetForm();
+                        action.getVoiture();
                     }
                 })
             }}
             >
             {({ errors, touched }) => (
-                <Form>
-                    <div className="mb-2">
-                        <label className="block text-gray-500 font-bold mb-1 md:mb-0">
-                            Marque
-                        </label>
-                        <Field 
-                            name="marque"
-                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
-                        <ErrorField errors={errors} touched={touched} row="marque"/>
+                <Form
+                    autoComplete="off">
+                    <div className="flex">
+                        <div className="mb-2 mr-4">
+                            <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                Marque
+                            </label>
+                            <Field
+                                name="marque"
+                                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
+                            <ErrorField errors={errors} touched={touched} row="marque"/>
+                        </div>
+                        
+                        <div className="mb-2">
+                            <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                Model
+                            </label>
+                            <Field
+                                name="model"
+                                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
+                            <ErrorField errors={errors} touched={touched} row="model"/>
+                        </div>
                     </div>
-                    
-                    <div className="mb-2">
-                        <label className="block text-gray-500 font-bold mb-1 md:mb-0">
-                            Model
-                        </label>
-                        <Field
-                            name="model"
-                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
-                        <ErrorField errors={errors} touched={touched} row="model"/>
+                    <hr className="my-4" />
+                    <div className="flex justify-end">
+                        <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
                     </div>
-                    <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
                 </Form>
             )}
             </Formik>

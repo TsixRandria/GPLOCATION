@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #   resources :voiture_descriptions
   # end
 
+
   # resources :contacts
 
   devise_for :users, controllers: {
@@ -11,4 +12,12 @@ Rails.application.routes.draw do
     registrations: 'user/registrations'
   }
                
+
+  resources :contacts
+
+  resources :admin_users
+
+  post "/login", to: "admin_users#login"
+  get "/auto_login", to: "admin_users#auto_login"
+
 end

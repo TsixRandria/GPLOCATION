@@ -1,6 +1,26 @@
 import React from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+
+import ErrorField from '../ErrorField/ErrorField';
+import axios from '../../axios'
 import './Contact.css';
+
+const ContactSchema = Yup.object().shape({
+    nom: Yup.string()
+        .required('Le nom ne doit pas être vide'),
+    prenom: Yup.string()
+		.required('Le prenom ne doit pas être vide'),
+	email: Yup.string()
+		.required('le Mail ne doit pas être vide'),
+	telephone: Yup.string()
+		.required('Telephone ne doit pas être vide'),
+	message: Yup.string()
+		.required('Le message ne doit pas être vide')
+
+		
+});
 
 function onChange(value) {
   console.log("Captcha value:", value)
@@ -30,20 +50,47 @@ class Contact extends React.Component {
 									</header>
 									<p className=" wow zoomInUp" data-wow-delay="0.5s">Pour nous contacter, merci de remplir le formulaire ci-dessous.</p>
 									<div id="success"></div>
+									<Formik
+										initialValues={{
+											nom: '',
+											prenom: '',
+											email: '',
+											telephone: '',
+											message: ''
+										}}
+										validationSchema={ContactSchema}
+										onSubmit={(values, { resetForm }) => {
+											axios.post('/voitures', values).then(response => {
+												if (response.status === 201) {
+													resetForm();
+												}
+											})
+										}}
+									>
+									{({ errors, touched }) => (
 									<form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
 										
-										<input type="text" placeholder="Nom" defaultValue="" name="user-name" id="user-name" />
-										<input type="text" placeholder="Prénom" defaultValue="" name="user-name" id="user-lastname" />
-
-										<input type="text" placeholder="Email" defaultValue="" name="user-email" id="user-email" />
-										<input type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
+										<Field type="text" placeholder="Nom" defaultValue="" name="user-name" id="user-name" />
+										<ErrorField errors={errors} touched={touched} row="nom"/>
+										
+										<Field type="text" placeholder="Prénom" defaultValue="" name="user-name" id="user-lastname" />
+										<ErrorField errors={errors} touched={touched} row="prenom"/>
+										
+										<Field type="text" placeholder="Email" defaultValue="" name="user-email" id="user-email" />
+										<ErrorField errors={errors} touched={touched} row="mail"/>
+										
+										<Field type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
+										<ErrorField errors={errors} touched={touched} row="telephone"/>
+										
 										<textarea id="user-message" name="user-message" placeholder="Message"></textarea>
+										
 										<p className="p">* Champs obligatoires</p>
 										<fieldset><ReCAPTCHA sitekey="6LdXP9cZAAAAAOjXVT_t6gXbM8gNuQXyvK9qPhr2" onChange={onChange} /></fieldset>
 
 										<button type="submit" className="btn m-btn" id="button">VALIDER    <span className="fa fa-angle-right"></span></button>
 										
-									</form>
+									</form>)}
+									  </Formik>
 								</div>
 							</div>
 							<div className="col-md-6" textAlign ="">
