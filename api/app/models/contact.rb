@@ -1,5 +1,3 @@
 class Contact < ApplicationRecord
-
-    # validations
-    validates_presence_of :nom, :prenom, :email, :telephone, :message
+    validates_presence_of :nom, :prenom, :telephone, :email
 end
