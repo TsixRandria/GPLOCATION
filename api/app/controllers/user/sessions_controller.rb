@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
 class User::SessionsController < Devise::SessionsController
-  prepend_before_filter :require_no_authentication, :only => [:create ]
-  include Devise::Controllers::InternalHelpers
   
-  before_filter :ensure_params_exist
+  prepend_before_action :require_no_authentication, :only => [:create ]
+  include Devise::Controllers::Helpers
+  
+  before_action :ensure_params_exist
 
   respond_to :json
   
   def create
-    build_resource
-    resource = User.find_for_database_authentication(:login=>params[:user_login][:login])
+    
+    resource = User.where(email: params[:email]).first
     return invalid_login_attempt unless resource
 
-    if resource.valid_password?(params[:user_login][:password])
+    if resource.valid_password?(password: params[:password])
       sign_in("user", resource)
-      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :login=>resource.login, :email=>resource.email}
+      render :json=> {success: true, authentication_token: resource.authentication_token, login: resource.email}
       return
     end
     invalid_login_attempt
@@ -27,12 +28,19 @@ class User::SessionsController < Devise::SessionsController
 
   protected
   def ensure_params_exist
-    return unless params[:user_login].blank?
-    render :json=>{:success=>false, :message=>"missing user_login parameter"}, :status=>422
+    return unless params[:email].blank?
+    render(json: {success: false, message: "missing email parameter"}, status: 422)
+    return unless params[:password].blank?
+    render(json: {success: false, message: "missing password parameter"}, status: 422)
   end
 
   def invalid_login_attempt
     warden.custom_failure!
     render :json=> {:success=>false, :message=>"Error with your login or password"}, :status=>401
   end
+
+  private
+    def create_params
+      params.permit(:email, :password, :authentication_token)
+    end
 end

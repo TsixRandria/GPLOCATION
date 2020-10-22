@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
-import './Login.css'
+import './Login.css';
+
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import axios from '../../axios';
 
 class Login extends Component {
+
     render() {
         return (
             <div>
@@ -13,15 +18,31 @@ class Login extends Component {
                         <div className="row">
                             <div className="col-md-6 col-xs-12">
                                 <div className="success2">
-                                    <h1 className="title">Se connecter</h1>  
-                                        <form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
-                                            <input type="text" placeholder="VOTRE EMAIL" defaultValue="" name="email" id="name" />
-                                            <input type="password" placeholder="VOTRE MOT DE PASSE" defaultValue="" name="user-name" id="name" />
+                                    <h1 className="title">Se connecter</h1> 
+                                    <Formik
+                                    initialValues={{
+                                        email: '',
+                                        password: ''
+                                    }}
+
+                                    onSubmit={(values, { resetForm }) => {
+               
+                                        axios.post('/users/sign_in', values).then(response => {
+                                            if (response.status === 201) {
+                                                resetForm();
+                                            }
+                                        })
+                                    }}
+                                    > 
+                                        <Form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
+                                            <Field type="text" placeholder="VOTRE EMAIL" defaultValue="" name="email" id="email" />
+                                            <Field type="password" placeholder="VOTRE MOT DE PASSE" defaultValue="" name="password" />
                                             <div className="button1">
                                                     <button type="submit" className="btn m-btn" id="button2">CONNEXION<span className="fa fa-angle-right"></span></button><br></br>   
                                             </div>
                                             <a className="oubli">Mot de passe oublié ?</a>
-                                        </form>
+                                        </Form>
+                                    </Formik>
                                 </div>
                             </div>
                             <div className="col-md-6 col-xs-12">

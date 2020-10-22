@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # resources :contacts
 
   devise_for :users, controllers: {
-    sessions: 'user#sessions',
-    registrations: 'user#registrations'
+    sessions: 'user/sessions',
+    registrations: 'user/registrations'
   }
                
 end
