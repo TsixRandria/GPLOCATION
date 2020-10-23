@@ -37,7 +37,7 @@ class Footer extends React.Component {
 									<address className="b-info__contacts wow slideInUp" data-wow-delay="0.3s">
 										<p>Location de véhicules</p>
 										<div className="b-info__contacts-item">
-				 				           <a href="/Voitures" className="text">Nos voitures</a>
+				 				           <a href="#voitures" className="text">Nos voitures</a>
 										</div>
 										<div className="b-info__contacts-item">
 				 				           <a href="/Condition" className="text">Conditions générales de location</a>
