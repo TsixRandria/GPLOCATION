@@ -21,6 +21,11 @@ border-radius: 5px;
 .content-title{
   padding-top: 10px;
 }
+
+.content-titre{
+  padding-top: 5px;
+}
+
 .title-1{
   text-align: center;
   font: 700 20px 'Open Sans',sans-serif;
@@ -31,6 +36,6 @@ border-radius: 5px;
 .oublier{
   margin: 0 0 0 10px;
 }
-#valider{
-  margin-left: 76%;
-}
+/* #valider{
+  margin-left: 35%;
+} */
