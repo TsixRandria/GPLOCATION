@@ -22,6 +22,9 @@ export default class Sidebar extends Component {
                     <NavLink to="/utilisateurs" className="hover:text-white">
                         <div className="menu-item">Utilisateurs</div>
                     </NavLink>
+                    <NavLink to="/ClientMessage" className="hover:text-white">
+                        <div className="menu-item">Message</div>
+                    </NavLink>
                 </div>
             </div>
         )

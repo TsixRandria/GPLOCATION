@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
     
   end
 
-    before_action :authorized
+    # before_action :authorized
 
 
     def encode_token(payload)
@@ -47,8 +47,8 @@ class ApplicationController < ActionController::API
         !!logged_in_user
     end
 
-    def authorized
-        render json: { message: 'Veuillez vous connecter' }, status: :unauthorized unless logged_in?
-    end
+    # def authorized
+    #     render json: { message: 'Veuillez vous connecter' }, status: :unauthorized unless logged_in?
+    # end
 
 end

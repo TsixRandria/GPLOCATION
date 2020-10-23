@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   # resources :voitures do
   #   resources :voiture_descriptions
   # end
-<<<<<<< HEAD
-  resources :contacts
-=======
 
->>>>>>> 39b40e6389c53f19aba4ac7f1dd2cefe1d71d330
+  resources :contacts
+
 
   # resources :contacts
 
