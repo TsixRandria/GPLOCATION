@@ -13,7 +13,7 @@ class Search extends React.Component {
 			<>
 				
 					<div className="container">
-						<h1 className="wow zoomInUp" data-wow-delay="0.3s">Besoin d'une voiture de location à la Réunion ?</h1>
+					
 						<div className="b-search__main wow zoomInUp" data-wow-delay="0.3s">
 							<h4>Pour louer une voiture à la Réunion, rien de plus simple !<br/> Réservez votre voiture en ligne et pas chère avec GP Location.</h4>
 							<form action="listingsTwo.html" method="POST" className="b-search__main-form">
