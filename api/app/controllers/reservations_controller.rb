@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
       render json: @reservations
     end
   
-    # GET /reservations/1
+    # GET /reservations/:id
     def show
       render json: @reservation
     end
@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
       end
     end
   
-    # PATCH/PUT /reservations/1
+    # PATCH/PUT /reservations/:id
     def update
       if @reservation.update(reservation_params)
         render json: @reservation
@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
       end
     end
   
-    # DELETE /reservations/1
+    # DELETE /reservations/:id
     def destroy
       @reservation.destroy
     end
