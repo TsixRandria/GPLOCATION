@@ -41,8 +41,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'devise-jwt', '~> 0.8.0'
+gem 'simple_token_authentication'
+
 # GEM for API authentication
-gem 'rack-cors'
+
 gem 'jwt'
 gem 'bcrypt'
 
@@ -52,3 +58,4 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
 end
+
