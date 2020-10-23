@@ -26,7 +26,7 @@ function App() {
         <Route exact path='/' component={HomePages} />
         <Route exact path='/Contact' component={Contact} />
         <Route exact path='/Login' component={Login} />
-        <Route exact path='/Signup' component={Signup} />
+        {/* <Route exact path='/Signup' component={Signup} /> */}
         <Route exact path='/Aeroport' component={Aeroport}/>
         <Route exact path='/Sainte-Marie' component={Saint}/>
         <Route exact path='/Condition' component={Condition}/>
