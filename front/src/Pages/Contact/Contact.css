@@ -4,3 +4,13 @@
   left: 73%!important;
   top: 733px!important; 
 }
+
+.maps{
+  
+  width: 1300%;
+  height: 400px;
+  content: '';
+  position: absolute;
+  top: 100%;
+  display: block;
+}
