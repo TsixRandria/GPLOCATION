@@ -1,12 +1,95 @@
 import React from 'react';
-
+import axios from '../../../../axios';
 import Reservation from '../Reservation/Reservation';
+
+//import date picker
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//matérial UI
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 
 import './Style.css';
 
+//matérial UI
+const useStyles = makeStyles((theme) => ({
+	container: {
+		display: 'flex',
+		flexWrap: 'wrap',
+	},
+	textField: {
+		marginLeft: theme.spacing(1),
+		marginRight: theme.spacing(1),
+		width: 200,
+	},
+}));
 
 class Search extends React.Component {
+
+	constructor() {
+		super();
+		this.state = {
+			lieu_depart: '',
+			date_depart: new Date(),
+			heure_depart: '',
+			lieu_retour: '',
+			date_retour: new Date(),
+			heure_retour: ''
+		};
+
+		this.handleLieuDepartChange = this.handleLieuDepartChange.bind(this);
+		this.handleDateDepartChange = this.handleDateDepartChange.bind(this);
+		this.handleHeureDepartChange = this.handleHeureDepartChange.bind(this);
+		this.handleLieuRetourChange = this.handleLieuRetourChange.bind(this);
+		this.handleDateRetourChange = this.handleDateRetourChange.bind(this);
+		this.handleHeureRetourChange = this.handleHeureRetourChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+
+
+
+	handleLieuDepartChange(event) {
+		this.setState({ lieu_depart: event.target.value });
+	}
+
+	handleDateDepartChange(date) {
+		this.setState({
+			date_depart: date
+		})
+	}
+
+	handleHeureDepartChange(event) {
+		this.setState({ Heure_depart: event.target.value });
+	}
+	handleLieuRetourChange(event) {
+		this.setState({ lieu_retour: event.target.value });
+	}
+
+	handleDateRetourChange(date) {
+		this.setState({
+			date_retour: date
+		})
+	}
+	handleHeureRetourChange(event) {
+		this.setState({ Heure_retour: event.target.value });
+	}
+
+
+	handleSubmit = (values, { resetForm }) => {
+		axios.post('/reservations', values).then(response => {
+			const { action } = this.props;
+			if (response.status === 201) {
+				resetForm();
+				action.getUtilisateur();
+			}
+		})
+	}
+
+	//bouton louer et afficher la page reservation
 	state = {
 		etape: 1
 	}
@@ -17,8 +100,13 @@ class Search extends React.Component {
 		});
 	}
 
+	//matérial-UI
+	const classes = useStyles();
+
 	render() {
 		const etape = this.state.etape;
+
+
 		return (
 			<>
 
@@ -33,25 +121,14 @@ class Search extends React.Component {
 										<div className="col-xs-5">
 											<p>Lieu de départ</p>
 											<select name="select1">
-												<option value="0" >Aéroport</option>
-												<option value="1" selected="selected">Sainte-Marie</option>
-
+												<option selected value="0" >Aéroport Roland-Garros</option>
 											</select>
 											{/* <span className="fa fa-caret-down"></span> */}
 
 										</div>
 										<div className="col-xs-3">
 											<p>Date de départ</p>
-											<select name="select2">
-												<option value="0" selected="selected">14/12/2020</option>
-												<option value="1">15/12/2020</option>
-												<option value="2">16/12/2020</option>
-												<option value="3">17/12/2020</option>
-												<option value="4">18/12/2020</option>
-												<option value="5">19/12/2020</option>
-
-
-											</select>
+											<DatePicker selected={Date} onChange={date => setstate(date)} />
 											{/* <span className="fa fa-caret-down"></span> */}
 
 										</div>
@@ -103,9 +180,7 @@ class Search extends React.Component {
 										<div className="col-xs-5">
 											<p>Lieu de retour</p>
 											<select name="select1">
-												<option value="0" >Aéroport de la Réunion</option>
-												<option value="1" selected="selected">Sainte-Marie</option>
-
+												<option value="0" >Aéroport Roland-Garros</option>
 											</select>
 											{/* <span className="fa fa-caret-down"></span> */}
 

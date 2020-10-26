@@ -31,7 +31,7 @@ class FinalReservation extends React.Component {
 
                 <div className="b-breadCumbs s-shadow wow " >
                     <div className="container">
-                        <a href="/" className="b-breadCumbs__page">Accueil</a><span className="fa fa-angle-right"></span><a href="/Réservation" className="b-breadCumbs__page m-active">Finalisation de la réservation</a>
+                        <a href="/" className="b-breadCumbs__page">Accueil</a><span className="fa fa-angle-right"></span><a href="contacts.html" className="b-breadCumbs__page m-active">Finalisation de la réservation</a>
                     </div>
 
                 </div>
