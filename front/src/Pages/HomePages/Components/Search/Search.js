@@ -5,27 +5,12 @@ import Reservation from '../Reservation/Reservation';
 //import date picker
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-//matérial UI
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+
 
 
 import './Style.css';
 
-//matérial UI
-const useStyles = makeStyles((theme) => ({
-	container: {
-		display: 'flex',
-		flexWrap: 'wrap',
-	},
-	textField: {
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 200,
-	},
-}));
 
 class Search extends React.Component {
 
@@ -100,8 +85,7 @@ class Search extends React.Component {
 		});
 	}
 
-	//matérial-UI
-	const classes = useStyles();
+
 
 	render() {
 		const etape = this.state.etape;
@@ -128,7 +112,14 @@ class Search extends React.Component {
 										</div>
 										<div className="col-xs-3">
 											<p>Date de départ</p>
-											<DatePicker selected={Date} onChange={date => setstate(date)} />
+											<select name="select4">
+												<option value="0" selected="selected">14/12/2020</option>
+												<option value="1">15/12/2020</option>
+												<option value="2">16/12/2020</option>
+												<option value="3">17/12/2020</option>
+												<option value="4">18/12/2020</option>
+												<option value="5">19/12/2020</option>
+											</select>
 											{/* <span className="fa fa-caret-down"></span> */}
 
 										</div>
