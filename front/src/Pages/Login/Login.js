@@ -1,62 +1,79 @@
-
 import React from 'react';
-
+import axios from '../../axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
+import { connect } from 'react-redux';
+import { userLoginAttempt } from '../../redux/Auth/auth.action';
 import ErrorField from '../ErrorField/ErrorField';
-import axios from '../../axios'
 import './Login.css';
 
-const ContactSchema = Yup.object().shape({
-    nom: Yup.string()
-        .required('Le nom ne doit pas être vide'),
-    prenom: Yup.string()
-		.required('Le prenom ne doit pas être vide'),
-	email: Yup.string()
-		.required('le Mail ne doit pas être vide'),
-	telephone: Yup.string()
-		.required('Telephone ne doit pas être vide'),
-	message: Yup.string()
-		.required('Le message ne doit pas être vide')
+const SignupSchema = Yup.object().shape({
+		nom: Yup.string()
+			.required('Le nom s\'il vous plaît.'),
+		prenom: Yup.string()
+			.required('Le prenom s\'il vous plaît.'),
+		telephone: Yup.string()
+			.required('Le numero télèphone s\'il vous plaît.'),
+		mail: Yup.string()
+			.required('L\'adresse email s\'il vous plaît.'),
+		password: Yup.string()
+			.required('Le mot de pass s\'il vous plaît.')
+});
+const LoginSchema = Yup.object().shape({
 
-		
+		mail: Yup.string()
+			.required('L\'adresse email s\'il vous plaît.'),
+		password: Yup.string()
+			.required('Le mot de pass s\'il vous plaît.')
 });
 
-function onChange(value) {
-  console.log("Captcha value:", value)
-}
 
 class Login extends React.Component {
 	render() {
 		return (
-
-			<>
-						
-			<div class="b-breadCumbs s-shadow wow " >
-						<div class="container">
-							<a href="home.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="contacts.html" class="b-breadCumbs__page m-active">Contact Us</a>
-						</div>
-					
-			</div>
-					<section class="b-contacts s-shadow">
-						<div class="container">
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="b-contacts__form">
-										<div class="b-contacts__address-hours">
-											<h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">J'ai déjà un compte</h2>
+		<>						
+					<div className="b-breadCumbs s-shadow wow " >
+						<div className="container">
+							<a href="home.html" className="b-breadCumbs__page">Home</a><span className="fa fa-angle-right"></span><a href="contacts.html" className="b-breadCumbs__page m-active">Contact Us</a>
+						</div>		
+					</div>
+					<section className="b-contacts s-shadow">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-6">
+									<div className="b-contacts__form">
+										<div className="b-contacts__address-hours">
+											<h2 className="s-titleDet wow zoomInUp" data-wow-delay="0.5s">J'ai déjà un compte</h2>
 										</div>
 										<div className="login">
-											<form id="contactForm"novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
-												<input type="text" placeholder="Mon e-mail" value="" name="user-name" id="user-name" />
-												<input type="text" placeholder="Mon mot de passe" value="" name="user-email" id="user-email" />
+											<Formik
+											initialValues={{
+												mail: '',
+												password: ''
+											}}
+											validationSchema={LoginSchema}
+											onSubmit={(values) => {
+												console.log(values);
+												console.log(this.props);
+												this.props.userLoginAttempt(values);
+											}}
+											>
+												{({ errors, touched, handleSubmit }) => (
+
+											<Form className="contactForm" onSubmit={handleSubmit} autoComplete="off" >
+												<Field type="mail" placeholder="Email*"   name="mail"  />
+												<ErrorField errors={errors} touched={touched} row="mail"/>
+
+												<Field type="password" placeholder="Mot de passe*"   name="password" />
+												<ErrorField errors={errors} touched={touched} row="password"/>
 												
 												<div className="boutton-login">
-												<button type="submit" class="btn m-btn">Valider<span class="fa fa-angle-right"></span></button><br /><br />
+												<button type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></button><br /><br />
 												<span ><a href="#" className="oublier">Mot de passe oublié ?</a></span>
 												</div>
-											</form>
+											</Form>
+											)}
+											</Formik>
 										</div>	
 									</div>
 									<div className="content">
@@ -72,28 +89,62 @@ class Login extends React.Component {
 										</div>
 									</div>
 								</div>
-								<div class="col-xs-6">
-									<div class="b-contacts__address">
-										<div class="b-contacts__address-hours">
-											<h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">Je n'ai pas de compte</h2>
+								<div className="col-xs-6">
+									<div className="b-contacts__address">
+										<div className="b-contacts__address-hours">
+											<h2 className="s-titleDet wow zoomInUp" data-wow-delay="0.5s">Je n'ai pas de compte</h2>
 										</div>
 										<div>
 										
 												<div className="transaction text-justify">
-												<div className="login">
-												<form id="contactForm" className="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
-													<input type="text" placeholder="Nom*" value="" name="user-name" id="user-name" />
-													<input type="text" placeholder="Prénom*" value="" name="user-email" id="user-email" />
-													<input type="text" placeholder="Téléphone*" value="" name="user-phone" id="user-phone" />
-													<input type="text" placeholder="Email*" value="" name="user-email" id="user-email" />
-													<input type="text" placeholder="Mot de passe*" value="" name="user-phone" id="user-phone" />
+													<div className="login">
+													<Formik
+														initialValues={{
+															nom: '',
+															prenom: '',
+															telephone: '',
+															mail: '',
+															password: ''
+														}}	
+														validationSchema={SignupSchema}
+															onSubmit={(values, { resetForm }) => {
+																axios.post('/users', values).then(response => {
+																	const { action } = this.props;
+																	if (response.status === 201) {
+																		resetForm();
+																		action.getUtilisateur();
+																	}
+																	
+																})
+															}}
+														>	
+														{ ({ values,errors, touched, handleSubmit }) => (																		
+															<Form className="contactForm s-form wow" onSubmit={handleSubmit}>
+
+																<Field 	type="text" placeholder="Nom*"   name="nom" />
+																<ErrorField errors={errors} touched={touched} row="nom"/>
 
 
-													
-													<p>* Champs obligatoires</p>
-													<center><button type="submit" class="btn m-btn" id="valider">Valider<span class="fa fa-angle-right"></span></button></center>
-													
-												</form>
+																<Field 	type="text" placeholder="Prénom*"  name="prenom" id="user-email" />
+																<ErrorField errors={errors} touched={touched} row="prenom"/>								
+																
+																<Field 	type="text" placeholder="Téléphone*" id="user-phone"  name="telephone"   />
+																<ErrorField errors={errors} touched={touched} row="telephone"/>
+
+																<Field type="mail" placeholder="Email*"   name="mail"  />
+																<ErrorField errors={errors} touched={touched} row="mail"/>
+
+																<Field type="password" placeholder="Mot de passe*"   name="password" />
+																<ErrorField errors={errors} touched={touched} row="password"/>
+
+
+																
+																<p>* Champs obligatoires</p>
+																<center><button type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></button></center>
+															
+															</Form>
+														) }
+													</Formik>		
 													</div>
 											
 											
@@ -112,12 +163,17 @@ class Login extends React.Component {
 							</div>
 						</div>
 					</section>			
-			</>
-
+		</>
 		)
 	}
 
 }
 
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userLoginAttempt: (values) => dispatch(userLoginAttempt(values))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login);

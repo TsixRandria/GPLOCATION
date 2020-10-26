@@ -180,6 +180,15 @@ body{
     border: 1px solid #eeeeee;
     border-radius: 30px;
 }
+.s-form input[type='mail'],.s-form textarea{
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    font: 400 10px 'Open Sans',sans-serif;
+    border: 1px solid #eeeeee;
+    border-radius: 30px;
+}
 
 .s-form textarea{
     border-radius: 20px;
@@ -190,6 +199,9 @@ body{
     outline:none;
 }
 .s-form input[type='password']:focus,.s-form textarea:focus{
+    outline:none;
+}
+.s-form input[type='mail']:focus,.s-form textarea:focus{
     outline:none;
 }
 .s-form input::-webkit-input-placeholder{
