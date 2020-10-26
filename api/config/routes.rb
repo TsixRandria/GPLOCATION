@@ -6,13 +6,9 @@ Rails.application.routes.draw do
   # end
 
 
-  # resources :contacts
-
-  devise_for :users, controllers: {
-    sessions: 'user/sessions',
-    registrations: 'user/registrations'
-  }
-               
+  resources :users
+  post "/login", to: "users#login"
+  get "/auto_login", to: "users#auto_login"
 
   
   resources :admin_users
