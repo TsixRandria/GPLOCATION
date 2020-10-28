@@ -11,67 +11,70 @@ import './Style.css';
 
 export default class Search extends React.Component {
 
-	constructor() {
-		super();
-		this.state = {
-			lieu_depart: 'Aéroport Rolland-Garros',
-			date_depart: '',
-			heure_depart: '',
-			lieu_retour: 'Aéroport Rolland-Garros',
-			date_retour: '',
-			heure_retour: ''
-		};
+	// constructor() {
+	// 	super();
+	// 	this.state = {
+	// 		lieu_depart: 'Aéroport Rolland-Garros',
+	// 		date_depart: '',
+	// 		heure_depart: '',
+	// 		lieu_retour: 'Aéroport Rolland-Garros',
+	// 		date_retour: '',
+	// 		heure_retour: ''
+	// 	};
 
-		this.handleLieuDepartChange = this.handleLieuDepartChange.bind(this);
-		this.handleDateDepartChange = this.handleDateDepartChange.bind(this);
-		this.handleHeureDepartChange = this.handleHeureDepartChange.bind(this);
-		this.handleLieuRetourChange = this.handleLieuRetourChange.bind(this);
-		this.handleDateRetourChange = this.handleDateRetourChange.bind(this);
-		this.handleHeureRetourChange = this.handleHeureRetourChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+	// 	this.handleLieuDepartChange = this.handleLieuDepartChange.bind(this);
+	// 	this.handleDateDepartChange = this.handleDateDepartChange.bind(this);
+	// 	this.handleHeureDepartChange = this.handleHeureDepartChange.bind(this);
+	// 	this.handleLieuRetourChange = this.handleLieuRetourChange.bind(this);
+	// 	this.handleDateRetourChange = this.handleDateRetourChange.bind(this);
+	// 	this.handleHeureRetourChange = this.handleHeureRetourChange.bind(this);
+	// 	this.handleSubmit = this.handleSubmit.bind(this);
+	// }
+	state = {
+		lieu_depart: '',
+	};
 
 
 
 
-	handleLieuDepartChange(event) {
+	handleLieuDepartChange = event => {
 		this.setState({ lieu_depart: event.target.value });
 	}
 
-	handleDateDepartChange(event) {
-		this.setState({
-			date_depart: event.target.value
-		})
-	}
+	// handleDateDepartChange(event) {
+	// 	this.setState({
+	// 		date_depart: event.target.value
+	// 	})
+	// }
 
-	handleHeureDepartChange(event) {
-		this.setState({ Heure_depart: event.target.value });
-	}
-	handleLieuRetourChange(event) {
-		this.setState({ lieu_retour: event.target.value });
-	}
+	// handleHeureDepartChange(event) {
+	// 	this.setState({ Heure_depart: event.target.value });
+	// }
+	// handleLieuRetourChange(event) {
+	// 	this.setState({ lieu_retour: event.target.value });
+	// }
 
-	handleDateRetourChange(event) {
-		this.setState({
-			date_depart: event.target.value
-		})
-	}
-	handleHeureRetourChange(event) {
-		this.setState({ Heure_retour: event.target.value });
-	}
+	// handleDateRetourChange(event) {
+	// 	this.setState({
+	// 		date_depart: event.target.value
+	// 	})
+	// }
+	// handleHeureRetourChange(event) {
+	// 	this.setState({ Heure_retour: event.target.value });
+	// }
 
 	handleSubmit = event => {
 		event.preventDefault();
 
-		const reservations = {
+		const reservation = {
 			lieu_depart: this.state.lieu_depart,
-			date_depart: this.state.date_depart,
-			heure_depart: this.state.heure_depart,
-			lieu_retour: this.state.lieu_retour,
-			date_retour: this.state.date_retour,
-			heure_retour: this.state.heure_retour,
+			// date_depart: this.state.date_depart,
+			// heure_depart: this.state.heure_depart,
+			// lieu_retour: this.state.lieu_retour,
+			// date_retour: this.state.date_retour,
+			// heure_retour: this.state.heure_retour,
 		};
-		axios.post('/reservations', reservations).then(response => {
+		axios.post('/reservations', { reservation }).then(response => {
 			console.log(response);
 			console.log(response.data);
 		})
@@ -81,7 +84,7 @@ export default class Search extends React.Component {
 	// 		if (response.status === 201) {
 	// 			resetForm();
 	// 			action.getReservation();
-	// 		}
+	// 		} 
 	// 	})
 	// }
 
@@ -114,7 +117,7 @@ export default class Search extends React.Component {
 									<div className="m-firstSelects">
 										<div className="col-xs-5">
 											<p>Lieu de départ</p>
-											<select name="select1" onChange={this.handleLieuDepartChange}>
+											<select value={this.state.value} name="select1" onChange={this.handleLieuDepartChange}>
 												<option selected value="0" >Aéroport Roland-Garros</option>
 											</select>
 											{/* <span className="fa fa-caret-down"></span> */}
@@ -122,14 +125,14 @@ export default class Search extends React.Component {
 										</div>
 										<div className="col-xs-3">
 											<p>Date de départ</p>
-											<Datepicker onChange={this.handleDateDepartChange} />
+											<Datepicker />
 
 											{/* <span className="fa fa-caret-down"></span> */}
 
 										</div>
 										<div className="col-xs-3">
 											<p>heure de départ</p>
-											<Timepicker onChange={this.handleHeureDepartChange} />
+											<Timepicker />
 											{/* <span className="fa fa-caret-down"></span> */}
 
 										</div>
@@ -137,7 +140,7 @@ export default class Search extends React.Component {
 									<div className="m-secondSelects">
 										<div className="col-xs-5">
 											<p>Lieu de retour</p>
-											<select name="select1" onChange={this.handleLieuRetourChange} >
+											<select name="select1" >
 												<option value="0" >Aéroport Roland-Garros</option>
 											</select>
 											{/* <span className="fa fa-caret-down"></span> */}
@@ -145,7 +148,7 @@ export default class Search extends React.Component {
 										</div>
 										<div className="col-xs-3">
 											<p>date de retour</p>
-											<Datepicker onChange={this.handleDateRetourChange} />
+											<Datepicker />
 
 
 
@@ -154,7 +157,7 @@ export default class Search extends React.Component {
 										</div>
 										<div className="col-xs-3">
 											<p>heure de retour</p>
-											<Timepicker onChange={this.handleHeureRetourChange} />
+											<Timepicker />
 
 											{/* <span className="fa fa-caret-down"></span> */}
 
