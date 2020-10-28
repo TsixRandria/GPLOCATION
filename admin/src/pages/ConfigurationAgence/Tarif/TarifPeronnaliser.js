@@ -2,25 +2,25 @@ import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker from "react-modern-calendar-datepicker";
-   
+
 const TarifPersonnaliser = () => {
     const [selectedDayRange, setSelectedDayRange] = useState({
         from: null,
         to: null
-      });
-        return (
-            <>
-            <NavLink to="/tarif" >
-                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Retour</button>
-            </NavLink> 
+    });
+    return (
+        <>
+            <NavLink to="/configuration_agence" >
+                <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
+            </NavLink>
             <h1>Gestion des tarifs personnalisées</h1>
             <div className="container">
-               
+
                 <div className="text-center">
-                
+
                     <div >
                         <label>
-                            date: 
+                            date:
                         </label>
                         <DatePicker
                             value={selectedDayRange}
@@ -28,44 +28,44 @@ const TarifPersonnaliser = () => {
                             inputPlaceholder="Selectionner vos dates"
                             shouldHighlightWeekends
                         />
-            
+
                     </div>
                     <br />
                     <br />
                     <div>
-                        tarif 1 jour: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 1 jour: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 2 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 2 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 3 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 3 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 4 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 4 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 7 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 7 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 14 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 14 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 21 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 21 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif 30 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif 30 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                     <div>
-                        tarif plus de 60 jours: <input type="number" placeholder="£ /jour" className="text-center"/>
+                        tarif plus de 60 jours: <input type="number" placeholder="£ /jour" className="text-center" />
                     </div>
                     <br />
                 </div>
@@ -91,9 +91,9 @@ const TarifPersonnaliser = () => {
                     voiture photo
                 </fieldset>
             </div>
-            </>
-        );
-    
+        </>
+    );
+
 };
 
 export default TarifPersonnaliser;

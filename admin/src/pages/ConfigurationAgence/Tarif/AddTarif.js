@@ -1,38 +1,38 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik';
-import axios from '../../axios';
+import axios from '../../../axios';
 
 
 class AddTarif extends Component {
     render() {
         return (
             <div>
-                <Formik 
-                initialValues={{
-                    prix: ''
-                }}
-                
-                onSubmit={(values, { resetForm }) => {
-                    axios.post('/tarifs', values).then(response => {
-                        if (response.status === 201) {
-                            resetForm();
-                            console.log(values);
-                          
-                        }
-                    })
-                }}
+                <Formik
+                    initialValues={{
+                        prix: ''
+                    }}
+
+                    onSubmit={(values, { resetForm }) => {
+                        axios.post('/tarifs', values).then(response => {
+                            if (response.status === 201) {
+                                resetForm();
+                                console.log(values);
+
+                            }
+                        })
+                    }}
                 >
                     <Form>
                         <label>
                             prix :
                         </label>
-                        <Field name="prix"      />
+                        <Field name="prix" />
                         <div className="flex justify-end">
                             <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
                         </div>
                     </Form>
                 </Formik>
-                
+
             </div>
         )
     }
