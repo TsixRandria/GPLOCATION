@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.styles.scss';
-import ClientMessage from '../../pages/Message/ClientMessage';
+
 
 export default class Sidebar extends Component {
     
@@ -24,8 +24,14 @@ export default class Sidebar extends Component {
                     <NavLink to="/utilisateurs" className="hover:text-white">
                         <div className="menu-item">Utilisateurs</div>
                     </NavLink>
-                    <NavLink to="/ClientMessage" className="hover:text-white">
-                        <div className="menu-item">Message <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">4</button></div>
+                    <NavLink to="/clientMessage" className="hover:text-white">
+                        <div className="menu-item">Message </div>
+                    </NavLink>
+                    <NavLink to="/tarif" className="hover:text-white">
+                        <div className="menu-item">Tarif </div>
+                    </NavLink>
+                    <NavLink to="/planning" className="hover:text-white">
+                        <div className="menu-item">Planning </div>
                     </NavLink>
                 </div>
             </div>

@@ -43,22 +43,22 @@ class ClientMessage extends Component {
         return (
             <div>
             
-            <section class="text-gray-700 body-font">
-                <div class="container px-5 mx-auto">
-                    <div class="flex flex-col text-center w-full mb-10">
-                        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">MESSAGE DES CLIENTS</h1>
+            <section claName="text-gray-700 body-font">
+                <div claName="container px-5 mx-auto">
+                    <div claName="flex flex-col text-center w-full mb-10">
+                        <h1 claName="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">MESSAGE DES CLIENTS</h1>
 
                     </div>
-                    <div class="w-full mx-manual overflow-auto width=100px height=100px">
-                        <table class=" w-full text-left ">
+                    <div claName="w-full mx-manual overflow-auto width=100px height=100px">
+                        <table claName=" w-full text-left ">
                             <thead>
                             <tr>
-                                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl">DATE</th>
-                                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">PRENOM</th>
-                                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">EMAIL</th>
-                                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">TELEPHONE</th>
-                                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200" >MESSAGE</th>
-                                <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br"></th>
+                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl">DATE</th>
+                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">PRENOM</th>
+                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">EMAIL</th>
+                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">TELEPHONE</th>
+                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200" >MESSAGE</th>
+                                <th claName="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -74,7 +74,7 @@ class ClientMessage extends Component {
                                             <td className="border px-4 py-2">
                                                 <button
                                                     onClick={() => this.deleteMessage(contact)} 
-                                                    class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                                                    claName="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                                                     Supprimer
                                                 </button>
                                             </td>  
