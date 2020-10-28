@@ -46,6 +46,6 @@ class ReservationsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def reservation_params
-        params.require(:Reservation).permit(:lieu_depart, :date_depart, :heure_depart, :lieu_retour, :date_retour, :heure_retour, :num_vol, :compagnie, :montant_total)
+        params.fetch(:Reservation).permit(:lieu_depart, :date_depart, :heure_depart, :lieu_retour, :date_retour, :heure_retour, :num_vol, :compagnie, :montant_total)
       end
 end

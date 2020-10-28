@@ -26,4 +26,9 @@ Rails.application.routes.draw do
   get '/reservations/:id', to: 'reservations#show'
   put '/reservations/:id', to: 'reservations#update'
   delete '/reservations/:id', to: 'reservations#destroy'
+
+  resources :tarif_supplementaires
+  resources :tarifs
+  resources :reservation_options
+  
 end
