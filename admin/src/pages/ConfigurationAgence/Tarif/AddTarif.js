@@ -7,6 +7,7 @@ class AddTarif extends Component {
     render() {
         return (
             <div>
+
                 <Formik
                     initialValues={{
                         prix: ''

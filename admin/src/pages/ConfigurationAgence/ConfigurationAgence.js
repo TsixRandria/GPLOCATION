@@ -5,6 +5,9 @@ export default class ConfigurationAgence extends Component {
     render() {
         return (
             <div>
+                <NavLink to="/" >
+                    <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
+                </NavLink>
                 <section className="text-gray-700 body-font">
                     <div className="container px-5 py-24 mx-auto">
                         <div className="text-center mb-20">

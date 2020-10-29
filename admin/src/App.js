@@ -17,6 +17,7 @@ import TarifPersonnaliser from './pages/ConfigurationAgence/Tarif/TarifPeronnali
 import Planning from './pages/Planning/Planning';
 import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence';
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
+import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 
 
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
                   <Switch>
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/parcourir" component={Parcourir} />
+                    <Route exact path="/editer" component={Editer} />
                     <Route exact path="/configuration_agence" component={ConfigurationAgence} />
                     <Route exact path="/gestion_saison" component={GestionSaison} />
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />

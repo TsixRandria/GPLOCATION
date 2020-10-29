@@ -40,7 +40,11 @@ class Voitures extends Component {
         // Récupération de la variable voiture depuis le state
         const { addNew, voitures } = this.state;
         return (
+
             <div className="p-5">
+                <NavLink to="/configuration_agence" >
+                    <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
+                </NavLink>
                 <h1 className="mb-2 sm:text-4xl text-3xl font-medium title-font text-center text-gray-900">Gestion des voitures</h1>
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
