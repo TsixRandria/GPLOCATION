@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_060729) do
+ActiveRecord::Schema.define(version: 2020_10_28_182308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,19 +52,14 @@ ActiveRecord::Schema.define(version: 2020_10_26_060729) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "lieu_depart"
-    t.datetime "date_depart"
-    t.datetime "heure_depart"
-    t.string "lieu_retour"
-    t.datetime "date_retour"
-    t.datetime "heure_retour"
-    t.string "num_vol"
-    t.string "compagnie"
-    t.integer "montant_total"
-    t.bigint "tarif_id"
+    t.string "lieuDepart"
+    t.string "lieuRetour"
+    t.string "dateDepart"
+    t.string "dateRetour"
+    t.string "heureDepart"
+    t.string "heureRetour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tarif_id"], name: "index_reservations_on_tarif_id"
   end
 
   create_table "tarif_supplementaires", force: :cascade do |t|

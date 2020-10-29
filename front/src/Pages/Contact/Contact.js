@@ -70,13 +70,13 @@ class Contact extends React.Component {
 									{({ errors, touched }) => (
 									<form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
 										
-										<Field type="text" placeholder="Nom" defaultValue="" name="user-name" id="user-name" />
+										<Field type="text" placeholder="Nom" defaultValue="" name="nom" id="user-name" />
 										<ErrorField errors={errors} touched={touched} row="nom"/>
 										
-										<Field type="text" placeholder="Prénom" defaultValue="" name="user-name" id="user-lastname" />
+										<Field type="text" placeholder="Prénom" defaultValue="" name="prenom" id="user-lastname" />
 										<ErrorField errors={errors} touched={touched} row="prenom"/>
 										
-										<Field type="text" placeholder="Email" defaultValue="" name="user-email" id="user-email" />
+										<Field type="text" placeholder="Email" defaultValue="" name="email" id="user-email" />
 										<ErrorField errors={errors} touched={touched} row="mail"/>
 										
 										<Field type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
