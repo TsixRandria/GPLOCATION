@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+2.times do
+    AdminUser.create(username: 'jean', email: 'jean@gmail.com', password: '1234')
+end
+
+5.times do
+    c=  Tarif.create(prix: '1000')
+end

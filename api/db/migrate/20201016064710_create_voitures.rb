@@ -4,6 +4,8 @@ class CreateVoitures < ActiveRecord::Migration[6.0]
       t.string :marque
       t.string :model
       t.integer :status
+      t.text :photo
+      t.belongs_to :category
 
       t.timestamps
     end

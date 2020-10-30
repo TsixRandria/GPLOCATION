@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :tarifs
   resources :contacts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # resources :voitures do
-  #   resources :voiture_descriptions
-  # end
+  resources :voitures do
+    resources :voiture_descriptions
+  end
 
   resources :contacts
 
+  
 
   # resources :contacts
 
-  devise_for :users, controllers: {
-    sessions: 'user/sessions',
-    registrations: 'user/registrations'
-  }
-               
-
+  
   
   resources :admin_users
 
