@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clients, only: [:create, :destroy, :update]
+  post "/client_login", to: "clients#login"
   resources :contacts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # resources :voitures do
@@ -8,14 +10,10 @@ Rails.application.routes.draw do
   resources :contacts
 
 
-  # resources :contacts
-
-  devise_for :users, controllers: {
-    sessions: 'user/sessions',
-    registrations: 'user/registrations'
-  }
-               
-
+  
+  #client session et registration
+  # post "/client_session", to: "clients#login"
+  # post "/client_registration", to: "clients#create"
   
   resources :admin_users
 
