@@ -29,12 +29,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"
@@ -70,14 +64,13 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
   end
 
   create_table "voitures", force: :cascade do |t|
+    t.string "image"
+    t.string "json"
     t.string "marque"
     t.string "model"
     t.integer "status"
-    t.text "photo"
-    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
   add_foreign_key "voiture_descriptions", "voitures"
