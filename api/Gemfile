@@ -49,7 +49,8 @@ gem 'simple_token_authentication'
 # GEM for API authentication
 
 gem 'jwt'
-gem 'bcrypt'
+# gem 'bcrypt-ruby'
+gem 'bcrypt', '~> 3.1', '>= 3.1.15'
 
 group :test do
   gem 'factory_bot_rails', '~> 4.0'

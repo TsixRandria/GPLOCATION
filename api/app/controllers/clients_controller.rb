@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  include BCrypt
   before_action :set_client, only: [:show, :update, :destroy]
 
   # GET /clients
@@ -15,10 +16,11 @@ class ClientsController < ApplicationController
 
   # POST /clients
   def create
-    @client = Client.new(client_params)
-
-    if @client.save
-      render json: @client, status: :created, location: @client
+    @client = Client.create!(client_params)
+    @client.password_digest = params[:password_digest]
+    if @client.valid?
+      token = encode_token({client_id: @client.id})
+      render json: {user: @client, token: token}
     else
       render json: @client.errors, status: :unprocessable_entity
     end
@@ -26,13 +28,13 @@ class ClientsController < ApplicationController
 
   #new_session
   def login
-    @client = Client.find_by(email: params[:email])
-    if @client && @client.authenticate(password_digest: params[:password_digest])
-        token = encode_token({client_id: @client.id})
-        render json: {client: @client, token: token}
-        session[:current_client_id] = client.id
+    @client = Client.find_by_email(params[:email])
+
+    if @client.password_digest == params[:password_digest]
+      token = encode_token({user_id: @client.id})
+      render json: {client: @client, token: token, message: "vous etes connecter,merci"}
     else
-        render json: {error: "Email ou mot de passe incorrect"}
+      render json: {error: "Email ou mot de passe incorrect"}
     end
   end
 
@@ -51,6 +53,10 @@ class ClientsController < ApplicationController
     @client.destroy
   end
 
+  def auto_login
+    render json: @user
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
@@ -59,6 +65,6 @@ class ClientsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def client_params
-      params.permit(:nom, :prenom, :telephone, :email, :password => [])
+      params.permit(:nom, :prenom, :telephone, :email, :password_digest)
     end
 end
