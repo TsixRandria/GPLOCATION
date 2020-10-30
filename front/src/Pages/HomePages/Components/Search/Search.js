@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-import './Style.css';
+
 
 
 class Search extends React.Component {
