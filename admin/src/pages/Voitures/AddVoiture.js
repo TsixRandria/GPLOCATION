@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-//import ImageUploader from 'react-images-upload';
+import ImageUploader from 'react-images-upload';
 
 import ErrorField from '../../components/ErrorField/ErrorField';
 import axios from '../../axios';
-//import Category from '../Category/Category';
+import Category from '../Category/Category';
 
 const VoitureSchema = Yup.object().shape({
     image: Yup.string()
@@ -27,31 +27,30 @@ class AddVoiture extends Component {
 
     }
 
-    onChangeHandler = event => {
+    onChange = event => {
         this.setState({
             image: event.target.files[0],
             loaded: 0,
         })
+        console.log(event.target.files[0])
     }
     render() {
         return (
             <div>
                 <Formik
                     initialValues={{
-                        image: null,
                         marque: '',
-                        model: ''
+                        model: '',
 
                     }}
                     validationSchema={VoitureSchema}
-
                     onSubmit={(values, { resetForm }) => {
-                        // let formdata = new FormData()
-                        // formdata.append('image', this.state.image)
-                        // formdata.append('marque', '')
-                        // formdata.append('model', '')
-
-                        axios.post('/voitures', values).then(response => {
+                        console.log(this.state.image)
+                        const formData = new FormData();
+                        formData.append('image', this.state.image)
+                        formData.append('marque', 'ololo;oiik')
+                        formData.append('model', 'pppp')
+                        axios.post('/voitures', formData).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
                                 action.toggleModal(false);
@@ -60,11 +59,11 @@ class AddVoiture extends Component {
                             }
                         })
 
-                        axios.post('/category, values').then(response => {
-                            if (response.status === 201) {
-                                console.log(values);
-                            }
-                        })
+                        // axios.post('/category, values').then(response => {
+                        //     if (response.status === 201) {
+                        //         console.log(values);
+                        //     }
+                        // })
                     }
                     }
                 >
@@ -74,12 +73,14 @@ class AddVoiture extends Component {
                             <div className="flex">
                                 <div className="mb-2 mr-4">
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                        image
+                                        Image
                             </label>
                                     <Field
+                                        type="file"
+                                        onChange={this.onChange}
                                         name="image"
-                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        type="file" />
+                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                    <ErrorField errors={errors} touched={touched} row="marque" />
                                 </div>
                                 <div className="mb-2 mr-4">
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
@@ -121,7 +122,3 @@ class AddVoiture extends Component {
 }
 
 export default AddVoiture;
-
-
-
-

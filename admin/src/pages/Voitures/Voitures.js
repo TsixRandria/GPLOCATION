@@ -19,11 +19,11 @@ class Voitures extends Component {
         },
         getVoiture: () => {
             axios.get('/voitures').then(response => {
-                if (response.status === 200) {
-                    this.setState({
-                        voitures: response.data
-                    })
-                }
+                // if (response.status === 200) {
+                //     this.setState({
+                //         voitures: response.data
+                //     })
+                // }
             })
         },
         deleteVoiture: (voiture) => {

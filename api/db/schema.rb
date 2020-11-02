@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
 
   create_table "voitures", force: :cascade do |t|
     t.string "image"
-    t.string "json"
     t.string "marque"
     t.string "model"
     t.integer "status"
