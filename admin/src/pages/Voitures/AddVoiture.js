@@ -17,18 +17,39 @@ const VoitureSchema = Yup.object().shape({
 });
 
 class AddVoiture extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: null,
+            marque: '',
+            model: ''
+        }
+
+    }
+
+    onChangeHandler = event => {
+        this.setState({
+            image: event.target.files[0],
+            loaded: 0,
+        })
+    }
     render() {
         return (
             <div>
                 <Formik
                     initialValues={{
+                        image: null,
                         marque: '',
-                        model: '',
-                        image: null
+                        model: ''
+
                     }}
                     validationSchema={VoitureSchema}
 
                     onSubmit={(values, { resetForm }) => {
+                        // let formdata = new FormData()
+                        // formdata.append('image', this.state.image)
+                        // formdata.append('marque', '')
+                        // formdata.append('model', '')
 
                         axios.post('/voitures', values).then(response => {
                             const { action } = this.props;
@@ -95,8 +116,12 @@ class AddVoiture extends Component {
                         </Form>
                     )}
                 </Formik>
-            </div>)
+            </div >)
     }
 }
 
 export default AddVoiture;
+
+
+
+

@@ -35,10 +35,11 @@ class VoituresController < ApplicationController
 
     def voiture_params
         # whitelist params
-        params.require(:voiture).permit({images: []}, :marque, :model)
+        params.permit(:image, :marque, :model)
     end
 
     def set_voiture
         @voiture = Voiture.find(params[:id])
     end
 end
+

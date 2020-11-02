@@ -8,9 +8,9 @@
 
 
 
-2.times do
+
     AdminUser.create(username: 'jean', email: 'jean@gmail.com', password: '1234')
-end
+
 
 5.times do
     c=  Tarif.create(prix: '1000')

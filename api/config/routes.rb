@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :contacts
+  resources :categrory
+
 
   
 
