@@ -9,5 +9,10 @@ class CreateClients < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :clients, :nom
+    add_index :clients, :prenom
+    add_index :clients, :telephone, unique: true
+    add_index :clients, :email, unique: true
+    add_index :clients, :password_digest, unique: true 
   end
 end
