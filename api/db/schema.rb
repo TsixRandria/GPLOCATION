@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_10_28_182308) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,12 +24,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_182308) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "categors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -79,10 +71,8 @@ ActiveRecord::Schema.define(version: 2020_10_28_182308) do
   create_table "tarif_supplementaires", force: :cascade do |t|
     t.string "libelle"
     t.integer "prix"
-    t.bigint "tarif_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tarif_id"], name: "index_tarif_supplementaires_on_tarif_id"
   end
 
   create_table "tarifs", force: :cascade do |t|
@@ -111,10 +101,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_182308) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_voitures_on_category_id"
   end
-
-
-  add_foreign_key "tarif_supplementaires", "tarifs"
-  add_foreign_key "tarifs", "voitures"
 
   add_foreign_key "voiture_descriptions", "voitures"
 end
