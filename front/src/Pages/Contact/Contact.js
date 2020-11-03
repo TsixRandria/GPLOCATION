@@ -65,31 +65,6 @@ class Contact extends React.Component {
 										}}
 									>
 									{({ errors, touched }) => (
-<<<<<<< HEAD
-									<form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
-										
-										<Field type="text" placeholder="Nom" defaultValue="" name="nom" id="user-name" />
-										<ErrorField errors={errors} touched={touched} row="nom"/>
-										
-										<Field type="text" placeholder="Prénom" defaultValue="" name="prenom" id="user-lastname" />
-										<ErrorField errors={errors} touched={touched} row="prenom"/>
-										
-										<Field type="text" placeholder="Email" defaultValue="" name="email" id="user-email" />
-										<ErrorField errors={errors} touched={touched} row="mail"/>
-										
-										<Field type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
-										<ErrorField errors={errors} touched={touched} row="telephone"/>
-										
-										<textarea id="user-message" name="user-message" placeholder="Message"></textarea>
-										
-										<p className="p">* Champs obligatoires</p>
-										<fieldset><ReCAPTCHA sitekey="6LdXP9cZAAAAAOjXVT_t6gXbM8gNuQXyvK9qPhr2" onChange={onChange} /></fieldset>
-
-										<button type="submit" className="btn m-btn" id="button">VALIDER    <span className="fa fa-angle-right"></span></button>
-										
-									</form>)}
-									  </Formik>
-=======
 										<Form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
 											<div>
 												<Field type="text" placeholder="Nom" defaultValue="" name="nom" id="user-name"/>
@@ -121,7 +96,7 @@ class Contact extends React.Component {
 											
 										</Form>)}
 									</Formik>
->>>>>>> development
+
 								</div>
 							</div>
 							<div className="col-md-6" textAlign ="">
