@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :update, :destroy]
-  after_action :filtre
+  before_action :filtre
 
   # GET /reservations
   def index
