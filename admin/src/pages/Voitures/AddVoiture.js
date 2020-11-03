@@ -13,7 +13,17 @@ const VoitureSchema = Yup.object().shape({
     marque: Yup.string()
         .required('Le marque ne doit pas être vide'),
     model: Yup.string()
-        .required('Le model ne doit pas être vide')
+        .required('Le model ne doit pas être vide'),
+    places: Yup.string()
+        .required('Le nombre de place ne doit pas être vide'),
+    type: Yup.string()
+        .required('Le type ne doit pas être vide'),
+    climatisation: Yup.string()
+        .required('La climatisation ne doit pas être vide'),
+    vitesse: Yup.string()
+        .required('Le type de vitesse ne doit pas être vide'),
+    portes: Yup.string()
+        .required('Le nombre de portes ne doit pas être vide')
 });
 
 class AddVoiture extends Component {
@@ -41,6 +51,11 @@ class AddVoiture extends Component {
                     initialValues={{
                         marque: '',
                         model: '',
+                        places: '',
+                        type: '',
+                        climatisation: '',
+                        vitesse: '',
+                        portes: ''
 
                     }}
                     validationSchema={VoitureSchema}
@@ -48,8 +63,13 @@ class AddVoiture extends Component {
                         console.log(this.state.image)
                         const formData = new FormData();
                         formData.append('image', this.state.image)
-                        formData.append('marque', 'ololo;oiik')
-                        formData.append('model', 'pppp')
+                        formData.append('marque', '')
+                        formData.append('model', '')
+                        formData.append('places', '')
+                        formData.append('type', '')
+                        formData.append('climatisation', '')
+                        formData.append('vitesse', '')
+                        formData.append('portes', '')
                         axios.post('/voitures', formData).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
@@ -101,19 +121,20 @@ class AddVoiture extends Component {
                                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
                                     <ErrorField errors={errors} touched={touched} row="model" />
                                 </div>
+
                             </div>
                             <hr className="my-4" />
                             <div className="flex justify-end">
                                 <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
                             </div>
-                            <div className="mb-2 mr-4">
+                            {/* <div className="mb-2 mr-4">
                                 <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                     Category :
                         </label>
                                 <Field
                                     name="Categorie"
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                            </div>
+                            </div> */}
                         </Form>
                     )}
                 </Formik>

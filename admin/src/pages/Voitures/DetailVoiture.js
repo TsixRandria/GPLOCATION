@@ -15,7 +15,7 @@ export default class DetailVoiture extends Component {
     getDetail = () => {
         // Récupération de l'id depuis le route dynamique
         const id = this.props.match.params.id;
-        
+
         // Envoi d'une requête HTTP pour récupérer le détail de la voiture
         axios.get(`/voitures/${id}`).then(response => {
             if (response.status === 200) {
@@ -49,19 +49,56 @@ export default class DetailVoiture extends Component {
                     <h1>Détail de la voiture</h1>
                     <div className="flex">
                         Marque : &nbsp;
-                        <InlineEdit 
+                        <InlineEdit
                             onSave={(value) => this.updateVoiture('marque', value)}
-                            style={{flex: 'auto'}} 
-                            value={ voiture.marque } />
+                            style={{ flex: 'auto' }}
+                            value={voiture.marque} />
                     </div>
                     <div className="flex">
-                        Model : &nbsp;
-                        <InlineEdit 
+                        Modèle : &nbsp;
+                        <InlineEdit
                             onSave={(value) => this.updateVoiture('model', value)}
-                            style={{flex: 'auto'}} 
-                            value={ voiture.model } />
+                            style={{ flex: 'auto' }}
+                            value={voiture.model} />
                     </div>
-                    
+                    <div className="flex">
+                        Places : &nbsp;
+                        <InlineEdit
+                            onSave={(value) => this.updateVoiture('places', value)}
+                            style={{ flex: 'auto' }}
+                            value={voiture.model} />
+                    </div>
+                    <div className="flex">
+                        Type : &nbsp;
+                        <InlineEdit
+                            onSave={(value) => this.updateVoiture('type', value)}
+                            style={{ flex: 'auto' }}
+                            value={voiture.model} />
+                    </div>
+                    <div className="flex">
+                        Climatisation : &nbsp;
+                        <InlineEdit
+                            onSave={(value) => this.updateVoiture('climatisation', value)}
+                            style={{ flex: 'auto' }}
+                            value={voiture.model} />
+                    </div>
+                    <div className="flex">
+                        Vitesse : &nbsp;
+                        <InlineEdit
+                            onSave={(value) => this.updateVoiture('vitesse', value)}
+                            style={{ flex: 'auto' }}
+                            value={voiture.model} />
+                    </div>
+                    <div className="flex">
+                        Portes : &nbsp;
+                        <InlineEdit
+                            onSave={(value) => this.updateVoiture('portes', value)}
+                            style={{ flex: 'auto' }}
+                            value={voiture.model} />
+                    </div>
+
+
+
                 </div>
             </>
         )

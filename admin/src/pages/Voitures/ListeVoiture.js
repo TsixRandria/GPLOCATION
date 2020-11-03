@@ -20,6 +20,11 @@ export default class ListeVoiture extends Component {
                                 <th className="border px-4 py-2">   </th>
                                 <th className="border px-4 py-2">Marque</th>
                                 <th className="border px-4 py-2">Modèle</th>
+                                <th className="border px-4 py-2">Places</th>
+                                <th className="border px-4 py-2">Type</th>
+                                <th className="border px-4 py-2">Climatisation</th>
+                                <th className="border px-4 py-2">Vitesse</th>
+                                <th className="border px-4 py-2">Portes</th>
                                 <th className="border px-4 py-2">Action</th>
                             </tr>
                         </thead>
@@ -30,6 +35,11 @@ export default class ListeVoiture extends Component {
                                         <td className="border px-4 py-2">{voiture.image}</td>
                                         <td className="border px-4 py-2">{voiture.marque}</td>
                                         <td className="border px-4 py-2">{voiture.model}</td>
+                                        <td className="border px-4 py-2">{voiture.places}</td>
+                                        <td className="border px-4 py-2">{voiture.type}</td>
+                                        <td className="border px-4 py-2">{voiture.climatisation}</td>
+                                        <td className="border px-4 py-2">{voiture.vitesse}</td>
+                                        <td className="border px-4 py-2">{voiture.portes}</td>
                                         <td className="border px-4 py-2">
                                             <NavLink to={`/voitures/detail/${voiture.id}`}>
                                                 <span className="text-blue-500 cursor-pointer">Voir détail</span> &nbsp;

@@ -4,6 +4,6 @@ class Voiture < ApplicationRecord
    
 
     # validations
-    validates_presence_of :image, :marque, :model, :places, :type, :climatisation, :vitesse, :portes, :stocks
+    validates_presence_of :image, :marque, :model, :places, :type, :climatisation, :vitesse, :portes
     #belongs_to :categorie
 end
