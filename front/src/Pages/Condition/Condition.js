@@ -88,7 +88,7 @@ class Condition extends React.Component {
 									<h6 className="wow zoomInUp" data-wow-delay="0.5s">Qui est assuré ?</h6>
 									<p className="wow zoomInUp" data-wow-delay="0.5s">Seul(s) le conducteur(s) nommément désigné(s) sur le contrat de location et pour la durée de celui-ci (jusqu’à la restitution des clés et papiers au loueur pendant les heures d’ouverture de l’agence) dispose(nt) de la qualité d’assuré(s) ou titre du contrat d’assurance du loueur.</p>
 									<h6 className="wow zoomInUp" data-wow-delay="0.5s">Qu’elles sont les assurances contractuellement acquises ?</h6>
-									<p className="wow zoomInUp" data-wow-delay="0.5s">Le(s) conducteur(s) désigné(s) au contrat bénéficie(nt) de la police d’assurance automobile souscrite par le loueur couvrent la Responsabilité Civile pour les dommages causés au tiers, le vol ou la tentative de vol, l’incendie et les dommages au véhicules loué (sous réserve d’une franchise de 750 euros ).</p>
+									<p className="wow zoomInUp" data-wow-delay="0.5s">Le(s) conducteur(s) désigné(s) au contrat bénéficie(nt) de la police d’assurance automobile souscrite par le loueur couvrent la Responsabilité Civile pour les dommages causés au tiers, le vol ou la tentative de vol, l’incendie et les dommages au véhicules loué (sous réserve d’une franchise de 750 euros).</p>
 									<h6 className="wow zoomInUp" data-wow-delay="0.5s">Que reste-il à ma charge en cas de sinistre ?</h6>
 									<a className="wow zoomInUp" data-wow-delay="0.5s">Deux cas se présentent :</a>
 									<p className="wow zoomInUp" data-wow-delay="0.5s"><span className="fa fa-check"></span> Soit vous n’êtes pas responsable du sinistre dès lors que les assureurs auront pu attribuer la totalité de la responsabilité du sinistre à un tiers identifié, au quel cas, vous ne devez rien et cette franchise n’est pas appliquée.
@@ -111,7 +111,7 @@ class Condition extends React.Component {
 									<header className="s-lineDownLeft b-best__info-head">
 										<h2 className="wow zoomInUp" data-wow-delay="0.5s">2. QUE DOIS-JE FAIRE EN CAS DE PANNE, D’ACCIDENT, VOL, DESTRUCTION DE VEHICULE ?</h2>
 									</header>
-									<p className="wow zoomInUp" data-wow-delay="0.5s">En cas de panne, d’accident, de vol ou de destruction de véhicule, appelez 24 heures sur 24, 7 jours sur 7, au 0692 370 380.<br /> Tout accident doit être déclaré à GP Location dans les 48 heures. Vous bénéficiez ainsi d’un dépannage et remorquage 24h/24 et 7j/7 (exclue panne d’essence, panne de batterie, panne due a la mauvaise utilisation du locataire ).</p>
+									<p className="wow zoomInUp" data-wow-delay="0.5s">En cas de panne, d’accident, de vol ou de destruction de véhicule, appelez 24 heures sur 24, 7 jours sur 7, au 0692 370 380.<br /> Tout accident doit être déclaré à GP Location dans les 48 heures. Vous bénéficiez ainsi d’un dépannage et remorquage 24h/24 et 7j/7 (exclue panne d’essence, panne de batterie, panne due a la mauvaise utilisation du locataire).</p>
 									<p className="wow zoomInUp" data-wow-delay="0.5s"><strong>ATTENTION : En ce qui concerne l’assistance au véhicule, le locataire accepte de se conformer précisément aux instructions qui lui seront communiquées par son correspondant. Dans le cas contraire, le locataire restera financièrement responsable des prestations qu’il aura mises en œuvre sur sa seule initiative et sans l’accord préalable de son correspondant.</strong></p>
 
 								</div>
@@ -155,7 +155,7 @@ class Condition extends React.Component {
 									</header>
 									<h6 className="wow zoomInUp" data-wow-delay="0.5s">Deux types de frais seront facturés.</h6>
 									<a className="wow zoomInUp" data-wow-delay="0.5s">4-1. Les frais certains, c'est-à-dire :</a>
-									<p className="wow zoomInUp" data-wow-delay="0.5s">Le résultat de l’application du tarif déterminé aux conditions particulières et qui dépend de la durée de location et / ou du nombre de kilomètres parcourus ainsi que tous suppléments prévus au tarif général de location.
+									<p className="wow zoomInUp" data-wow-delay="0.5s">Le résultat de l’application du tarif déterminé aux conditions particulières et qui dépend de la durée de location et/ou du nombre de kilomètres parcourus ainsi que tous suppléments prévus au tarif général de location.
 									Les frais de carburant manquant avec la taxe de remise à niveau 10 euros (a contrario, aucun remboursement ne sera effectué)
 									Les prestations de service que vous aurez demandées au loueur.</p>
 									<a className="wow zoomInUp" data-wow-delay="0.5s">4-2. Les Frais complémentaire, notamment :</a><br />
@@ -199,7 +199,7 @@ class Condition extends React.Component {
 											<li>Quand les dommages au véhicule résultent de brûlures, de détériorations intérieures, de la surcharge, de dommages sur les parties hauts du véhicule, ou les dommages causés au dessous du véhicule et leurs conséquences mécaniques, ainsi que les dommages aux pneumatiques, enjoliveurs et jantes.</li>
 											<li>Quand le conducteur est en état d’ivresse tel que défini par le code de la route, ou lorsque le conducteur a fait usage de drogues ou de stupéfiants légalement interdits, ou lorsque le conducteur aura absorbé des médicaments, médicaments prescrits ou non, dont la notice précise que son usage est de nature à provoquer un état de somnolence.</li>
 											<li>Quand les dommages au véhicule surviennent postérieurement à la date de restitution du véhicule prévue au présent contrat, ce cas étant assimilé à une conduite contre le gré du loueur et à un détournement de véhicule. Cette disposition ne s’applique pas si vous avez obtenu un accord exprès de prolongation de la durée de location de la part du loueur.</li>
-											<li>Si vous même et / ou le conducteur avez fourni au loueur de fausse informations concernant votre identité ou la validité de votre permis de conduire. Il en sera de même en cas de fausses déclarations sur le constat amiable ou la déclaration de sinistre ou l’état descriptif au retour du véhicule.</li>
+											<li>Si vous même et/ou le conducteur avez fourni au loueur de fausse informations concernant votre identité ou la validité de votre permis de conduire. Il en sera de même en cas de fausses déclarations sur le constat amiable ou la déclaration de sinistre ou l’état descriptif au retour du véhicule.</li>
 											<li>Pour les dommages ou la perte de quelque nature que ce soit, affectant les effets personnels, les objets transportés ou les animaux contenus dans le véhicule.</li>
 											<li>Quand les dommages résultent d’un fait volontaire de vous-même et /ou conducteur.</li>
 											<li>Quand le véhicule est utilisé pour transport payant de passagers ou pour l’apprentissage de la conduite.</li>

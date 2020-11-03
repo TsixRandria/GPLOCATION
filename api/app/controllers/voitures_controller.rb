@@ -1,5 +1,6 @@
 class VoituresController < ApplicationController
     before_action :set_voiture, only: [:show, :update, :destroy]
+    before_action :authorized, only: [:create]
 
     # GET /voitures
     def index

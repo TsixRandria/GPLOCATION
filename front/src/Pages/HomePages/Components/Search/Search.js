@@ -1,14 +1,19 @@
 import React from 'react';
+
+
+
+
 import './Style.css';
 
 
 class Search extends React.Component {
+	
 	render() {
 		return (
 			<>
 				
 					<div className="container">
-						<h1 className="wow zoomInUp" data-wow-delay="0.3s">Besoin d'une voiture de location à la Réunion ?</h1>
+					
 						<div className="b-search__main wow zoomInUp" data-wow-delay="0.3s">
 							<h4>Pour louer une voiture à la Réunion, rien de plus simple !<br/> Réservez votre voiture en ligne et pas chère avec GP Location.</h4>
 							<form action="listingsTwo.html" method="POST" className="b-search__main-form">
@@ -28,7 +33,13 @@ class Search extends React.Component {
 											<div className="col-xs-3">
 											<p>Date de départ</p>
 												<select name="select2">
-												<option value="1" selected="selected">11/02/2020</option>			
+												<option value="0" selected="selected">14/12/2020</option>
+													<option value="1">15/12/2020</option>
+													<option value="2">16/12/2020</option>
+													<option value="3">17/12/2020</option>
+													<option value="4">18/12/2020</option>
+													<option value="5">19/12/2020</option>
+													
 													
 												</select>
 												{/* <span className="fa fa-caret-down"></span> */}

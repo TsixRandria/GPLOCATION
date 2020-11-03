@@ -4,3 +4,26 @@
   left: 73%!important;
   top: 733px!important; 
 }
+
+.maps{
+  
+  width: 1300%;
+  height: 400px;
+  content: '';
+  position: absolute;
+  top: 100%;
+  display: block;
+}
+
+.ctextarea {
+  display: block;
+  width: 100%;
+  
+  height: 140px;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  font: 400 10px 'Open Sans',sans-serif;
+  border: 1px solid #eeeeee;
+  text-transform: downcase;
+  border-radius: 30px;
+}
