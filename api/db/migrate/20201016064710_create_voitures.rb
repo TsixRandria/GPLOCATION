@@ -4,12 +4,12 @@ class CreateVoitures < ActiveRecord::Migration[6.0]
       t.string :image
       t.string :marque
       t.string :model
-      t.string :places
-      t.string :type
-      t.boolean :climatisation
-      t.string :vitesse
-      t.string :portes
-      t.string :status
+      # t.string :places
+      # t.string :type
+      # t.boolean :climatisation
+      # t.string :vitesse
+      # t.string :portes
+      # t.string :status
       #t.belongs_to :category,, index: true
 
       t.timestamps

@@ -57,12 +57,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
     t.string "image"
     t.string "marque"
     t.string "model"
-    t.string "places"
-    t.string "type"
-    t.boolean "climatisation"
-    t.string "vitesse"
-    t.string "portes"
-    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
