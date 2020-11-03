@@ -27,17 +27,6 @@ class ReservationsController < ApplicationController
 
 
   def filtre
-    # return nil if :dateDepart === :dateRetour
-    #   render json: {messsage: "Pour louer aujourd\'hui, merci de contacter directement Cargo Location Perpignan au 04 68 35 86 35."}, status: 202
-
-    # return nil if (:dateDepart <=> :dateRetour) > 90
-    #   render json: {message: "Pour une location plus de 90 jours, veuiller nous contacter via notre formulaire de contact"}, status: 203
-    
-    return false if :dateDepart > :dateRetour
-      render json: {message: "veuiller valider une autre date s'il vous plait"}, status: 430
-    # if :dateDepart === :dateRetour
-    #   render json: {messsage: "Pour louer aujourd\'hui, merci de contacter directement Cargo Location Perpignan au 04 68 35 86 35."}, status: 430
-    # end
     
   end
   
