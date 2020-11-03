@@ -73,3 +73,20 @@
     border-radius: 50% 50%;
     font-size: 20px;
 }
+.locationVoiture{
+    text-decoration: none!important;
+    background: #228dcb;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+}
+.locationDetail{
+    text-decoration: none!important;
+    background: #228dcb;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+    padding: 8px 8px;
+}
