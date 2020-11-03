@@ -8,17 +8,21 @@ import ErrorLogin from './ErrorLogin';
 import axios from '../../axios'
 import './Login.css';
 
+
 const ClientRegistrationSchema = Yup.object().shape({
     nom: Yup.string()
         .required('Le nom ne doit pas être vide'),
     prenom: Yup.string()
+
 		.required('Le prenom ne doit pas être vide'),
 	email: Yup.string()
 		.required('l\' Email ne doit pas être vide'),
 	telephone: Yup.string()
 		.required('Telephone ne doit pas être vide'),
+
 			
 });
+
 
 class Login extends React.Component {
 	constructor(propos) {
@@ -34,6 +38,7 @@ class Login extends React.Component {
 		return (
 
 			<>
+
 						
 			<div className="b-breadCumbs s-shadow wow " >
 				<div className="container">
@@ -96,6 +101,9 @@ class Login extends React.Component {
 								<div className="transaction text-justify">
 									<div className="content-title">
 										<h1 className="title-1">Sécurité de paiement</h1>
+
+
+				
 									</div>
 									<p className="text-1">
 										<div className="col-sm-4"><img className="img-responsive" src="images/elements/1.png" alt="" /></div>Les transactions PayPlug sont effectuées sur un lien HTTPS établi entre le client et le serveur de paiement. Les données sensibles, telles que le numéro de carte bancaire du client et sa date d'expiration, sont entièrement cryptées et protégées grâce à un protocole SSL afin d'empêcher que les informations échangées puissent être interceptées en clair par un tiers au cours de la transaction.<br />
@@ -104,6 +112,7 @@ class Login extends React.Component {
 									</p>
 								</div>
 							</div>
+
 						</div>
 						<div className="col-xs-6">
 							<div className="b-contacts__address">
@@ -187,13 +196,16 @@ class Login extends React.Component {
 											de contact</a>.
 										</p>
 									</div>
+
 								</div>
 									
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</section>			
+
 			</>
 
 		)

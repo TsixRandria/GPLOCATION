@@ -95,6 +95,7 @@ class Contact extends React.Component {
 											
 										</Form>)}
 									</Formik>
+
 								</div>
 							</div>
 							<div className="col-md-6" textAlign ="">

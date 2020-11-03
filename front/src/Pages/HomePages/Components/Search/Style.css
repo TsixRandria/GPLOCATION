@@ -1,0 +1,8 @@
+.select_field {
+    width: 100%;
+    padding: 10px 20px 10px 25px;
+    border: 1px solid #eeeeee;
+    border-radius: 30px;
+    font: 400 13px 'Open Sans',sans-serif;
+    background: transparent;
+}

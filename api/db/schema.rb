@@ -7,10 +7,10 @@
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
-#
-# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_061335) do
+
+ActiveRecord::Schema.define(version: 2020_10_28_182308) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.index ["password_digest"], name: "index_clients_on_password_digest", unique: true
     t.index ["prenom"], name: "index_clients_on_prenom"
     t.index ["telephone"], name: "index_clients_on_telephone", unique: true
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -56,12 +62,39 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.index ["jti"], name: "index_jwt_blacklists_on_jti"
   end
 
-  create_table "tarifs", force: :cascade do |t|
-    t.integer "prix"
-    t.bigint "voiture_id", null: false
+  create_table "reservation_options", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "tarif_supplementaire_id"
+    t.bigint "reservation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["voiture_id"], name: "index_tarifs_on_voiture_id"
+    t.index ["reservation_id"], name: "index_reservation_options_on_reservation_id"
+    t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "lieuDepart"
+    t.string "lieuRetour"
+    t.string "dateDepart"
+    t.string "dateRetour"
+    t.string "heureDepart"
+    t.string "heureRetour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tarif_supplementaires", force: :cascade do |t|
+    t.string "libelle"
+    t.integer "prix"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+
+  create_table "tarifs", force: :cascade do |t|
+    t.string "prix"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "voiture_descriptions", force: :cascade do |t|
@@ -78,10 +111,12 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.string "marque"
     t.string "model"
     t.integer "status"
+    t.text "photo"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
-  add_foreign_key "tarifs", "voitures"
   add_foreign_key "voiture_descriptions", "voitures"
 end

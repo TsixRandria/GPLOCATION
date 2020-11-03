@@ -45,6 +45,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
 gem 'simple_token_authentication'
+gem 'table_print'
 
 # GEM for API authentication
 

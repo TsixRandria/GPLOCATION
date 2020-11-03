@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import ImageUploader from 'react-images-upload';
 
 import ErrorField from '../../components/ErrorField/ErrorField';
 import axios from '../../axios';
+import Category from '../Category/Category';
  
 const VoitureSchema = Yup.object().shape({
     marque: Yup.string()
@@ -19,7 +21,8 @@ class AddVoiture extends Component {
             <Formik
             initialValues={{
                 marque: '',
-                model: ''
+                model: '',
+                photo: ''
             }}
             validationSchema={VoitureSchema}
             onSubmit={(values, { resetForm }) => {
@@ -31,12 +34,33 @@ class AddVoiture extends Component {
                         action.getVoiture();
                     }
                 })
-            }}
+
+                axios.post('/category, values').then(response => {
+                        if (response.status === 201 ) {
+                            console.log(values);
+                        }
+                    })
+                }
+            }
             >
             {({ errors, touched }) => (
                 <Form
                     autoComplete="off">
                     <div className="flex">
+                        <div className="mb-2 mr-4">
+                            <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                photo
+                            </label>
+                            <ImageUploader
+                                withIcon={true}
+                                buttonText='Choose images'
+                                onChange={this.values}
+                                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                                maxFileSize={5242880}
+                                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                            />
+                            <ErrorField errors={errors} touched={touched} row=" "/>
+                        </div>
                         <div className="mb-2 mr-4">
                             <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                 Marque
@@ -60,6 +84,14 @@ class AddVoiture extends Component {
                     <hr className="my-4" />
                     <div className="flex justify-end">
                         <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
+                    </div>
+                    <div className="mb-2 mr-4">
+                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                            Category :
+                        </label>
+                        <Field
+                            name="Categorie"
+                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
                     </div>
                 </Form>
             )}

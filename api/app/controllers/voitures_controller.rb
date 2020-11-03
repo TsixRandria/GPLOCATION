@@ -1,6 +1,6 @@
 class VoituresController < ApplicationController
     before_action :set_voiture, only: [:show, :update, :destroy]
-    before_action :authorized, only: [:create]
+    # before_action :authorized, only: [:create]
 
     # GET /voitures
     def index
@@ -35,7 +35,7 @@ class VoituresController < ApplicationController
 
     def voiture_params
         # whitelist params
-        params.permit(:marque, :model)
+        params.permit(:marque, :model, :photo)
     end
 
     def set_voiture
