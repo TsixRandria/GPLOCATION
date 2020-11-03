@@ -3,6 +3,7 @@ import './Navbar.styles.scss';
 import { connect } from 'react-redux';
 import UserProfil from './UserProfil';
 
+
 class Navbar extends Component {
     render() {
         const { user } = this.props;
@@ -14,6 +15,7 @@ class Navbar extends Component {
                             <UserProfil user={user}/>
                         </nav>
                     </div>
+                    
                 </header>
             </>
         )

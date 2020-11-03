@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   #   resources :voiture_descriptions
   # end
 
+  resources :contacts
+
 
   # resources :contacts
 

@@ -10,6 +10,7 @@ import Voitures from './pages/Voitures/Voitures';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
 import DetailVoiture from './pages/Voitures/DetailVoiture';
 import Login from './pages/Login/Login';
+import ClientMessage from './pages/Message/ClientMessage';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,7 @@ class App extends React.Component {
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
+                    <Route exact path="/ClientMessage" component={ClientMessage} />
                   </Switch>
                 </div>  
               </>
