@@ -82,8 +82,8 @@ a.btn.m-btn.m-pay:hover,
 .b-items__cars-one-info a.btn.m-btn:hover,
 .demo_changer .demo-icon
 {
-    background-color:#de483d;
-    fill: #de483d;
+    background-color:#228dcb;
+    fill: #228dcb;
 }
 
 
@@ -132,8 +132,8 @@ a.btn.m-btn.m-pay:hover,
 .b-items__pagination-main > span.m-active a,
 .b-items__pagination-main > span:hover a
 {
-    color:#de483d;
-    fill:#de483d;
+    color:#228dcb;
+    fill:#228dcb;
 }
 
 .b-nav__list ul li a:hover,
@@ -169,17 +169,17 @@ a.btn.m-btn.m-pay:hover,
 .b-items__cars-one-info a.btn.m-btn:hover,
 .b-welcome__services-circle
 {
-    border-color:#de483d;
+    border-color:#228dcb;
 }
 
 .b-submit__aside-step-inner-info-triangle
 {
-    border-left-color:#de483d;
+    border-left-color:#228dcb;
 }
 
 .b-compare__block-title > a,.b-more__info-block-title a
 {
-    border-bottom-color:#de483d;
+    border-bottom-color:#228dcb;
 }
 
 
