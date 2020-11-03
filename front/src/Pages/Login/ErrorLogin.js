@@ -6,7 +6,7 @@ export class ErrorLogin extends Component {
         return (
             <div className="error-field">
                 { errors[row] && touched[row] ? (
-                    <h7>{errors[row]}</h7>
+                    <span>{errors[row]}</span>
                 ) : null }
             </div>
         )

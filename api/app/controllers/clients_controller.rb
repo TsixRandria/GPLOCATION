@@ -22,12 +22,7 @@ class ClientsController < ApplicationController
     if @client.valid?
       token = encode_token({client_id: @client.id})
       render json: {user: @client, token: token, message: "felicitation, compte valider"}
-      if @client
-        session[:user_id] = @client.id
-        render json: {message: "vous etes connecter", logged_in: true}
-      else
-        render json: {message: "connection invalide"}
-      end
+      
     else
       render json: @client.errors, status: :unprocessable_entity
     end
@@ -40,12 +35,7 @@ class ClientsController < ApplicationController
     if @client.password_digest == params[:password_digest]
       token = encode_token({user_id: @client.id})
       render json: {client: @client, token: token}
-      if @client
-        session[:user_id] = @client.id
-        # render json: {message: "vous etes connecter", logged_in: true}
-      else
-        render json: {message: "connection invalide"}
-      end
+      
     else
       render json: {error: "Email ou mot de passe incorrect"}, status: 202
     end

@@ -17,11 +17,7 @@ const ClientRegistrationSchema = Yup.object().shape({
 		.required('l\' Email ne doit pas être vide'),
 	telephone: Yup.string()
 		.required('Telephone ne doit pas être vide'),
-	message: Yup.string()
-		.required('Le message ne doit pas être vide'),
-	password: Yup.string()
-		.required('le mot de passe ne doit pas être vide')
-		
+			
 });
 
 class Login extends React.Component {
@@ -29,13 +25,12 @@ class Login extends React.Component {
 		super(propos);
 
 		this.state = {
-			lire: false,
-			message: []
+			message: null
 		}
 	}
 
 	render() {
-		const error = this.state.message;
+		const message = this.state.message;
 		return (
 
 			<>
@@ -72,15 +67,15 @@ class Login extends React.Component {
 											
 											console.log(response.data);
 											this.setState({
-												message: response
+												message: response.data.message
 											});
 										}
 									})
 								
 								}}
 								>
-								{({ errors, touched, onSubmit }) => (
-									<Form id="contactForm"novalidate className="s-form wow zoomInUp" onSubmit={onSubmit} >
+								{({ errors, touched, handleSubmit }) => (
+									<Form id="contactForm"novalidate className="s-form wow zoomInUp" onSubmit={handleSubmit} >
 										<div>
 											<Field type="email" placeholder="EMAIL"  name="email" className="email_field" />
 											<ErrorLogin errors={errors} touched={touched} row="email"/>
@@ -94,7 +89,6 @@ class Login extends React.Component {
 										<span ><a href="#" className="oublier">Mot de passe oublié ?</a></span>
 										</div>
 									</Form>)}
-									{/* <div>{error}</div> */}
 								</Formik>
 								</div>	
 							</div>
@@ -119,7 +113,7 @@ class Login extends React.Component {
 								<div>
 								
 										<div className="transaction text-justify">
-										<div className="login">
+										<div className="login">{ message ? (<div>{message}</div>) : null }
 										<Formik
 										initialValues={{
 											nom: '',
@@ -131,15 +125,20 @@ class Login extends React.Component {
 										}}
 										validationSchema={ClientRegistrationSchema}
 										onSubmit={(values, { resetForm }) => {
+											console.log("Test");
 											axios.post('/clients', values).then(response => {
 												if (response.status === 200) {
 													resetForm();
+												} else if (response.status === 202) {
+													this.setState({
+														message: response.data.message
+													})
 												}
 											})
 										}}
 										>
-										{({ errors, touched, onSubmit }) => (
-											<Form className="contactForm" className="s-form wow zoomInUp" onSubmit={onSubmit}  >
+										{({ errors, touched, handleSubmit }) => (
+											<Form className="contactForm" className="s-form wow zoomInUp" onSubmit={handleSubmit}  >
 												<div>
 													<Field type="text" placeholder="NOM*" name="nom" />
 													<ErrorLogin errors={errors} touched={touched} row="nom"/>
@@ -158,16 +157,19 @@ class Login extends React.Component {
 												</div>
 												<div>
 													<Field type="password" placeholder="MOT DE PASSE*" name="password_digest" />
-													<ErrorLogin errors={errors} touched={touched} row="password"/>
+													
 												</div>
 
 												
 												<p>* Champs obligatoires</p>
 												<div className="boutton-login">
-												<button type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></button>
-												
+													<button type="submit" className="btn m-btn">
+														Valider
+														<span className="fa fa-angle-right"></span>
+													</button>
 												</div>
-												
+												<br/>
+												{ message ? (<div className="alert_message">{message}</div>) : null }	
 											</Form>)}
 										</Formik>
 									</div>
