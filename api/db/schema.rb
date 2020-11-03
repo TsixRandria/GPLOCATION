@@ -53,16 +53,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "voiture_descriptions", force: :cascade do |t|
-    t.string "libelle"
-    t.string "valeur"
-    t.bigint "voiture_id", null: false
-    t.integer "order"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["voiture_id"], name: "index_voiture_descriptions_on_voiture_id"
-  end
-
   create_table "voitures", force: :cascade do |t|
     t.string "image"
     t.string "marque"
@@ -72,5 +62,4 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "voiture_descriptions", "voitures"
 end

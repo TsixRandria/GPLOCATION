@@ -1,11 +1,9 @@
 class Voiture < ApplicationRecord
-    # model association
-    has_many :voiture_description, dependent: :destroy
 
     mount_uploader :image, ImageUploader 
    
 
     # validations
-    validates_presence_of :marque, :model
+    validates_presence_of :image, :marque, :model, :places, :type, :climatisation, :vitesse, :portes, :stocks
     #belongs_to :categorie
 end

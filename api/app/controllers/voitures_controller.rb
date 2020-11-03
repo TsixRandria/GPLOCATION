@@ -35,7 +35,7 @@ class VoituresController < ApplicationController
 
     def voiture_params
         # whitelist params
-        params.permit(:image, :marque, :model)
+        params.permit(:image, :marque, :model, :places, :type, :climatisation, :vitesse, :portes, :stocks)
     end
 
     def set_voiture
