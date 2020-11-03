@@ -4,6 +4,7 @@ import ErrorField from './ErrorField';
 import * as Yup from 'yup'; 
 import './Style.css';
 import { Field, Form, Formik, FormikProps } from 'formik';
+import Reservation from '../Reservation/Reservation';
 
 
 
@@ -19,16 +20,21 @@ const ReservationSchema = Yup.object().shape({
 
 });
 
-var someDate = new Date();
-var numberOfDaysToAdd = 3;
-var date = someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
 
 export default class Search extends React.Component {
-	
+	state = {
+		etape: 1
+	}
+
+	changerEtape = (newEtape) => {
+		this.setState({
+			etape: newEtape
+		});
+	}
 	
 	
 	render() {
-
+		const etape = this.state.etape;
 		return (
 			<>
 
@@ -107,7 +113,7 @@ export default class Search extends React.Component {
 										</div>
 										<div className="b-search__main-form-submit">
 
-											<button type="submit" className="btn m-btn">LOUER<span className="fa fa-angle-right"></span></button>
+											<button type="submit" onClick={() => this.changerEtape(2)} className="btn m-btn">LOUER<span className="fa fa-angle-right"></span></button>
 										</div>
 									</div>
 								</div>
@@ -115,7 +121,7 @@ export default class Search extends React.Component {
 						</Formik>
 					
 					</div>
-
+					{etape === 2 ? (<Reservation />) : null}
 				</div>
 
 
