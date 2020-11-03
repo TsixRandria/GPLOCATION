@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import ImageUploader from 'react-images-upload';
+//import ImageUploader from 'react-images-upload';
 
 import ErrorField from '../../components/ErrorField/ErrorField';
 import axios from '../../axios';
-import Category from '../Category/Category';
+//import Category from '../Category/Category';
 
 const VoitureSchema = Yup.object().shape({
     image: Yup.string()
@@ -14,16 +14,16 @@ const VoitureSchema = Yup.object().shape({
         .required('Le marque ne doit pas être vide'),
     model: Yup.string()
         .required('Le model ne doit pas être vide'),
-    places: Yup.string()
-        .required('Le nombre de place ne doit pas être vide'),
-    type: Yup.string()
-        .required('Le type ne doit pas être vide'),
-    climatisation: Yup.string()
-        .required('La climatisation ne doit pas être vide'),
-    vitesse: Yup.string()
-        .required('Le type de vitesse ne doit pas être vide'),
-    portes: Yup.string()
-        .required('Le nombre de portes ne doit pas être vide')
+    // places: Yup.string()
+    //     .required('Le nombre de place ne doit pas être vide'),
+    // type: Yup.string()
+    //     .required('Le type ne doit pas être vide'),
+    // climatisation: Yup.string()
+    //     .required('La climatisation ne doit pas être vide'),
+    // vitesse: Yup.string()
+    //     .required('Le type de vitesse ne doit pas être vide'),
+    // portes: Yup.string()
+    //     .required('Le nombre de portes ne doit pas être vide')
 });
 
 class AddVoiture extends Component {
@@ -51,11 +51,11 @@ class AddVoiture extends Component {
                     initialValues={{
                         marque: '',
                         model: '',
-                        places: '',
-                        type: '',
-                        climatisation: '',
-                        vitesse: '',
-                        portes: ''
+                        // places: '',
+                        // type: '',
+                        // climatisation: '',
+                        // vitesse: '',
+                        // portes: ''
 
                     }}
                     validationSchema={VoitureSchema}
@@ -65,11 +65,11 @@ class AddVoiture extends Component {
                         formData.append('image', this.state.image)
                         formData.append('marque', '')
                         formData.append('model', '')
-                        formData.append('places', '')
-                        formData.append('type', '')
-                        formData.append('climatisation', '')
-                        formData.append('vitesse', '')
-                        formData.append('portes', '')
+                        // formData.append('places', '')
+                        // formData.append('type', '')
+                        // formData.append('climatisation', '')
+                        // formData.append('vitesse', '')
+                        // formData.append('portes', '')
                         axios.post('/voitures', formData).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
@@ -100,7 +100,7 @@ class AddVoiture extends Component {
                                         onChange={this.onChange}
                                         name="image"
                                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                    <ErrorField errors={errors} touched={touched} row="marque" />
+                                    <ErrorField errors={errors} touched={touched} row="image" />
                                 </div>
                                 <div className="mb-2 mr-4">
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
