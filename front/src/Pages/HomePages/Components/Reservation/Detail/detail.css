@@ -1,0 +1,30 @@
+.text-bold{
+    font-weight: bold;
+    color: black;
+}
+.list-detail{
+padding: 0 40px;
+}
+.tire-assurance{
+    font-weight: 900;
+    color: #228dcb;
+
+}
+.option-covid{
+    color: red;
+    font-weight: 900;
+}
+.titre-15{
+
+    float: right;
+}
+.titre-17{
+    padding: 10px 10px;
+    float: right;
+}
+.titre-15:hover {
+    color: white;
+}
+.CustomButton{
+    padding: 10px 10px;
+}

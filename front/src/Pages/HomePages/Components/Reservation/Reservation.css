@@ -1,4 +1,92 @@
-.option{
-    color: red;
+.titre-7{
+    font-size: 18px;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: bolder;
+
+}
+.Annulation{
+    margin: 0 11px ;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+}
+.cout{
+    margin-left: 72px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
     font-weight: bold;
+}
+.conducteur{
+    margin: 0 11px ;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+}
+.gratuit{
+    margin-left: 101px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.cout-1{
+    margin-left: 92px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    font-weight: bold;  
+}
+.cout-2{
+    margin-left: 49px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.contenue-1{
+    line-height: 1.6;
+}
+.optionresult{
+    margin-left: 265px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    font-weight: bold;  
+}
+.avantage{
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+}
+.avantage .option .liste{
+    text-decoration: none;
+    list-style-type: none;
+
+}
+.bouton{
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: blue;
+    color: white;
+}
+.louer{
+    padding: 20px 20px;
+}
+.bi{
+    border: 2px solid white;
+    border-radius: 50% 50%;
+    font-size: 20px;
+}
+.locationVoiture{
+    text-decoration: none!important;
+    background: #228dcb;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+}
+.locationDetail{
+    text-decoration: none!important;
+    background: #228dcb;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+    padding: 8px 8px;
 }

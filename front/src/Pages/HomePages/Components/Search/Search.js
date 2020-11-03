@@ -4,7 +4,7 @@ import ErrorField from './ErrorField';
 import * as Yup from 'yup'; 
 import { Field, Form, Formik, FormikProps } from 'formik';
 
-import './Style.css';
+
 
 const ReservationSchema = Yup.object().shape({
     dateDepart: Yup.string()

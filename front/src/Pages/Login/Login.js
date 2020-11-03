@@ -87,23 +87,12 @@ class Login extends React.Component {
 													<input type="text" placeholder="Téléphone*" value="" name="user-phone" id="user-phone" />
 													<input type="text" placeholder="Email*" value="" name="user-email" id="user-email" />
 													<input type="text" placeholder="Mot de passe*" value="" name="user-phone" id="user-phone" />
-
-
-
 													<p>* Champs obligatoires</p>
 													<center><button type="submit" class="btn m-btn" id="valider">Valider<span class="fa fa-angle-right"></span></button></center>
 
 												</form>
 											</div>
-
-
-											<div className="content-titre">
-												<h1 className="title-1">Protection des données</h1>
-											</div>
-											<p className="text-1">
-												Les informations recueillies font l'objet d'un traitemant informatique pour permettre à GP Location d'exécuter la réservation à distance. Si vous ne remplissez pas les champs obligatoires nous ne serons pas en mesure de vous fournir votre bon de réservation.
-												Conformément à la loi "informatique et libertés" du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au service client internet via notre formulaire de contact.
-														</p>
+                     
 										</div>
 									</div>
 

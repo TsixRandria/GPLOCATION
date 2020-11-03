@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_10_28_182308) do
+
 
 
   # These are extensions that must be enabled in order to support this database
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2020_10_28_182308) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categors", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,31 +86,9 @@ ActiveRecord::Schema.define(version: 2020_10_28_182308) do
   end
 
   create_table "tarifs", force: :cascade do |t|
-    t.integer "prix"
-    t.bigint "voiture_id", null: false
+    t.string "prix"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["voiture_id"], name: "index_tarifs_on_voiture_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "nom", default: "", null: false
-    t.string "prenom", default: "", null: false
-    t.string "telephone", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "authentication_token", limit: 30
-    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["nom"], name: "index_users_on_nom"
-    t.index ["prenom"], name: "index_users_on_prenom"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["telephone"], name: "index_users_on_telephone", unique: true
   end
 
   create_table "voiture_descriptions", force: :cascade do |t|
@@ -115,11 +105,16 @@ ActiveRecord::Schema.define(version: 2020_10_28_182308) do
     t.string "marque"
     t.string "model"
     t.integer "status"
+    t.text "photo"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
+
 
   add_foreign_key "tarif_supplementaires", "tarifs"
   add_foreign_key "tarifs", "voitures"
+
   add_foreign_key "voiture_descriptions", "voitures"
 end
