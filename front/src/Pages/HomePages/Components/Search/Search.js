@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from '../../../../axios';
 import ErrorField from './ErrorField';
 import * as Yup from 'yup'; 
+import './Style.css';
 import { Field, Form, Formik, FormikProps } from 'formik';
 
 
@@ -70,13 +71,13 @@ export default class Search extends React.Component {
 											<div class="m-secondSelects">
 												<div className="col-xs-4">
 													<p>Date de départ</p>
-													<Field type="date" className="selected" name="dateDepart" defaultValue={Date.now}/>
+													<Field type="date" className="select_field" name="dateDepart" defaultValue={Date.now}/>
 													<ErrorField errors={errors} touched={touched} row="dateDepart"/>
 												</div>
 											</div>
 											<div className="col-xs-3">
 												<p>heure de départ</p>
-												<Field type="time"  className="selected" name="heureDepart" />
+												<Field type="time"  className="select_field" name="heureDepart" />
 												<ErrorField errors={errors} touched={touched} row="heureDepart"/>
 											</div>
 										</div>
@@ -90,12 +91,12 @@ export default class Search extends React.Component {
 											</div>
 											<div className="col-xs-4">
 												<p>date de retour</p>
-												<Field type="date"  className="selected"  name="dateRetour" />
+												<Field type="date"  className="select_field"  name="dateRetour" />
 												<ErrorField errors={errors} touched={touched} row="dateRetour"/>
 											</div>
 											<div className="col-xs-3">
 												<p>heure de retour</p>
-												<Field type="time"  className="selected" name="heureRetour"/>
+												<Field type="time"  className="select_field" name="heureRetour"/>
 												<ErrorField errors={errors} touched={touched} row="heureRetour"/>
 											</div>
 										</div>
