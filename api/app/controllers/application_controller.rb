@@ -3,6 +3,11 @@ class ApplicationController < ActionController::API
     include ExceptionHandler
 
     include ActionController::MimeResponds
+
+  
+
+    # before_actYou need to signion :authorized
+
  
 
   protected
@@ -10,6 +15,7 @@ class ApplicationController < ActionController::API
 
 
     # before_action :authorized
+
 
 
 
@@ -38,6 +44,8 @@ class ApplicationController < ActionController::API
         if decoded_token
             user_id = decoded_token[0]['user_id']
             @admin_user = AdminUser.find_by(id: user_id)
+            
+            @Client = Client.find_by(id: user_id)
         end
     end
 

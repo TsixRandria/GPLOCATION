@@ -21,7 +21,6 @@ const ContactSchema = Yup.object().shape({
 });
 
 
-
 class Contact extends React.Component {
 	render() {
 		return (

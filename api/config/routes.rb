@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
+
+  #client sessio et registration
+  resources :clients, only: [:create, :destroy, :update, :index]
+  post "/client_login", to: "clients#login"
+
   resources :reservations
 
   resources :categories
   resources :tarifs
+
 
   resources :contacts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -13,12 +19,6 @@ Rails.application.routes.draw do
 
   resources :contacts
 
-  
-
-  # resources :contacts
-
-  
-  
   resources :admin_users
 
   post "/login", to: "admin_users#login"
