@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :reservations
+
   resources :categories
   resources :tarifs
+
   resources :contacts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :voitures do
@@ -26,4 +30,9 @@ Rails.application.routes.draw do
   get '/reservations/:id', to: 'reservations#show'
   put '/reservations/:id', to: 'reservations#update'
   delete '/reservations/:id', to: 'reservations#destroy'
+
+  resources :tarif_supplementaires
+  resources :tarifs
+  resources :reservation_options
+  
 end
