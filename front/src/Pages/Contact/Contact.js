@@ -6,25 +6,21 @@ import * as Yup from 'yup';
 import ErrorField from '../ErrorField/ErrorField';
 import axios from '../../axios'
 import './Contact.css';
+import '../ErrorField/ErrorField.css';
 
 const ContactSchema = Yup.object().shape({
-    nom: Yup.string()
-        .required('Le nom ne doit pas être vide'),
-    prenom: Yup.string()
-		.required('Le prenom ne doit pas être vide'),
-	email: Yup.string()
-		.required('le Mail ne doit pas être vide'),
+	nom: Yup.string()
+		.required('le nom ne doit pas être vide'),
+	prenom: Yup.string()
+		.required('le prenom ne doit pas être vide'),
 	telephone: Yup.string()
-		.required('Telephone ne doit pas être vide'),
-	message: Yup.string()
-		.required('Le message ne doit pas être vide')
-
-		
+		.required('le numero de telephone ne doit pas être vide'),
+	email: Yup.string()
+		.required('l \' email ne doit pas être vide')
+	
 });
 
-function onChange(value) {
-  console.log("Captcha value:", value)
-}
+
 
 class Contact extends React.Component {
 	render() {
@@ -57,10 +53,11 @@ class Contact extends React.Component {
 											email: '',
 											telephone: '',
 											message: ''
+											
 										}}
 										validationSchema={ContactSchema}
 										onSubmit={(values, { resetForm }) => {
-											axios.post('/voitures', values).then(response => {
+											axios.post('/contacts', values).then(response => {
 												if (response.status === 201) {
 													resetForm();
 												}
@@ -68,29 +65,37 @@ class Contact extends React.Component {
 										}}
 									>
 									{({ errors, touched }) => (
-									<form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
-										
-										<Field type="text" placeholder="Nom" defaultValue="" name="user-name" id="user-name" />
-										<ErrorField errors={errors} touched={touched} row="nom"/>
-										
-										<Field type="text" placeholder="Prénom" defaultValue="" name="user-name" id="user-lastname" />
-										<ErrorField errors={errors} touched={touched} row="prenom"/>
-										
-										<Field type="text" placeholder="Email" defaultValue="" name="user-email" id="user-email" />
-										<ErrorField errors={errors} touched={touched} row="mail"/>
-										
-										<Field type="text" placeholder="Téléphone" defaultValue="" name="user-phone" id="user-phone" />
-										<ErrorField errors={errors} touched={touched} row="telephone"/>
-										
-										<textarea id="user-message" name="user-message" placeholder="Message"></textarea>
-										
-										<p className="p">* Champs obligatoires</p>
-										<fieldset><ReCAPTCHA sitekey="6LdXP9cZAAAAAOjXVT_t6gXbM8gNuQXyvK9qPhr2" onChange={onChange} /></fieldset>
+										<Form id="contactForm" noValidate className="b-contacts__address-hours-main s-form wow zoomInUp" data-wow-delay="0.5s">
+											<div>
+												<Field type="text" placeholder="Nom" defaultValue="" name="nom" id="user-name"/>
+												<ErrorField errors={errors} touched={touched} row="nom"/>
+											</div>
+											<div>
+												<Field type="text" placeholder="Prénom" defaultValue="" name="prenom" id="user-lastname" />	
+												<ErrorField errors={errors} touched={touched} row="prenom"/>	
+											</div>
+											
+											<div>
+												<Field type="text" placeholder="Email" defaultValue="" name="email" id="user-email" />
+												<ErrorField errors={errors} touched={touched} row="email"/>
+											</div>
+											
+											<div>
+												<Field type="text" placeholder="Téléphone" defaultValue="" name="telephone" id="user-phone" />
+												<ErrorField errors={errors} touched={touched} row="telephone"/>
+											</div>
+											<div>
+												<textarea type="text" id="user-message" name="message" placeholder="message" ></textarea>
+												
+											</div>
+											
+											<p className="p">* Champs obligatoires</p>
+											<fieldset><ReCAPTCHA sitekey="6LdXP9cZAAAAAOjXVT_t6gXbM8gNuQXyvK9qPhr2" /></fieldset>
 
-										<button type="submit" className="btn m-btn" id="button">VALIDER    <span className="fa fa-angle-right"></span></button>
-										
-									</form>)}
-									  </Formik>
+											<button type="submit" className="btn m-btn" id="button">VALIDER    <span className="fa fa-angle-right"></span></button>
+											
+										</Form>)}
+									</Formik>
 								</div>
 							</div>
 							<div className="col-md-6" textAlign ="">
@@ -163,7 +168,7 @@ class Contact extends React.Component {
 				</section>
 
 				<div className="b-map wow zoomInUp" data-wow-delay="0.5s">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14910.02604721598!2d55.511276!3d-20.891932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdd91245bf0d2d552!2sGP+Location!5e0!3m2!1sfr!2sfr!4v1483431590185" width="1300" height="400" frameborder="0"																												 allowfullscreen></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14910.02604721598!2d55.511276!3d-20.891932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdd91245bf0d2d552!2sGP+Location!5e0!3m2!1sfr!2sfr!4v1483431590185" width="1300" height="400" frameborder="0" allowfullscreen full-auto></iframe>
 				</div>
 
 				<div className="b-features">

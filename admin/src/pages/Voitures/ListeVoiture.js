@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 export default class ListeVoiture extends Component {
     componentDidMount() {
         const { action } = this.props;
@@ -16,6 +17,7 @@ export default class ListeVoiture extends Component {
                     <table className="table-auto">
                         <thead>
                             <tr>
+                            <th className="border px-4 py-2">Photo</th>
                             <th className="border px-4 py-2">Marque</th>
                             <th className="border px-4 py-2">Modèle</th>
                             <th className="border px-4 py-2">Action</th>
@@ -25,6 +27,7 @@ export default class ListeVoiture extends Component {
                             { voitures && voitures.map(voiture => {
                                 return (
                                     <tr>
+                                        <td className="border px-4 py-2">{ voiture.photo }</td>
                                         <td className="border px-4 py-2">{ voiture.marque }</td>
                                         <td className="border px-4 py-2">{ voiture.model }</td>
                                         <td className="border px-4 py-2">

@@ -7,9 +7,18 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
 import Voitures from './pages/Voitures/Voitures';
+import Parcourir from './pages/Voitures/Parcourir/Parcourir';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
 import DetailVoiture from './pages/Voitures/DetailVoiture';
 import Login from './pages/Login/Login';
+import ClientMessage from './pages/Message/ClientMessage';
+import Tarif from './pages/ConfigurationAgence/Tarif/Tarif';
+import TarifPersonnaliser from './pages/ConfigurationAgence/Tarif/TarifPeronnaliser';
+import Planning from './pages/Planning/Planning';
+import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence';
+import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
+import Editer from './pages/Voitures/Parcourir/Editer/Editer';
+
 
 class App extends React.Component {
   render() {
@@ -17,7 +26,7 @@ class App extends React.Component {
     return (
       <Router>
         <>
-          { isAuthenticated ? 
+          { isAuthenticated ?
             (
               <>
                 <Navbar />
@@ -25,16 +34,24 @@ class App extends React.Component {
                 <div className="main-container">
                   <Switch>
                     <Route exact path="/voitures" component={Voitures} />
+                    <Route exact path="/parcourir" component={Parcourir} />
+                    <Route exact path="/editer" component={Editer} />
+                    <Route exact path="/configuration_agence" component={ConfigurationAgence} />
+                    <Route exact path="/gestion_saison" component={GestionSaison} />
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
+                    <Route exact path="/ClientMessage" component={ClientMessage} />
+                    <Route exact path="/tarif" component={Tarif} />
+                    <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
+                    <Route exact path="/planning" component={Planning} />
                   </Switch>
-                </div>  
+                </div>
               </>
             ) : (
               <Switch>
                 <Route exact path="*" component={Login} />
               </Switch>
-            ) 
+            )
           }
         </>
       </Router>

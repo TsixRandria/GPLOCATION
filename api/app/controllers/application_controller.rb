@@ -3,16 +3,12 @@ class ApplicationController < ActionController::API
     include ExceptionHandler
 
     include ActionController::MimeResponds
-  before_action :configure_devise_parameters, if: :devise_controller?
+ 
 
   protected
 
-  def configure_devise_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nom, :prenom, :telephone, :email, :password) }
-    
-  end
 
-    before_action :authorized
+    # before_action :authorized
 
 
     def encode_token(payload)
@@ -47,8 +43,8 @@ class ApplicationController < ActionController::API
         !!logged_in_user
     end
 
-    def authorized
-        render json: { message: 'Veuillez vous connecter' }, status: :unauthorized unless logged_in?
-    end
+    # def authorized
+    #     render json: { message: 'Veuillez vous connecter' }, status: :unauthorized unless logged_in?
+    # end
 
 end
