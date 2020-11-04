@@ -11,7 +11,7 @@ const VoitureSchema = Yup.object().shape({
     // image: Yup.string()
     //     .required('L\'image ne doit pas être vide'),
     marque: Yup.string()
-        .required('Le marque ne doit pas être vide'),
+        .required('La marque ne doit pas être vide'),
     model: Yup.string()
         .required('Le model ne doit pas être vide'),
     places: Yup.string()
@@ -116,7 +116,7 @@ class AddVoiture extends Component {
 
                                     <div className="mb-2">
                                         <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                            Model
+                                            Modèle
                             </label>
                                         <Field
                                             name="model"
@@ -125,97 +125,100 @@ class AddVoiture extends Component {
                                     </div>
                                 </div>
 
-                                <div className="flex">
-                                    <div className="mb-2">
-                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                            Places
+                                <div className="mb-2">
+                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                        Places
                             </label>
-                                        <Field
-                                            name="places"
-                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                        <ErrorField errors={errors} touched={touched} row="places" />
-                                    </div>
-                                    <div className="mb-2">
+                                    <Field
+                                        name="places"
+                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                    <ErrorField errors={errors} touched={touched} row="places" />
+                                </div>
+
+                                <center>
+                                    <div className="mb-2 ">
                                         <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                             Type
-                            </label>
-                                        <Field
-                                            name="mode"
-                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                        <ErrorField errors={errors} touched={touched} row="mode" />
+                                    </label>
+
+                                        <div >
+                                            <label>
+                                                <Field type="radio" name="mode" value="Essence" />
+              Essence
+            </label> &nbsp;
+                                    <label>
+                                                <Field type="radio" name="mode" value="Diesel" />
+              Diesel
+            </label>
+                                            <ErrorField errors={errors} touched={touched} row="mode" />
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div className="mb-2">
-                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                        Vitesse
-                            </label>
-                                    <Field
-                                        name="vitesse"
-                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                    <ErrorField errors={errors} touched={touched} row="vitesse" />
-                                </div>
-
-                                <div className="mb-2">
-                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                        Climatisation
-                            </label>
-                                    <Field
-                                        name="climatisation"
-                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                    <ErrorField errors={errors} touched={touched} row="climatisation" />
-                                </div>
-
-                                <div className="mb-2">
-                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                        Portes
-                            </label>
-                                    <Field
-                                        name="portes"
-                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                    <ErrorField errors={errors} touched={touched} row="portes" />
-                                </div>
 
 
-
-
-
-                                {/* <div className="flex">
-                                    <div className="mb-2">
-                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                            Climatisation
-                            </label>
-                                        <Field
-                                            name="clim"
-                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                        <ErrorField errors={errors} touched={touched} row="clim" />
-                                    </div>
-                                </div> */}
-                                {/* <div className="mb-2">
+                                    <div className="mb-2 ">
                                         <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                             Vitesse
-                            </label>
-                                        <Field
-                                            name="vitesse"
-                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                        <ErrorField errors={errors} touched={touched} row="vitesse" />
-                                    </div>
-                                </div>
+                                    </label>
 
-                                <div className="flex">
+                                        <div >
+                                            <label>
+                                                <Field type="radio" name="vitesse" value="Manuelle" />
+              Manuelle
+            </label>&nbsp;
+                                    <label>
+                                                <Field type="radio" name="vitesse" value="Automatique" />
+              Automatique
+            </label>
+                                            <ErrorField errors={errors} touched={touched} row="vitesse" />
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-2 ">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Climatisation
+                                    </label>
+
+                                        <div >
+                                            <label>
+                                                <Field type="radio" name="climatisation" value="Oui" />
+              Oui
+            </label>&nbsp;
+                                    <label>
+                                                <Field type="radio" name="climatisation" value="Non" />
+              Non
+            </label>&nbsp;
+                                    <ErrorField errors={errors} touched={touched} row="climatisation" />
+                                        </div>
+                                    </div>
+
+
                                     <div className="mb-2">
                                         <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                             Portes
-                            </label>
-                                        <Field
-                                            name="portes"
-                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                        <ErrorField errors={errors} touched={touched} row="portes" />
-                                    </div>
+                                    </label>
 
-                                </div> */}
+                                        <div>
+                                            <label>
+                                                <Field type="radio" name="portes" value="3" />
+              3
+            </label>&nbsp;
+                                    <label>
+                                                <Field type="radio" name="portes" value="4" />
+              4
+            </label>&nbsp;
+                                    <label>
+                                                <Field type="radio" name="portes" value="5" />
+              5
+            </label>&nbsp;
+                                    <ErrorField errors={errors} touched={touched} row="portes" />
+                                        </div>
+                                    </div>
+                                </center>
+
+
 
                             </div>
+
                             <hr className="my-4" />
                             <div className="flex justify-end">
                                 <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
