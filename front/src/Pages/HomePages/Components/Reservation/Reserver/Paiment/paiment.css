@@ -1,0 +1,13 @@
+
+.form-connec-h3 {
+    padding: 15px;
+    font-family: Helvetica,Arial,Tahoma,Sans-Serif;
+    font-style: bold;
+    font-size: 27px;
+    font-weight: normal;
+    color: #4AB35F;
+}
+#moyenpaiement{
+    background: #228dcb;
+    padding: 5px 20px;
+}
