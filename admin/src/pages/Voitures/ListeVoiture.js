@@ -17,7 +17,7 @@ export default class ListeVoiture extends Component {
                     <table className="table-auto">
                         <thead>
                             <tr>
-                                {/* <th className="border px-4 py-2">   </th> */}
+                                <th className="border px-4 py-2">   </th>
                                 <th className="border px-4 py-2">Marque</th>
                                 <th className="border px-4 py-2">Modèle</th>
                                 <th className="border px-4 py-2">Places</th>
@@ -32,7 +32,7 @@ export default class ListeVoiture extends Component {
                             {voitures && voitures.map(voiture => {
                                 return (
                                     <tr>
-                                        {/* <td className="border px-4 py-2">{voiture.image}</td> */}
+                                        <td className="border px-4 py-2"></td>
                                         <td className="border px-4 py-2">{voiture.marque}</td>
                                         <td className="border px-4 py-2">{voiture.model}</td>
                                         <td className="border px-4 py-2">{voiture.places}</td>

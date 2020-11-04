@@ -27,28 +27,34 @@ const VoitureSchema = Yup.object().shape({
 });
 
 class AddVoiture extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         //image: null,
-    //         marque: '',
-    //         model: ''
-    //     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: null,
+            marque: '',
+            model: '',
+            places: '',
+            mode: '',
+            vitesse: '',
+            climatisation: ''
 
-    // }
+        }
 
-    // onChange = event => {
-    //     this.setState({
-    //         image: event.target.files[0],
-    //         loaded: 0,
-    //     })
-    //     console.log(event.target.files[0])
-    // }
+    }
+
+    onChange = event => {
+        this.setState({
+            image: event.target.files[0],
+            loaded: 0,
+        })
+        console.log(event.target.files[0])
+    }
     render() {
         return (
             <div>
                 <Formik
                     initialValues={{
+                        image: null,
                         marque: '',
                         model: '',
                         places: '',
@@ -61,16 +67,16 @@ class AddVoiture extends Component {
                     validationSchema={VoitureSchema}
                     onSubmit={(values, { resetForm }) => {
                         // console.log(this.state.image)
-                        // const formData = new FormData();
-                        // formData.append('image', this.state.image)
-                        // formData.append('marque', '')
-                        // formData.append('model', '')
-                        // // formData.append('places', '')
-                        // formData.append('type', '')
-                        // formData.append('climatisation', '')
-                        // formData.append('vitesse', '')
-                        // formData.append('portes', '')
-                        axios.post('/voitures', values).then(response => {
+                        const formData = new FormData();
+                        formData.append('image', this.state.image)
+                        formData.append('marque', values.marque)
+                        formData.append('model', values.model)
+                        formData.append('places', values.places)
+                        formData.append('mode', values.mode)
+                        formData.append('vitesse', values.vitesse)
+                        formData.append('climatisation', values.climatisation)
+                        formData.append('portes', values.portes)
+                        axios.post('/voitures', formData).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
                                 action.toggleModal(false);
@@ -91,7 +97,7 @@ class AddVoiture extends Component {
                         <Form
                             autoComplete="off">
                             <div>
-                                {/* <div className="mb-2 mr-4">
+                                <div className="mb-2 mr-4">
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                         Image
                             </label>
@@ -101,7 +107,7 @@ class AddVoiture extends Component {
                                         name="image"
                                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
                                     <ErrorField errors={errors} touched={touched} row="image" />
-                                </div> */}
+                                </div>
 
                                 <div className="flex">
                                     <div className="mb-2 mr-4">

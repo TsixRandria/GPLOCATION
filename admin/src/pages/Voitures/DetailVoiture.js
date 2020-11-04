@@ -71,7 +71,7 @@ export default class DetailVoiture extends Component {
                     <div className="flex">
                         Type : &nbsp;
                         <InlineEdit
-                            onSave={(value) => this.updateVoiture('type', value)}
+                            onSave={(value) => this.updateVoiture('mode', value)}
                             style={{ flex: 'auto' }}
                             value={voiture.mode} />
                     </div>
