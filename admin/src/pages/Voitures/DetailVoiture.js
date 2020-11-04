@@ -66,35 +66,35 @@ export default class DetailVoiture extends Component {
                         <InlineEdit
                             onSave={(value) => this.updateVoiture('places', value)}
                             style={{ flex: 'auto' }}
-                            value={voiture.model} />
+                            value={voiture.places} />
                     </div>
                     <div className="flex">
                         Type : &nbsp;
                         <InlineEdit
                             onSave={(value) => this.updateVoiture('type', value)}
                             style={{ flex: 'auto' }}
-                            value={voiture.model} />
+                            value={voiture.mode} />
                     </div>
                     <div className="flex">
                         Climatisation : &nbsp;
                         <InlineEdit
                             onSave={(value) => this.updateVoiture('climatisation', value)}
                             style={{ flex: 'auto' }}
-                            value={voiture.model} />
+                            value={voiture.climatisation} />
                     </div>
                     <div className="flex">
                         Vitesse : &nbsp;
                         <InlineEdit
                             onSave={(value) => this.updateVoiture('vitesse', value)}
                             style={{ flex: 'auto' }}
-                            value={voiture.model} />
+                            value={voiture.vitesse} />
                     </div>
                     <div className="flex">
                         Portes : &nbsp;
                         <InlineEdit
                             onSave={(value) => this.updateVoiture('portes', value)}
                             style={{ flex: 'auto' }}
-                            value={voiture.model} />
+                            value={voiture.portes} />
                     </div>
 
 
