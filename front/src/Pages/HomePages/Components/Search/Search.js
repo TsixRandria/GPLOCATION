@@ -56,6 +56,7 @@ export default class Search extends React.Component {
 						onSubmit={(values, { resetForm }) => {
 							axios.post('/reservations', values).then(response => {
 								if (response.status === 201) {
+									this.setState({ etape: 2})
 									resetForm();
 								}
 							})
@@ -113,7 +114,7 @@ export default class Search extends React.Component {
 										</div>
 										<div className="b-search__main-form-submit">
 
-											<button type="submit" onClick={() => this.changerEtape(2)} className="btn m-btn">LOUER<span className="fa fa-angle-right"></span></button>
+											<button type="submit" className="btn m-btn">LOUER<span className="fa fa-angle-right"></span></button>
 										</div>
 									</div>
 								</div>
