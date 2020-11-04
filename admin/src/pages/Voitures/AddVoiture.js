@@ -14,28 +14,28 @@ const VoitureSchema = Yup.object().shape({
         .required('Le marque ne doit pas être vide'),
     model: Yup.string()
         .required('Le model ne doit pas être vide'),
-    // places: Yup.string()
-    //     .required('Le nombre de place ne doit pas être vide'),
-    // type: Yup.string()
-    //     .required('Le type ne doit pas être vide'),
-    // climatisation: Yup.string()
-    //     .required('La climatisation ne doit pas être vide'),
-    // vitesse: Yup.string()
-    //     .required('Le type de vitesse ne doit pas être vide'),
-    // portes: Yup.string()
-    //     .required('Le nombre de portes ne doit pas être vide')
+    places: Yup.string()
+        .required('Le nombre de place ne doit pas être vide'),
+    mode: Yup.string()
+        .required('Le type ne doit pas être vide'),
+    vitesse: Yup.string()
+        .required('Le type de vitesse ne doit pas être vide'),
+    climatisation: Yup.string()
+        .required('La climatisation ne doit pas être vide'),
+    portes: Yup.string()
+        .required('Le nombre de portes ne doit pas être vide')
 });
 
 class AddVoiture extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            //image: null,
-            marque: '',
-            model: ''
-        }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         //image: null,
+    //         marque: '',
+    //         model: ''
+    //     }
 
-    }
+    // }
 
     // onChange = event => {
     //     this.setState({
@@ -51,11 +51,11 @@ class AddVoiture extends Component {
                     initialValues={{
                         marque: '',
                         model: '',
-                        // places: '',
-                        // type: '',
-                        // climatisation: '',
-                        // vitesse: '',
-                        // portes: ''
+                        places: '',
+                        mode: '',
+                        vitesse: '',
+                        climatisation: '',
+                        portes: ''
 
                     }}
                     validationSchema={VoitureSchema}
@@ -90,7 +90,7 @@ class AddVoiture extends Component {
                     {({ errors, touched }) => (
                         <Form
                             autoComplete="off">
-                            <div className="flex">
+                            <div>
                                 {/* <div className="mb-2 mr-4">
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                         Image
@@ -102,25 +102,118 @@ class AddVoiture extends Component {
                                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
                                     <ErrorField errors={errors} touched={touched} row="image" />
                                 </div> */}
-                                <div className="mb-2 mr-4">
-                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                        Marque
+
+                                <div className="flex">
+                                    <div className="mb-2 mr-4">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Marque
                             </label>
-                                    <Field
-                                        name="marque"
-                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                    <ErrorField errors={errors} touched={touched} row="marque" />
+                                        <Field
+                                            name="marque"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="marque" />
+                                    </div>
+
+                                    <div className="mb-2">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Model
+                            </label>
+                                        <Field
+                                            name="model"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="model" />
+                                    </div>
+                                </div>
+
+                                <div className="flex">
+                                    <div className="mb-2">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Places
+                            </label>
+                                        <Field
+                                            name="places"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="places" />
+                                    </div>
+                                    <div className="mb-2">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Type
+                            </label>
+                                        <Field
+                                            name="mode"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="mode" />
+                                    </div>
                                 </div>
 
                                 <div className="mb-2">
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
-                                        Model
+                                        Vitesse
                             </label>
                                     <Field
-                                        name="model"
+                                        name="vitesse"
                                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
-                                    <ErrorField errors={errors} touched={touched} row="model" />
+                                    <ErrorField errors={errors} touched={touched} row="vitesse" />
                                 </div>
+
+                                <div className="mb-2">
+                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                        Climatisation
+                            </label>
+                                    <Field
+                                        name="climatisation"
+                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                    <ErrorField errors={errors} touched={touched} row="climatisation" />
+                                </div>
+
+                                <div className="mb-2">
+                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                        Portes
+                            </label>
+                                    <Field
+                                        name="portes"
+                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                    <ErrorField errors={errors} touched={touched} row="portes" />
+                                </div>
+
+
+
+
+
+                                {/* <div className="flex">
+                                    <div className="mb-2">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Climatisation
+                            </label>
+                                        <Field
+                                            name="clim"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="clim" />
+                                    </div>
+                                </div> */}
+                                {/* <div className="mb-2">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Vitesse
+                            </label>
+                                        <Field
+                                            name="vitesse"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="vitesse" />
+                                    </div>
+                                </div>
+
+                                <div className="flex">
+                                    <div className="mb-2">
+                                        <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                            Portes
+                            </label>
+                                        <Field
+                                            name="portes"
+                                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+                                        <ErrorField errors={errors} touched={touched} row="portes" />
+                                    </div>
+
+                                </div> */}
 
                             </div>
                             <hr className="my-4" />
