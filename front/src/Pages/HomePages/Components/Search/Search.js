@@ -58,6 +58,9 @@ export default class Search extends React.Component {
 								if (response.status === 201) {
 									this.setState({ etape: 2})
 									resetForm();
+								} 
+								else if (response.status === 204) {
+									console.log(response.data);
 								}
 							})
 						}}
