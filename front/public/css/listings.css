@@ -448,11 +448,12 @@ select.m-select + span.fa{
 }
 
 .b-items__cars-one-info a.btn span.fa{
-    width:20px!important;
-    height:20px!important;
-    font-size:13px!important;
+    width: 24px!important;
+    height: 26px!important;
+    font-size: 20px!important;
     padding: 3px!important;
     margin-left: 10px!important;
+
 }
 
 .b-items__pagination{

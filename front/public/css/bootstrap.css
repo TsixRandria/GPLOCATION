@@ -6571,7 +6571,7 @@ button.close {
 }
 .show {
   display: block !important;
-  padding-top: 700px;
+  padding-top: 180px;
   position: fixed;
 }
 .invisible {

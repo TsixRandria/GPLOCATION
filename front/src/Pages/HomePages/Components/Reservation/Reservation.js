@@ -20,7 +20,7 @@ class Reservation extends Component {
         const etape = this.state.etape;
         return (
             <div>
-                  <section class="b-items s-shadow">
+                  <section class="b-items s-shadow" id="padingReserver">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -28,15 +28,20 @@ class Reservation extends Component {
                                     <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
                                         <div class="b-items__cars-one-img">
                                             <img className="img-responsive center-block" src="media/blog/nissanBlogTwo.jpg" alt="nissan" />
+                                            <br />
+                                            <p className="laststock">Dernier véhicule en stock</p>
+                                            <span class="confirm-tarif ">288.00 €</span>
+                                            <p class="montant-acompte">dont 100 € d'acompte</p>
                                         </div>
                                         <div class="b-items__cars-one-info">
                                             <header class="b-items__cars-one-info-header s-lineDownLeft">
                                                 <h2>Renault Clio 4</h2>
-                                                <Link to="Reserver" className="locationVoiture" >Réserver</Link>
+                                                {/* <Link to="Reserver" className="locationVoiture" >Réserver</Link> */}
+                                                <Link to="Reserver" type="submit" className="btn m-btn" id="bouttonReserve">Réserver<span className="fa fa-angle-right" id="bgColor"></span></Link>
                                             </header>
                                             <div className="b-blog__posts-one-info">
                                                 <div className="row">
-                                                    <div className="col-lg-7 col-sm-7 col-xs-12">
+                                                    <div className="col-lg-6 col-sm-6 col-xs-12">
                                                     <h4 className="titre-7">Choisissez vos options :</h4>
                                                         <div>
                                                             <input  name="" type="checkbox" value="" />
@@ -78,7 +83,7 @@ class Reservation extends Component {
                                                             <span className="optionresult">27.00 €</span>
                                                          </div>
                                                          </div>
-                                                         <div className="col-lg-5 col-sm-5 col-xs-12">
+                                                         <div className="col-lg-6 col-sm-6 col-xs-12">
                                                          <div className="avantage">
                                                             <ul class="option ">
                                                                 <li className="liste">
@@ -112,8 +117,8 @@ class Reservation extends Component {
                                                 </div>
                                             
                                             <div class="b-items__cars-one-info-details">
-                                               
-                                                <a onClick={() => this.changerEtape(3)} type="button" class="locationDetail">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
+                                            <button type="submit" onClick={() => this.changerEtape(3)} className="btn m-btn" id="buttonDetail">Détails<span className="fa fa-angle-right" id="bgDetail"></span></button>
+                                                
                                             </div>
                                         </div>
                                     </div>

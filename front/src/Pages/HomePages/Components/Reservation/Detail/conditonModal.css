@@ -1,0 +1,42 @@
+
+   .contentModal{
+    width: 883px !important;
+    max-height: 550px !important;
+    overflow-y: scroll ;
+    overflow-x: hidden ;
+    }
+    .paraLocation{
+      padding: 15px 15px;
+      font-size: 14px;
+      font-family: 'Open Sans',sans-serif;
+    }
+   .titreModal{
+      font-size: 18px;
+      font-weight: 900;
+      font-family: 'Open Sans',sans-serif;
+      color: #228dcb;
+      margin-left: 30px;
+   }
+   .sousTmodal{
+      font-size: 16px;
+      color: #44AD5F;
+      font-weight: 700;
+      font-family: 'Open Sans',sans-serif;
+
+   }
+   .tableFacture{
+      width: 100%;
+   display: table;
+   border-collapse: separate;
+   box-sizing: border-box;
+   border-spacing: 2px;
+    border-color: grey;
+}
+.bodyFact{
+   display: table-row-group;
+    vertical-align: middle;
+   }
+   .contentTable{
+      display: table-row;
+      vertical-align: inherit;
+   }
