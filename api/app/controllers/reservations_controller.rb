@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :update, :destroy]
-  before_action :filtre
  
   # GET /reservations
   def index
@@ -18,16 +17,6 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.create(reservation_params)                                                                                                                                                                                                           
 
-    if @reservation.save
-      render json: @reservation, location: @reservation, status: :created
-    else
-      render json: @reservation.errors, status: :unprocessable_entity
-    end
-  end
-
-  def filtre
-    @reservation = Reservation.new
-
     if @reservation.dateDepart === @reservation.dateRetour
       return @reservation.delete
       render json: {message: "Pour louer aujourd\'hui, merci de contacter directement Cargo Location Perpignan au 04 68 35 86 35."}, status: 205
@@ -42,8 +31,14 @@ class ReservationsController < ApplicationController
         render json: {message: "veuiller valider une autre date"}, status: 206
       end
     end
+    if @reservation.save
+      render json: @reservation, location: @reservation, status: :created
+    else
+      render json: @reservation.errors, status: :unprocessable_entity
+    end
   end
-  
+
+ 
   # PATCH/PUT /reservations/1
   def update
     if @reservation.update(reservation_params)
