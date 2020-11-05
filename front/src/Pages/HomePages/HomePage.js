@@ -4,10 +4,8 @@ import React from 'react';
 
 import Slider from './Components/Slider/Slider.js';
 import Search from './Components/Search/Search.js';
-import Listin from './Listin.js';
 import World from './Components/World/World.js'
 import HomeAuto from './Components/HomeAuto/HomeAuto.js';
-
 
 class HomePage extends React.Component {
 
@@ -16,10 +14,10 @@ class HomePage extends React.Component {
 		return (
 			<>
 				<Slider />
-		        <Search />
+				<Search />
 				{/* <EtapeBlock /> */}
-		       <World />
-			   <HomeAuto />
+				<World />
+				<HomeAuto />
 			</>
 		)
 	}

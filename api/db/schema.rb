@@ -7,10 +7,10 @@
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
-#
-# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_060804) do
+
+ActiveRecord::Schema.define(version: 2020_10_28_182308) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,19 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
+  create_table "clients", force: :cascade do |t|
+    t.string "nom"
+    t.string "prenom"
+    t.string "telephone"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
+    t.index ["email"], name: "index_clients_on_email", unique: true
+    t.index ["nom"], name: "index_clients_on_nom"
+    t.index ["password_digest"], name: "index_clients_on_password_digest", unique: true
+    t.index ["prenom"], name: "index_clients_on_prenom"
+    t.index ["telephone"], name: "index_clients_on_telephone", unique: true
 
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
@@ -46,6 +54,35 @@ ActiveRecord::Schema.define(version: 2020_10_28_060804) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["jti"], name: "index_jwt_blacklists_on_jti"
   end
+
+  create_table "reservation_options", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "tarif_supplementaire_id"
+    t.bigint "reservation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_reservation_options_on_reservation_id"
+    t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "lieuDepart"
+    t.string "lieuRetour"
+    t.string "dateDepart"
+    t.string "dateRetour"
+    t.string "heureDepart"
+    t.string "heureRetour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tarif_supplementaires", force: :cascade do |t|
+    t.string "libelle"
+    t.integer "prix"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 
   create_table "tarifs", force: :cascade do |t|
     t.string "prix"

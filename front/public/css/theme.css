@@ -168,7 +168,8 @@ body{
     padding: 15px 20px;
     font: 400 10px 'Open Sans',sans-serif;
     border: 1px solid #eeeeee;
-    text-transform: uppercase;
+    text-transform: downcase;
+    font-size: 15px;
     border-radius: 30px;
 }
 .s-form input[type='password'],.s-form textarea{
@@ -176,7 +177,8 @@ body{
     width: 100%;
     margin-bottom: 15px;
     padding: 15px 20px;
-    font: 400 10px 'Open Sans',sans-serif;
+    font-size: 15px;
+    font: 400 15px 'Open Sans',sans-serif;
     border: 1px solid #eeeeee;
     border-radius: 30px;
 }
