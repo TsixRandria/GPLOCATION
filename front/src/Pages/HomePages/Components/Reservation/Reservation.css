@@ -10,7 +10,7 @@
     font-size: 16px;
 }
 .cout{
-    margin-left: 72px;
+    margin-left: 45px;
     font-family: 'Open Sans',sans-serif;
     font-size: 16px;
     font-weight: bold;
@@ -21,19 +21,19 @@
     font-size: 16px;
 }
 .gratuit{
-    margin-left: 101px;
+    margin-left: 76px;
     font-family: 'Open Sans',sans-serif;
     font-size: 16px;
     font-weight: bold;
 }
 .cout-1{
-    margin-left: 92px;
+    margin-left: 75px;
     font-family: 'Open Sans',sans-serif;
     font-size: 16px;
     font-weight: bold;  
 }
 .cout-2{
-    margin-left: 49px;
+    margin-left: 31px;
     font-family: 'Open Sans',sans-serif;
     font-size: 16px;
     font-weight: bold;
@@ -42,7 +42,7 @@
     line-height: 1.6;
 }
 .optionresult{
-    margin-left: 265px;
+    margin-left: 238px;
     font-family: 'Open Sans',sans-serif;
     font-size: 16px;
     font-weight: bold;  
@@ -50,7 +50,7 @@
 .avantage{
     width: 100%;
     height: auto;
-    padding: 20px 0;
+    padding: 39px 0;
 }
 .avantage .option .liste{
     text-decoration: none;
@@ -62,7 +62,7 @@
     height: 50px;
     border: none;
     border-radius: 10px;
-    background: blue;
+    background: #228dcb;
     color: white;
 }
 .louer{
@@ -76,7 +76,7 @@
 .locationVoiture{
     text-decoration: none!important;
     background: #228dcb;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     color: white;
     font-weight: 900;
@@ -89,4 +89,46 @@
     color: white;
     font-weight: 900;
     padding: 8px 8px;
+}
+#bouttonReserve{
+    font-size: 16px !important;
+    text-transform: uppercase;
+    color: white !important;
+    background: #555;
+    font-weight: 700 !important;
+}
+#bgColor{
+    background: #228dcb !important;
+}
+#buttonDetail{
+    background: #555 !important;
+    color: white !important;
+    text-transform: uppercase;
+}
+#bgDetail{
+    background: #228dcb !important;
+}
+#padingReserver{
+    padding: 20px 0 !important; 
+}
+.laststock{
+    background: red;
+    padding: 5px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 5px;
+}
+.montant-acompte{
+position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.confirm-tarif {
+font-family: Helvetica,Arial,Tahoma,Sans-Serif;
+font-weight: bold;
+font-size: 37px;
+color: #228dcb;
 }
