@@ -60,3 +60,8 @@ group :test do
   gem 'database_cleaner'
 end
 
+#uploader une image
+gem 'carrierwave'
+
+#redimensionner une image
+gem 'mini_magick'

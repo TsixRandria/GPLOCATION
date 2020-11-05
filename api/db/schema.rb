@@ -42,7 +42,9 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.index ["password_digest"], name: "index_clients_on_password_digest", unique: true
     t.index ["prenom"], name: "index_clients_on_prenom"
     t.index ["telephone"], name: "index_clients_on_telephone", unique: true
+
   end
+
 
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
@@ -96,26 +98,17 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "voiture_descriptions", force: :cascade do |t|
-    t.string "libelle"
-    t.string "valeur"
-    t.bigint "voiture_id", null: false
-    t.integer "order"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["voiture_id"], name: "index_voiture_descriptions_on_voiture_id"
-  end
-
   create_table "voitures", force: :cascade do |t|
+    t.string "image"
     t.string "marque"
     t.string "model"
-    t.integer "status"
-    t.text "photo"
-    t.bigint "category_id"
+    t.string "places"
+    t.string "mode"
+    t.string "climatisation"
+    t.string "vitesse"
+    t.string "portes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
-  add_foreign_key "voiture_descriptions", "voitures"
 end
