@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :contacts
+  resources :categrory
+
 
   resources :admin_users
 

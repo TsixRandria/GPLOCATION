@@ -15,7 +15,9 @@ class World extends React.Component {
 			if (response.status === 200) {
 				this.setState({
 					voitures: response.data
+
 				})
+				console.log(response.data)
 			}
 		})
 	}
@@ -27,61 +29,28 @@ class World extends React.Component {
 				<section id="voitures" className="b-world">
 					<div className="container">
 						<div className="row">
-							{ voitures.map(voiture => 
-									(<div className="col-sm-4 col-xs-12">
-										<div className="b-world__item wow zoomInUp" data-wow-delay="0.3s">
-											<img className="img-responsive"  src="media/370x200/C1.jpg" alt="mazda" />
-											<div className="b-world__item-val">
-												<span className="b-world__item-val-title">{ voiture.marque }</span>
-											</div>
-											<h2>{ voiture.model }</h2>
-											<p>
-												<ul>
-													<li>4 places</li>
-													<li>Boîte manuelle</li>
-													<li>Essence</li>
-													<li>Climatisation : oui</li>
-												</ul>
-											</p>
+							{voitures.map(voiture =>
+								(<div className="col-sm-4 col-xs-12">
+									<div className="b-world__item wow zoomInUp" data-wow-delay="0.3s">
+										<img className="img-responsive" src={`http://localhost:4000/${voiture.image.url}`} />
+										<div className="b-world__item-val">
+											<span className="b-world__item-val-title">{voiture.marque}</span>
 										</div>
-									</div>)
-								)
+										<h2>{voiture.model}</h2>
+										<p>
+											<ul>
+												<li>{voiture.places} places</li>
+												<li>Boîte {voiture.vitesse}</li>
+												<li>{voiture.mode}</li>
+												<li>Climatisation : {voiture.climatisation}</li>
+											</ul>
+										</p>
+									</div>
+								</div>)
+							)
 							}
-							
-							{ /*<div className="col-sm-4 col-xs-12">
-								<div className="b-world__item wow zoomInLeft" data-wow-delay="0.3s">
-									<img className="img-responsive" src="media/370x200/car2.jpg" alt="wolks" />
-									<div className="b-world__item-val">
-										<span className="b-world__item-val-title">RENAULT</span>
-									</div>
-									<h2>Dacia Duster Diesel Automatique</h2>
-									<p>
-										<ul>
-											<li>5 places</li>
-											<li>Boîte automatique</li>
-											<li>Diesel</li>
-											<li>Climatisation : oui</li>
-										</ul>
-									</p>
-								</div>
-							</div>
-							<div className="col-sm-4 col-xs-12">
-								<div className="b-world__item wow zoomInRight" data-wow-delay="0.3s">
-									<img className="img-responsive"  src="media/370x200/car3.jpg" alt="chevrolet" />
-									<div className="b-world__item-val">
-										<span className="b-world__item-val-title">CHEVROLET</span>
-									</div>
-									<h2>Dacia Logan Diesel</h2>
-									<p>
-										<ul>
-											<li>5 places</li>
-											<li>Boîte manuelle</li>
-											<li>Diesel</li>
-											<li>Climatisation : oui</li>
-										</ul>
-									</p>
-								</div>
-							</div> */ }
+
+
 						</div>
 					</div>
 				</section>
