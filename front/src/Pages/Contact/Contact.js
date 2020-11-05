@@ -10,12 +10,20 @@ import '../ErrorField/ErrorField.css';
 
 const ContactSchema = Yup.object().shape({
 	nom: Yup.string()
-		.required('le nom ne doit pas être vide'),
+		.required('le nom ne doit pas être vide')
+		.min(4, 'Nom invalide')
+		.matches(/([a-z])/, 'Le nom ne doit contenir que des lettres'),
 	prenom: Yup.string()
-		.required('le prenom ne doit pas être vide'),
+		.required('le Prenom ne doit pas être vide')
+		.min(4, 'Prenom invalide')
+		.matches(/(a-zA-Z)/, 'Le prenom ne doit contenir que des lettres'),
 	telephone: Yup.string()
-		.required('le numero de telephone ne doit pas être vide'),
+		.required('le Numero de telephone ne doit pas être vide')
+		.min(10, 'Numero telephone incomplet')
+		.max(15, 'Numero inconnue')
+		.matches(/([0-9])/, 'Le numero de telephone ne doit contenir que des chiffres'),
 	email: Yup.string()
+		.email('Email invalide,merci de vouloire completé')
 		.required('l \' email ne doit pas être vide')
 	
 });
