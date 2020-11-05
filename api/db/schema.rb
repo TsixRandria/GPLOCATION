@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.index ["telephone"], name: "index_clients_on_telephone", unique: true
   end
 
+  end
+
+
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"

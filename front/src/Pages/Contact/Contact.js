@@ -19,7 +19,7 @@ const ContactSchema = Yup.object().shape({
 		.matches(/(a-zA-Z)/, 'Le prenom ne doit contenir que des lettres'),
 	telephone: Yup.string()
 		.required('le Numero de telephone ne doit pas être vide')
-		.min(10, 'Numero telephone incomplet')
+		.min(8, 'Numero telephone incomplet')
 		.max(15, 'Numero inconnue')
 		.matches(/([0-9])/, 'Le numero de telephone ne doit contenir que des chiffres'),
 	email: Yup.string()
