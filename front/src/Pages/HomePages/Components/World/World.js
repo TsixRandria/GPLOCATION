@@ -15,7 +15,9 @@ class World extends React.Component {
 			if (response.status === 200) {
 				this.setState({
 					voitures: response.data
+
 				})
+				console.log(response.data)
 			}
 		})
 	}
@@ -30,7 +32,7 @@ class World extends React.Component {
 							{voitures.map(voiture =>
 								(<div className="col-sm-4 col-xs-12">
 									<div className="b-world__item wow zoomInUp" data-wow-delay="0.3s">
-										<img className="img-responsive" src="media/370x200/C1.jpg" alt="mazda" />
+										<img className="img-responsive" src={`http://localhost:4000/${voiture.image.url}`} />
 										<div className="b-world__item-val">
 											<span className="b-world__item-val-title">{voiture.marque}</span>
 										</div>
