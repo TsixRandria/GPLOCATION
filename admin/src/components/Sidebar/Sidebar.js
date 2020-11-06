@@ -7,8 +7,8 @@ export default class Sidebar extends Component {
 
     render() {
         return (
-            <div className="sidebar-block" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" 
-            data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+            <div className="sidebar-block" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+                data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
                 <div className="app-title">
                     GPLOCATION
                 </div>

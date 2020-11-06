@@ -5,11 +5,11 @@ import * as Yup from 'yup';
 
 import ErrorField from '../../components/ErrorField/ErrorField';
 import axios from '../../axios';
-//import Category from '../Category/Category';
+//import AddCategory from '../Category/AddCategory';
 
 const VoitureSchema = Yup.object().shape({
     // image: Yup.string()
-    //     .required('L\'image ne doit pas être vide'),
+    //     .required('Veuillez insérer une image'),
     marque: Yup.string()
         .required('La marque ne doit pas être vide'),
     model: Yup.string()
@@ -36,8 +36,7 @@ class AddVoiture extends Component {
             places: '',
             mode: '',
             vitesse: '',
-            climatisation: ''
-
+            climatisation: '',
         }
 
     }
@@ -61,8 +60,7 @@ class AddVoiture extends Component {
                         mode: '',
                         vitesse: '',
                         climatisation: '',
-                        portes: ''
-
+                        portes: '',
                     }}
                     validationSchema={VoitureSchema}
                     onSubmit={(values, { resetForm }) => {
@@ -76,6 +74,7 @@ class AddVoiture extends Component {
                         formData.append('vitesse', values.vitesse)
                         formData.append('climatisation', values.climatisation)
                         formData.append('portes', values.portes)
+
                         axios.post('/voitures', formData).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
@@ -85,9 +84,11 @@ class AddVoiture extends Component {
                             }
                         })
 
-                        // axios.post('/category, values').then(response => {
-                        //     if (response.status === 201) {
-                        //         console.log(values);
+                        // axios.get('/categories').then(response => {
+                        //     if (response.status === 200) {
+                        //         this.setState({
+                        //             categories: response.data
+                        //         })
                         //     }
                         // })
                     }
@@ -223,6 +224,19 @@ class AddVoiture extends Component {
 
 
 
+                                <div className="mb-2 ">
+                                    <label className="block text-gray-700 font-bold mb-1 md:mb-0">
+                                        Catégorie
+                                    </label>
+                                    <Field as="select" name="ca">
+                                        <option value="red">Red</option>
+                                        <option value="green">Green</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="blue">Blue</option>
+
+                                    </Field>
+                                </div>
                             </div>
 
                             <hr className="my-4" />

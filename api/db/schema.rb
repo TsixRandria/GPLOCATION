@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_061335) do
+ActiveRecord::Schema.define(version: 2020_11_05_130634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "ref"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,9 +44,6 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.index ["prenom"], name: "index_clients_on_prenom"
     t.index ["telephone"], name: "index_clients_on_telephone", unique: true
   end
-
-  end
-
 
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
@@ -108,8 +106,10 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.string "climatisation"
     t.string "vitesse"
     t.string "portes"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
 end

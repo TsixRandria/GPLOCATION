@@ -7,20 +7,24 @@ Rails.application.routes.draw do
 
   resources :reservations
 
-  resources :categories
+  #routes categories
+  get '/categories', to: 'categories#index'
+  post '/categories', to: 'categories#create'
+  get '/categories/:id', to: 'categories#show'
+  put '/categories/:id', to: 'categories#update'
+  delete '/categories/:id', to: 'categories#destroy'
+
+  #resources :categories do  
+    resources :voitures 
+  #end 
+
   resources :tarifs
 
 
   resources :contacts
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :voitures do
-    resources :voiture_descriptions
-  end
-
+  
+  
   resources :contacts
-  resources :categrory
-
-
   resources :admin_users
 
   post "/login", to: "admin_users#login"
