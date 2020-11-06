@@ -42,9 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_061335) do
     t.index ["password_digest"], name: "index_clients_on_password_digest", unique: true
     t.index ["prenom"], name: "index_clients_on_prenom"
     t.index ["telephone"], name: "index_clients_on_telephone", unique: true
-
   end
-
 
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
