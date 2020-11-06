@@ -24,6 +24,13 @@ class Reservation extends Component {
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <ul class="carac-prod">
+                                <li className="imagePading"><span className="imagePading"><img  src="media/blog/1.png" alt="nissan" /></span>Essence</li>
+                                <li className="imagePading"><sapn className="imagePading"><img  src="media/blog/2.jpg" alt="nissan" /></sapn>manuelle</li>
+                                <li className="imagePading"><span className="imagePading"><img  src="media/blog/3.jpg" alt="nissan" /></span>Climatisation</li>
+                                <li className="imagePading"><span className="imagePading"><img  src="media/blog/4.jpg" alt="nissan" /></span>4 places</li>
+                                <li className="imagePading"><span className="imagePading"><img  src="media/blog/5.png" alt="nissan" /></span>2 portes</li>
+                            </ul>
                                 <div class="b-items__cars">
                                     <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
                                         <div class="b-items__cars-one-img">
@@ -42,6 +49,7 @@ class Reservation extends Component {
                                             <div className="b-blog__posts-one-info">
                                                 <div className="row">
                                                     <div className="col-lg-6 col-sm-6 col-xs-12">
+                                            
                                                     <h4 className="titre-7">Choisissez vos options :</h4>
                                                         <div>
                                                             <input  name="" type="checkbox" value="" />

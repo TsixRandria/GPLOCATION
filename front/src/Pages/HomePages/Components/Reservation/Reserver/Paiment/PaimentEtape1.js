@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
+import Link from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 import ConditionModal from '../../Detail/ConditionModal';
+import DetailReserver from '../DetailReserver'
+
 import './paiment.css';
 function PaimentEtape1() {
     const [modalShow, setModalShow] = React.useState(false);
@@ -69,4 +72,4 @@ function PaimentEtape1() {
     )
 }
 
-export default PaimentEtape1
+export default PaimentEtape1;
