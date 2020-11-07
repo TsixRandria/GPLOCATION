@@ -14,7 +14,10 @@ class VoituresController < ApplicationController
     # POST /categories/:category_id/voitures
     # POST /voitures
     def create
-        @voiture = Voiture.create!(voiture_params)
+        @category = Category.find(voiture_params[:category])
+        @paramsmapped = voiture_params
+        @paramsmapped[:category] = @category
+        @voiture = Voiture.create!(@paramsmapped)
         json_response(@voiture, :created)
     end
 
@@ -42,7 +45,7 @@ class VoituresController < ApplicationController
 
     def voiture_params
         # whitelist params
-        params.permit(:image, :marque, :model, :places, :mode, :climatisation, :vitesse, :portes)
+        params.permit(:image, :marque, :model, :places, :mode, :climatisation, :vitesse, :portes, :category)
     end
 
     def set_voiture

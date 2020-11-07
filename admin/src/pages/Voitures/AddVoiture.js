@@ -27,9 +27,19 @@ const VoitureSchema = Yup.object().shape({
 });
 
 class AddVoiture extends Component {
+    componentDidMount() {
+        axios.get('/categories').then(response => {
+            if (response.status === 200) {
+                this.setState({
+                    categories: response.data
+                })
+            }
+        })
+    }
     constructor(props) {
         super(props);
         this.state = {
+            categories: [],
             image: null,
             marque: '',
             model: '',
@@ -49,6 +59,8 @@ class AddVoiture extends Component {
         console.log(event.target.files[0])
     }
     render() {
+        const { categories } = this.state;
+        console.log(this.props, categories)
         return (
             <div>
                 <Formik
@@ -61,6 +73,7 @@ class AddVoiture extends Component {
                         vitesse: '',
                         climatisation: '',
                         portes: '',
+                        category: null
                     }}
                     validationSchema={VoitureSchema}
                     onSubmit={(values, { resetForm }) => {
@@ -74,7 +87,7 @@ class AddVoiture extends Component {
                         formData.append('vitesse', values.vitesse)
                         formData.append('climatisation', values.climatisation)
                         formData.append('portes', values.portes)
-
+                        formData.append('category', values.category)
                         axios.post('/voitures', formData).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
@@ -228,13 +241,10 @@ class AddVoiture extends Component {
                                     <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                         Catégorie
                                     </label>
-                                    <Field as="select" name="ca">
-                                        <option value="red">Red</option>
-                                        <option value="green">Green</option>
-                                        <option value="blue">Blue</option>
-                                        <option value="green">Green</option>
-                                        <option value="blue">Blue</option>
-
+                                    <Field as="select" name="category">
+                                        {categories && categories.map(category => {
+                                            return <option value={category.id}>{category.category}</option>
+                                        })}
                                     </Field>
                                 </div>
                             </div>
