@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_130634) do
+ActiveRecord::Schema.define(version: 2020_11_07_115636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 2020_11_05_130634) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tarif_details", force: :cascade do |t|
+    t.integer "prix"
+    t.integer "duree"
+    t.bigint "tarif_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tarif_id"], name: "index_tarif_details_on_tarif_id"
+  end
+
   create_table "tarif_supplementaires", force: :cascade do |t|
     t.string "libelle"
     t.integer "prix"
@@ -92,9 +101,12 @@ ActiveRecord::Schema.define(version: 2020_11_05_130634) do
   end
 
   create_table "tarifs", force: :cascade do |t|
-    t.string "prix"
+    t.datetime "date_debut"
+    t.datetime "date_fin"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_tarifs_on_category_id"
   end
 
   create_table "voitures", force: :cascade do |t|
@@ -112,4 +124,5 @@ ActiveRecord::Schema.define(version: 2020_11_05_130634) do
     t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
+  add_foreign_key "tarif_details", "tarifs"
 end
