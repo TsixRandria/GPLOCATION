@@ -1,8 +1,9 @@
 
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+
 
 import ErrorLogin from './ErrorLogin';
 import axios from '../../axios'
@@ -104,7 +105,7 @@ class Login extends React.Component {
 											<ErrorLogin errors={errors} touched={touched} row="password_digest"/>
 										</div>
 										<div className="boutton-login">
-										<button type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></button><br/><br/>
+										<Link to="/Profil" type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></Link><br/><br/>
 										<span ><a href="#" className="oublier">Mot de passe oublié ?</a></span>
 										</div>
 									</Form>)}
@@ -189,10 +190,10 @@ class Login extends React.Component {
 												
 												<p>* Champs obligatoires</p>
 												<div className="boutton-login">
-													<button type="submit" className="btn m-btn">
+													<Link to="/profil" type="submit" className="btn m-btn">
 														Valider
 														<span className="fa fa-angle-right"></span>
-													</button>
+													</Link>
 												</div>
 													
 											</Form>)}

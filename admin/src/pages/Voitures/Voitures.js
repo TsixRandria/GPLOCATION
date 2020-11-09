@@ -9,7 +9,8 @@ import { NavLink } from 'react-router-dom';
 class Voitures extends Component {
     state = {
         addNew: false,
-        voitures: []
+        voitures: [],
+        categories: []
     }
 
     action = {
@@ -31,7 +32,16 @@ class Voitures extends Component {
                     this.action.getVoiture();
                 }
             })
-        }
+        },
+        getCategory: () => {
+            axios.get('/categories').then(response => {
+                if (response.status === 200) {
+                    this.setState({
+                        categories: response.data
+                    })
+                }
+            })
+        },
     }
 
 

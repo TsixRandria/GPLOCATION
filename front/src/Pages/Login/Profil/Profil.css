@@ -1,0 +1,23 @@
+#formmodfactur {
+    padding: 0 45px 20px 45px;
+    position: relative;
+}
+.form-connec-h3 {
+    padding: 15px;
+    font-family: Helvetica,Arial,Tahoma,Sans-Serif;
+    font-style: bold;
+    font-size: 27px;
+    font-weight: normal;
+    color: #4AB35F;
+}
+
+.cacheform {
+    color: #030303 !important;
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    margin: 1px !important;
+    text-shadow: none !important;
+    font-size: 15px !important;
+    box-shadow: none !important;
+}

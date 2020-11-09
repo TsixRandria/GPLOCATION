@@ -10,6 +10,7 @@ import Aeroport from './Pages/Aeroport/Aeroport.js';
 import Saint from './Pages/Saint/Saint.js';
 import Condition from './Pages/Condition/Condition.js';
 import Reserver from './Pages/HomePages/Components/Reservation/Reserver/Reserver.js';
+import Profil from './Pages/Login/Profil/Profil';
 
 
 import Mentions from './Pages/Mentions/Mentions.js';
@@ -33,6 +34,8 @@ function App() {
         <Route exact path='/Condition' component={Condition}/>
         <Route exact path='/Mentions-legales' component={Mentions}/>
         <Route exact path='/Reserver/:date_depart/:date_retour/:voiture_id' component={Reserver}/>
+        <Route exact path='/profil' component={Profil}/>
+
           <Footer />  
     </BrowserRouter>
   );

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
 import Voitures from './pages/Voitures/Voitures';
+import Categories from './pages/Category/Categories';
 import Parcourir from './pages/Voitures/Parcourir/Parcourir';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
 import DetailVoiture from './pages/Voitures/DetailVoiture';
@@ -19,7 +20,7 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
-import Table from './pages/Tableau/Table';
+// import Table from './pages/Tableau/Table';
 
 
 class App extends React.Component {
@@ -34,7 +35,7 @@ class App extends React.Component {
                 <Navbar />
                 <Sidebar />
                 <div className="main-container">
-                  
+
                   <Switch>
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/parcourir" component={Parcourir} />
@@ -48,6 +49,7 @@ class App extends React.Component {
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
+                    <Route exact path="/categories" component={Categories} />
                   </Switch>
                 </div>
               </>
