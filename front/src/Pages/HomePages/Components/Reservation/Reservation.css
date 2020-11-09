@@ -132,3 +132,12 @@ font-weight: bold;
 font-size: 37px;
 color: #228dcb;
 }
+.carac-prod{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+}
+.imagePading{
+    padding: 0 5px 0 5px;
+} 

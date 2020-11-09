@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 
-import '/home/eric/Documents/gplocation/front/src/Pages/HomePages/Components/Reservation/Detail/conditonModal.css'
+import '/home/jean-claude/Documents/gplocation/front/src/Pages/HomePages/Components/Reservation/Detail/conditonModal.css'
 
  function ConditionModal(props) {
     return (
