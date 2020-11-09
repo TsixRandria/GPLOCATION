@@ -32,7 +32,7 @@ function App() {
         <Route exact path='/Sainte-Marie' component={Saint}/>
         <Route exact path='/Condition' component={Condition}/>
         <Route exact path='/Mentions-legales' component={Mentions}/>
-        <Route exact path='/Reserver' component={Reserver}/>
+        <Route exact path='/Reserver/:date_depart/:date_retour/:voiture_id' component={Reserver}/>
           <Footer />  
     </BrowserRouter>
   );

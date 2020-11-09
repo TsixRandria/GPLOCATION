@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #client sessio et registration
   resources :clients, only: [:create, :destroy, :update, :index]
   post "/client_login", to: "clients#login"
+  get "/last_client", to: "clients#finder"
 
   resources :reservations
 

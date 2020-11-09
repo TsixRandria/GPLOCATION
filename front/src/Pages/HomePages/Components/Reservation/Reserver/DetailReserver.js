@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import '/home/eric/Documents/gplocation/front/src/Pages/HomePages/Components/Reservation/Reserver/DetailReserver.js'
+import '/home/jean-claude/Documents/gplocation/front/src/Pages/HomePages/Components/Reservation/Reserver/DetailReserver.js'
  function DetailReserver(props) {
 
     const [etat, setEtat] = useState(1);

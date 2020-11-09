@@ -22,10 +22,11 @@ class ClientsController < ApplicationController
     if @client.valid?
       token = encode_token({client_id: @client.id})
       render json: {user: @client, token: token, message: "felicitation, compte valider"}
-      
+      session[:user_id] = @client.id
     else
-      render json: @client.errors, status: :unprocessable_entity
+      render json: {message: 'compte invalide'}, status: :unprocessable_entity
     end
+    
   end
 
   #new_session
@@ -34,11 +35,17 @@ class ClientsController < ApplicationController
 
     if @client.password_digest == params[:password_digest]
       token = encode_token({user_id: @client.id})
-      render json: {client: @client, token: token}
-      
+      render json: {client: @client, token: token, message: 'bonjour, bienvenue'}
+      session[:user_id] = @client.id
     else
-      render json: {error: "Email ou mot de passe incorrect"}, status: 202
+      render json: {message: "Email ou mot de passe incorrect"}, status: 202
     end
+    
+  end
+
+  def finder
+    @session = session[:user_id]
+    render json: {client: @session, message: "welcome to welcome, session"}
   end
 
 
