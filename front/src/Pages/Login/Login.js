@@ -12,16 +12,31 @@ import './Login.css';
 
 const ClientRegistrationSchema = Yup.object().shape({
     nom: Yup.string()
-        .required('Le nom ne doit pas être vide'),
-    prenom: Yup.string()
-
-		.required('Le prenom ne doit pas être vide'),
-	email: Yup.string()
-		.required('l\' Email ne doit pas être vide'),
+		.required('le nom ne doit pas être vide')
+		.min(4, 'Nom invalide')
+		.matches(/([a-z-A-Z])/, 'Le nom ne doit contenir que des lettres'),
+	prenom: Yup.string()
+		.required('le Prenom ne doit pas être vide')
+		.min(4, 'Prenom invalide')
+		.matches(/[a-z]/, 'Le prenom ne doit contenir que des lettres'),
 	telephone: Yup.string()
-		.required('Telephone ne doit pas être vide'),
+		.required('le Numero de telephone ne doit pas être vide')
+		.min(8, 'Numero telephone incomplet')
+		.max(15, 'Numero inconnue')
+		.matches(/([0-9])/, 'Le numero de telephone ne doit contenir que des chiffres'),
+	email: Yup.string()
+		.email('Email invalide,merci de vouloire completé')
+		.required('l \' email ne doit pas être vide')
 
 			
+});
+
+const ClientSession = Yup.object().shape({
+	email: Yup.string()
+		.email('Email invalide,merci de vouloire completé')
+		.required('l \' email ne doit pas être vide'),
+	password_digest: Yup.string()
+		.required('le mot de passe ne doit pas laisser à vide')
 });
 
 
@@ -49,7 +64,10 @@ class Login extends React.Component {
 			</div>
 			<section className="b-contacts s-shadow">
 				<div className="container">
+					{/* { message ? (<div>{message}</div>) : null } */}
 					<div className="row">
+						<div><br/>
+							{ message ? (<div className="alert_message">{message}</div>) : null }</div>
 						<div className="col-xs-6">
 							<div className="b-contacts__form">
 								<div className="b-contacts__address-hours">
@@ -61,21 +79,17 @@ class Login extends React.Component {
 									email: '',
 									password_digest: ''
 								}}
-								validationSchema={ClientRegistrationSchema}
+								validationSchema={ClientSession}
 								onSubmit={(values, { resetForm }) => {
 									axios.post('/client_login', values).then(response => {
 										if (response.status === 200) {
 											resetForm();
-											console.log(values);
-										}
-
-										else if (response.status === 202) {
-											
-											console.log(response.data);
 											this.setState({
 												message: response.data.message
 											});
+											console.log(values);
 										}
+
 									})
 								
 								}}
@@ -88,7 +102,7 @@ class Login extends React.Component {
 										</div>
 										<div>
 											<Field type="password" placeholder="MOT DE PASSE"  name="password_digest" />
-											<ErrorLogin errors={errors} touched={touched} row="password"/>
+											<ErrorLogin errors={errors} touched={touched} row="password_digest"/>
 										</div>
 										<div className="boutton-login">
 										<Link to="/Profil" type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></Link><br/><br/>
@@ -123,7 +137,7 @@ class Login extends React.Component {
 								<div>
 								
 										<div className="transaction text-justify">
-										<div className="login">{ message ? (<div>{message}</div>) : null }
+										<div className="login">
 										<Formik
 										initialValues={{
 											nom: '',
@@ -139,11 +153,14 @@ class Login extends React.Component {
 											axios.post('/clients', values).then(response => {
 												if (response.status === 200) {
 													resetForm();
+													this.setState({
+														message: response.data.message
+													})
 												} else if (response.status === 202) {
 													this.setState({
 														message: response.data.message
 													})
-												}
+												} 
 											})
 										}}
 										>
@@ -178,8 +195,7 @@ class Login extends React.Component {
 														<span className="fa fa-angle-right"></span>
 													</Link>
 												</div>
-												<br/>
-												{ message ? (<div className="alert_message">{message}</div>) : null }	
+													
 											</Form>)}
 										</Formik>
 									</div>

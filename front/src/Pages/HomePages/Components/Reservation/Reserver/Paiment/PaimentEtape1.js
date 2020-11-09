@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
@@ -6,11 +6,22 @@ import ConditionModal from '../../Detail/ConditionModal';
 import DetailReserver from '../DetailReserver'
 
 import './paiment.css';
+import axios from '../../../../../../axios';
 function PaimentEtape1() {
+    const [data, setData] = useState({client: []})
+    useEffect(async () => {
+       
+        const client = await axios.get('http://localhost:4000/last_client')                                                                                                                                                                                                                                                                              
+            .then(response => console.log(response))
+            .then(client => setData(client.data))
+            .catch(error => console.error(error));
+        
+    });
     const [modalShow, setModalShow] = React.useState(false);
+  
     return (
         <div>
-             <div className="col-xs-6">
+            <div className="col-xs-6">
                 <div className="b-contacts__address">
                     <div className="transaction text-justify">
                         <div className="login">
@@ -21,21 +32,22 @@ function PaimentEtape1() {
                                                 <input type="hidden" id="lieu-livraison" name="lieu-livraison" value="Aéroport de la Réunion Roland-Garros" />
                                                     <p class=""><b>Nous vous attendrons dès votre sortie de l'avion, avec votre nom inscrit sur une pancarte.</b></p><br />
                                             <div id="livraison-infosup">
-                                        <label id="lab-livr-infosup" for="livr-infosup">
+                                        <label id="lab-livr-infosup" htmlFor="livr-infosup">
                                             <p class="paddingp">Merci d'indiquer votre numéro de vol et la compagnie :
                                         <input type="text" id="livr-infosup" name="livr-infosup" /></p><br />
                                         </label>
                                     </div>
                                 </div>
                             </form>
+                         
                             <p class="petitp"><strong>Nom :</strong> raharison eric - <strong>Téléphone :</strong> 0341034314<br />
                                     <strong>Email de réception de la réservation :</strong> ericlalainar@gmail.com</p>
                                     <fieldset id="fd_confirm">
-                                        <label for="certifpermis">
+                                        <label htmlFor="certifpermis">
                                         <p><input type="checkbox" id="certifpermis" checked="checked" name="certifpermis" /> Je certifie avoir 21 ans et deux ans de permis*
                                         </p>
                                         </label>
-                                        <label for="conditions">
+                                        <label htmlFor="conditions">
                                         <p><input type="checkbox" id="conditions" checked="checked" name="conditions" /> J'ai lu les conditions générales de location, et j'y adhère sans réserve.* 
                                         
                                             

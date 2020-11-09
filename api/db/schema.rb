@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
   create_table "reservations", force: :cascade do |t|
     t.string "lieuDepart"
     t.string "lieuRetour"
-    t.string "dateDepart"
-    t.string "dateRetour"
-    t.string "heureDepart"
-    t.string "heureRetour"
+    t.date "dateDepart"
+    t.date "dateRetour"
+    t.time "heureDepart"
+    t.time "heureRetour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
