@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import axios from '../../../axios';
 
 
-class AddTarif extends Component {
+class AddTarifDetail extends Component {
     render() {
         return (
             <div>
@@ -14,7 +14,7 @@ class AddTarif extends Component {
                     }}
 
                     onSubmit={(values, { resetForm }) => {
-                        axios.post('/tarifs', values).then(response => {
+                        axios.post('/tarif_details', values).then(response => {
                             if (response.status === 201) {
                                 resetForm();
                                 console.log(values);
@@ -39,4 +39,4 @@ class AddTarif extends Component {
     }
 }
 
-export default AddTarif
+export default AddTarifDetail

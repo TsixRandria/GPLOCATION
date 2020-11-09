@@ -13,8 +13,8 @@ import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
 import DetailVoiture from './pages/Voitures/DetailVoiture';
 import Login from './pages/Login/Login';
 import ClientMessage from './pages/Message/ClientMessage';
-import Tarif from './pages/ConfigurationAgence/Tarif/Tarif';
-import TarifPersonnaliser from './pages/ConfigurationAgence/Tarif/TarifPeronnaliser';
+import Tarifs from './pages/ConfigurationAgence/TarifDeBase/Tarifs';
+import TarifPersonnaliser from './pages/ConfigurationAgence/Tarifpersonnalisé/TarifPeronnaliser';
 import Planning from './pages/Planning/Planning';
 import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence';
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
@@ -45,7 +45,7 @@ class App extends React.Component {
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
-                    <Route exact path="/tarif" component={Tarif} />
+                    <Route exact path="/tarifs" component={Tarifs} />
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />

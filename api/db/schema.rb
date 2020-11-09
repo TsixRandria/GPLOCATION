@@ -101,41 +101,26 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
   end
 
   create_table "tarifs", force: :cascade do |t|
-    t.datetime "date_debut"
-    t.datetime "date_fin"
-    t.bigint "category_id"
+    t.date "date_debut"
+    t.date "date_fin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_tarifs_on_category_id"
-  end
-
-  create_table "voiture_descriptions", force: :cascade do |t|
-    t.string "libelle"
-    t.string "valeur"
-    t.bigint "voiture_id", null: false
-    t.integer "order"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["voiture_id"], name: "index_voiture_descriptions_on_voiture_id"
   end
 
   create_table "voitures", force: :cascade do |t|
+    t.string "image"
     t.string "marque"
     t.string "model"
-
     t.string "places"
     t.string "mode"
     t.string "climatisation"
     t.string "vitesse"
     t.string "portes"
-
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
-
   add_foreign_key "tarif_details", "tarifs"
-
 end

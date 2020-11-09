@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :clients, only: [:create, :destroy, :update, :index]
   post "/client_login", to: "clients#login"
 
-  resources :reservations
+ 
 
   #routes categories
   get '/categories', to: 'categories#index'
@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     resources :voitures 
   #end 
 
+
+  #routes tarifs de base
   resources :tarifs
+  resources :tarif_details
 
 
   resources :contacts
@@ -27,15 +30,17 @@ Rails.application.routes.draw do
   resources :contacts
   resources :admin_users
 
+  #routes admin
   post "/login", to: "admin_users#login"
   get "/auto_login", to: "admin_users#auto_login"
 
-
-  get '/reservations', to: 'reservations#index'
-  post '/reservations', to: 'reservations#create'
-  get '/reservations/:id', to: 'reservations#show'
-  put '/reservations/:id', to: 'reservations#update'
-  delete '/reservations/:id', to: 'reservations#destroy'
+  # #routes reservations
+  # get '/reservations', to: 'reservations#index'
+  # post '/reservations', to: 'reservations#create'
+  # get '/reservations/:id', to: 'reservations#show'
+  # put '/reservations/:id', to: 'reservations#update'
+  # delete '/reservations/:id', to: 'reservations#destroy'
+  resources :reservations
 
   resources :tarif_supplementaires
   resources :tarifs
