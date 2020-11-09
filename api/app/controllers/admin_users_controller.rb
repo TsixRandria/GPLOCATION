@@ -2,7 +2,7 @@ class AdminUsersController < ApplicationController
     before_action :set_utilisateur, only: [:show, :update, :destroy]
     before_action :authorized, only: [:auto_login]
 
-    before_action :authorized
+   # before_action :authorized
     # GET /utilisateurs
     def index
         @utilisateurs = AdminUser.all
@@ -64,7 +64,7 @@ class AdminUsersController < ApplicationController
         @utilisateur = AdminUser.find(params[:id])
     end
 
-    def authorized
-        render json: { message: 'Veuillez vous connecter' }, status: :unauthorized unless logged_in?
-    end
+    # def authorized
+    #     render json: { message: 'Veuillez vous connecter' }, status: :unauthorized unless logged_in?
+    # end
 end

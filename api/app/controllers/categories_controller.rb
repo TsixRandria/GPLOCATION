@@ -1,51 +1,45 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :update, :destroy]
+  # before_action :authorized, only: [:create]
 
   # GET /categories
   def index
-    @categories = Category.all
-
-    render json: @categories
-  end
-
-  # GET /categories/1
-  def show
-    render json: @category
+      @categories = Category.all
+      json_response(@categories)
   end
 
   # POST /categories
   def create
-    @category = Category.new(category_params)
-
-    if @category.save
-      render json: @category, status: :created, location: @category
-    else
-      render json: @category.errors, status: :unprocessable_entity
-    end
+      @category = Category.create!(category_params)
+      json_response(@category, :created)
   end
 
-  # PATCH/PUT /categories/1
+  # GET /categories/:id
+  def show
+      json_response(@category)
+  end
+
+  # PUT /categories/:id
   def update
-    if @category.update(category_params)
-      render json: @category
-    else
-      render json: @category.errors, status: :unprocessable_entity
-    end
+      @category.update(category_params)
+      head :no_content
   end
 
-  # DELETE /categories/1
+  # DELETE /categories/:id
   def destroy
-    @category.destroy
+      @category.destroy
+      head :no_content
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def category_params
-      params.fetch(:category, {}).permit(:name => [])
-    end
+  def category_params
+      # whitelist params
+      params.permit(:ref, :category)
+  end
+
+  def set_category
+      @category = Category.find(params[:id])
+  end
 end
+

@@ -10,7 +10,7 @@ class CreateVoitures < ActiveRecord::Migration[6.0]
       t.string :vitesse
       t.string :portes
       # t.string :status
-      #t.belongs_to :category,, index: true
+      t.belongs_to :category, index: true
 
       t.timestamps
     end

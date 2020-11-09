@@ -1,37 +1,20 @@
 import React, { Component } from 'react';
-import AddVoiture from './AddVoiture';
-import ListeVoiture from './ListeVoiture';
+import AddCategory from './AddCategory';
+import ListeCategory from './ListeCategory';
 import axios from '../../axios';
 
 import Modal from 'react-modal';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
-class Voitures extends Component {
+class Categories extends Component {
     state = {
         addNew: false,
-        voitures: [],
         categories: []
     }
 
     action = {
         toggleModal: (value) => {
             this.setState({ addNew: value })
-        },
-        getVoiture: () => {
-            axios.get('/voitures').then(response => {
-                if (response.status === 200) {
-                    this.setState({
-                        voitures: response.data
-                    })
-                }
-            })
-        },
-        deleteVoiture: (voiture) => {
-            axios.delete(`/voitures/${voiture.id}`).then(response => {
-                if (response.status === 204) {
-                    this.action.getVoiture();
-                }
-            })
         },
         getCategory: () => {
             axios.get('/categories').then(response => {
@@ -42,28 +25,35 @@ class Voitures extends Component {
                 }
             })
         },
+        deleteCategory: (category) => {
+            axios.delete(`/categories/${category.id}`).then(response => {
+                if (response.status === 204) {
+                    this.action.getCategory();
+                }
+            })
+        }
     }
 
 
     render() {
-        // Récupération de la variable voiture depuis le state
-        const { addNew, voitures } = this.state;
+        // Récupération de la variable category depuis le state
+        const { addNew, categories } = this.state;
         return (
             <div className="p-5">
-                <h1 className="mb-2">Gestion des voitures</h1>
+                <h1 className="mb-2">Gestion des catégories</h1>
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    onClick={() => this.action.toggleModal(true)}>Nouvelle voiture</button>
-                <ListeVoiture
+                    onClick={() => this.action.toggleModal(true)}>Nouvelle catégorie</button>
+                <ListeCategory
                     action={{ ...this.action }}
-                    voitures={voitures} />
+                    categories={categories} />
                 <Modal
                     isOpen={addNew}
                     className="modal-modern">
                     <div className="modal-content">
                         <div className="modal-header">
                             <div className="modal-title">
-                                <h2>Insertion d'une nouvelle voiture</h2>
+                                <h2>Insertion d'une nouvelle catégorie de voiture</h2>
                             </div>
                             <div
                                 onClick={() => this.setState({ addNew: false })}
@@ -72,19 +62,19 @@ class Voitures extends Component {
                         <hr className="my-4" />
 
 
-                        <AddVoiture
+                        <AddCategory
                             action={{ ...this.action }} />
                     </div>
                 </Modal>
-                <NavLink to={'/parcourir'}>
+                {/* <NavLink to={'/parcourir'}>
                     <button
                         className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
                     >Parcourir</button>
-                </NavLink>
+                </NavLink> */}
             </div>
         )
     }
 }
 
 
-export default Voitures;
+export default Categories;
