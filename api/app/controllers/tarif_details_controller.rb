@@ -7,7 +7,7 @@ class TarifDetailsController < ApplicationController
   
     # GET /tarif_details
     def index
-      @tarif_details = Tarif.TarifDetail.all
+      @tarif_details = TarifDetail.all
   
       render json: @tarif_details
     end
@@ -19,14 +19,10 @@ class TarifDetailsController < ApplicationController
   
     # POST /tarif_details
     def create
-      @tarif_detail = Tarif.TarifDetail.build(tarif_params)
-     
-  
-      if @tarif_detail.save
-        render json: @tarif_detail, status: :created, location: @tarif_detail
-      else
-        render json: @tarif_detail.errors, status: :unprocessable_entity
-      end
+      @tarif_detail = Tarif.find(tarif_params[:tarif])
+        @paramsmapped = tarif_params
+        @paramsmapped[:tarif] = @tarif_detail
+        @voiture = Detail.create!(@paramsmapped)
     end
   
     # PATCH/PUT /tarif_details/1
@@ -51,6 +47,6 @@ class TarifDetailsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def tarif_params
-       params.permit(:duree, :prix)
+       params.permit(:duree, :prix, :tarif)
       end
   end
