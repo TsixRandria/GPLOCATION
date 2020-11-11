@@ -74,7 +74,7 @@ class ClientMessage extends Component {
                                             <td className="border px-4 py-2">
                                                 <button
                                                     onClick={() => this.deleteMessage(contact)} 
-                                                    claName="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                                                    claName="flex ml-auto text-red bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                                                     Supprimer
                                                 </button>
                                             </td>  
