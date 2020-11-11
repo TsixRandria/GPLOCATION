@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Header from './Pages/Header/Header.js';
 import HomePages from './Pages/HomePages/HomePage.js';
@@ -11,7 +11,7 @@ import Saint from './Pages/Saint/Saint.js';
 import Condition from './Pages/Condition/Condition.js';
 import Reserver from './Pages/HomePages/Components/Reservation/Reserver/Reserver.js';
 import Profil from './Pages/Login/Profil/Profil';
-
+import NotFound from './Pages/404/NotFound'
 
 import Mentions from './Pages/Mentions/Mentions.js';
 
@@ -20,23 +20,24 @@ import Footer from './Pages/Footer/Footer.js';
 //import './App.scss';
 
 
-
 function App() {
   return (
     <BrowserRouter>
         <Header /> 
-        <Route exact path='/' component={HomePages} />
-        <Route exact path='/Contact' component={Contact} />
-        <Route exact path='/Login' component={Login} />
-        {/* <Route exact path='/Signup' component={Signup} /> */}
-        <Route exact path='/Aeroport' component={Aeroport}/>
-        <Route exact path='/Sainte-Marie' component={Saint}/>
-        <Route exact path='/Condition' component={Condition}/>
-        <Route exact path='/Mentions-legales' component={Mentions}/>
-        <Route exact path='/Reserver/:date_depart/:date_retour/:voiture_id' component={Reserver}/>
-        <Route exact path='/profil' component={Profil}/>
-
-          <Footer />  
+        <Switch>
+          <Route exact path='/' component={HomePages} />
+          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/login' component={Login} />
+          {/* <Route exact path='/Signup' component={Signup} /> */}
+          <Route exact path='/aeroport' component={Aeroport}/>
+          <Route exact path='/sainte-marie' component={Saint}/>
+          <Route exact path='/condition' component={Condition}/>
+          <Route exact path='/mentions-legales' component={Mentions}/>
+          <Route exact path='/reserver/:date_depart/:date_retour/:id' component={Reserver}/>
+          <Route exact path='/profil' component={Profil}/>
+          <Route component={NotFound}/>
+        </Switch>
+        <Footer /> 
     </BrowserRouter>
   );
 }

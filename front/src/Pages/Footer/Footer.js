@@ -40,10 +40,10 @@ class Footer extends React.Component {
 				 				           <a href="#voitures" className="text">Nos voitures</a>
 										</div>
 										<div className="b-info__contacts-item">
-				 				           <a href="/Condition" className="text">Conditions générales de location</a>
+				 				           <a href="/condition" className="text">Conditions générales de location</a>
 										</div>
 										<div className="b-info__contacts-item">											
-				 				           <a href="/Signup" className="text">Espace client</a>
+				 				           <a href="/signup" className="text">Espace client</a>
 										</div>
 									</address>
 								</div>
@@ -78,13 +78,13 @@ class Footer extends React.Component {
 									<address className="b-info__contacts wow slideInUp" data-wow-delay="0.3s">
 										<p>Prise en charge</p>
 										<div className="b-info__contacts-item text-justify">
-				 				           <a href="/Aeroport" className="text">Aéroport de la Réunion Roland-Garros</a>
+				 				           <a href="/aeroport" className="text">Aéroport de la Réunion Roland-Garros</a>
 										</div>
 										<div className="b-info__contacts-item">
-				 				           <a href="/Sainte-Marie" className="text">Sainte-Marie</a>
+				 				           <a href="/sainte-marie" className="text">Sainte-Marie</a>
 										</div>
 										<div className="b-info__contacts-item">											
-				 				           <a href="/Mentions-legales" className="text">Mentions légales</a>
+				 				           <a href="/mentions-legales" className="text">Mentions légales</a>
 										</div>
 									</address>
 									
@@ -109,22 +109,22 @@ class Footer extends React.Component {
 								<div className="col-xs-8">
 									<div className="b-footer__content wow slideInRight" data-wow-delay="0.3s">
 										<div className="b-footer__content-social">
-											<a href="#"><span className="fa fa-facebook-square"></span></a>
-											<a href="#"><span className="fa fa-twitter-square"></span></a>
-											<a href="#"><span className="fa fa-google-plus-square"></span></a>
-											<a href="#"><span className="fa fa-instagram"></span></a>
-											<a href="#"><span className="fa fa-youtube-square"></span></a>
-											<a href="#"><span className="fa fa-skype"></span></a>
+											<a href="https://www.facebook.com/"><span className="fa fa-facebook-square"></span></a>
+											<a href="https://twitter.com/"><span className="fa fa-twitter-square"></span></a>
+											<a href="https://www.google.com/"><span className="fa fa-google-plus-square"></span></a>
+											<a href="https://www.instagram.com/accounts/login/"><span className="fa fa-instagram"></span></a>
+											<a href="https://www.youtube.com/"><span className="fa fa-youtube-square"></span></a>
+											<a href="https://www.skype.com/fr/"><span className="fa fa-skype"></span></a>
 										</div>
 										<nav className="b-footer__content-nav">
 											<ul>
 												<li><a href="/">Accueil</a></li>
-												<li><a href="/Aeroport">Aéroport de Roland-Garros</a></li>
-												<li><a href="/Sainte-Marie">Sainte-Marie</a></li>
-												<li><a href="/Condition">Nos Conditions</a></li>
+												<li><a href="/aeroport">Aéroport de Roland-Garros</a></li>
+												<li><a href="/sainte-marie">Sainte-Marie</a></li>
+												<li><a href="/condition">Nos Conditions</a></li>
 												
 												
-												<li><a href="/Contact">Contact</a></li>
+												<li><a href="/contact">Contact</a></li>
 											</ul>
 										</nav>
 									</div>

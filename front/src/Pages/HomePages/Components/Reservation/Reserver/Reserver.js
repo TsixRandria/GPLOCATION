@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
@@ -9,6 +9,7 @@ import axios from '../../../../../axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import ErrorField from '../ErrorField';
+import { CgSlack } from 'react-icons/cg';
 
 const ClientRegistrationSchema = Yup.object().shape({
     nom: Yup.string()
@@ -40,15 +41,25 @@ const ClientSession = Yup.object().shape({
 });
 
 
-function Reserver() {
+function Reserver(propos) {
 
     const [modalShow, setModalShow] = React.useState(false);
     const [etat, setEtat] = useState(1);
+    const [voiture, setVoiture] = React.useState([]);
 
-    const voiture = axios.get('http://localhost:4000/voitures')                                                                                                                                                                                                                                                                              
-        .then(response => console.log(response))
-        .catch(error => console.error(error));
-    
+    useEffect(() => {
+        
+        setVoiture({loading: true});
+        const apiVoiture = (`http://localhost:4000/voitures/${propos.match.params.id}`)
+        fetch(apiVoiture)
+          .then((res) => res.json())
+          .then((data) => {
+            setVoiture({voiture: data});
+            console.log(data);
+          });
+    }, []);   
+    console.log(voiture);    
+    console.log(propos.match.params.id)
     return (
         <div>
             <div className="b-breadCumbs s-shadow wow " >
@@ -59,16 +70,16 @@ function Reserver() {
                 </div>
                 <section className="b-contacts s-shadow">
                     <div className="container">
-                   
                         <div className="row">
                             <div className="col-xs-6">
                                 <div className="b-contacts__form">
                                 <div className="login">
+                                
                                         <form id="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
                                             <div className="b-contacts__address-hours">
-                                            <p className="conf_categ">{voiture.marque}</p>
-                                            <div className="bouttonModif"><Link to="/" className="modifier">Modifier</Link></div>
-                                            <img className="img-responsive center-block" src="media/blog/nissanBlogTwo.jpg" alt="nissan" />
+                                            <p className="conf_categ">{(voiture.voiture && voiture.voiture.marque)}</p>
+                                           
+                                            <img className="img-responsive center-block" src={`http://localhost:4000/${(voiture.voiture && voiture.voiture.image.url)}`} alt="nissan" width="250px" height="220px"/>
                                             <ul className="listeReserve">
                                                 <li className="prise"><span></span><b>Prise en charge à l'aéroport</b></li>
                                                 <li className="prise"><span className="carburant"></span>Carburant : Plein à rendre plein</li>
@@ -89,7 +100,7 @@ function Reserver() {
                                                     onHide={() => setModalShow(false)}
                                                 />
                                             </p>
-                                        </form>
+                                        </form>            
                                     </div>
                                 </div>
                                 <div className="content">
