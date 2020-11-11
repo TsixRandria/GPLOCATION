@@ -23,7 +23,9 @@ const ReservationSchema = Yup.object().shape({
 
 export default class Search extends React.Component {
 	state = {
-		etape: 1
+		etape: 1,
+		voitures: [],
+		date_reservation: {}
 	}
 
 	changerEtape = (newEtape) => {
@@ -34,7 +36,7 @@ export default class Search extends React.Component {
 	
 	
 	render() {
-		const etape = this.state.etape;
+		const { etape, date_reservation } = this.state;
 		return (
 			<>
 
@@ -57,9 +59,12 @@ export default class Search extends React.Component {
 							axios.post('/reservations', values).then(response => {
 								if (response.status === 201) {
 									this.setState({ etape: 2})
-									resetForm();
-								} 
-								else if (response.status === 204) {
+									
+									this.setState({
+										date_reservation: values
+									});
+
+								} else if (response.status === 204) {
 									console.log(response.data);
 								}
 							})
@@ -125,7 +130,7 @@ export default class Search extends React.Component {
 						</Formik>
 					
 					</div>
-					{etape === 2 ? (<Reservation />) : null}
+					{etape === 2 ? (<Reservation date_reservation={date_reservation} />) : null}
 				</div>
 
 

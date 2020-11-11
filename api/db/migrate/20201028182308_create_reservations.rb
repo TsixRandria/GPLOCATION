@@ -3,10 +3,10 @@ class CreateReservations < ActiveRecord::Migration[6.0]
     create_table :reservations do |t|
       t.string :lieuDepart
       t.string :lieuRetour
-      t.string :dateDepart
-      t.string :dateRetour
-      t.string :heureDepart
-      t.string :heureRetour
+      t.date :dateDepart
+      t.date :dateRetour
+      t.time :heureDepart
+      t.time :heureRetour
 
       t.timestamps
     end
