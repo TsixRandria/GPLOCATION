@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from '../../../axios';
-
+import AddTarifDetail from './TarifDetail/AddTarifDetail';
 
 export default class ListeTarif extends Component {
     componentDidMount() {
         const { action } = this.props;
         action.getTarif();
+
         axios.get('/categories').then(response => {
             if (response.status === 200) {
                 this.setState({
@@ -37,9 +38,9 @@ export default class ListeTarif extends Component {
                             <tr>
                                 <th className="border px-4 py-2">Du:</th>
                                 <th className="border px-4 py-2">Au:</th>
-                                <th className="border px-4 py-2">Tarif:</th>
-                                <th className="border px-4 py-2">prix:</th>
-                                <th className="border px-4 py-2">catégorie:</th>
+                                <th className="border px-4 py-2">Durée:</th>
+                                <th className="border px-4 py-2">Prix:</th>
+                                <th className="border px-4 py-2">Catégorie:</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +53,12 @@ export default class ListeTarif extends Component {
                                         <td className="border px-4 py-2">{tarif.prix} £/j</td>
                                         <td className="border px-4 py-2">{tarif.category_id}</td>
                                         <td className="border px-4 py-2">
+                                            <NavLink to={`/tarifs/${tarif.id}/tarif_details`}>
+                                                <button
+                                                    className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
+                                                    onClick={() => this.action.toggleModal(true)}>Nouveau tarif</button>
 
+                                            </NavLink>
                                             <span className="text-red-500 cursor-pointer" onClick={() => action.deleteTarif(tarif)}>Supprimer</span>
                                         </td>
                                     </tr>

@@ -10,8 +10,8 @@ class Tarifs extends Component {
     state = {
         addNew: false,
         tarifs: [],
-        categories: []
-        // tarifDetail:[]
+        categories: [],
+        tarifDetail: []
     }
 
     action = {

@@ -8,7 +8,18 @@ import axios from '../../../../axios';
 // });
 
 class AddTarifDetail extends Component {
+    componentDidMount() {
+        axios.get('/tarifs').then(response => {
+            if (response.status === 200) {
+                this.setState({
+                    tarifs: response.data
+                })
+            }
+        })
+    }
+
     render() {
+        const { tarif, action } = this.props;
         return (
             <div>
 
@@ -19,7 +30,7 @@ class AddTarifDetail extends Component {
                     }}
 
                     onSubmit={(values, { resetForm }) => {
-                        axios.post('/tarif_details', values).then(response => {
+                        axios.post(`/tarifs/${tarif.id}/tarif_details`, values).then(response => {
                             if (response.status === 201) {
                                 resetForm();
                                 console.log(values);
@@ -30,12 +41,12 @@ class AddTarifDetail extends Component {
                 >
                     <Form>
                         <div className="flex">
-                            <label>
+                            <label className="w-12">
                                 Tarif &nbsp; <Field
                                     name="duree"
                                 /> Jour
                             </label> &nbsp;
-                            <label>
+                            <label className="w-16">
                                 <Field
                                     name="prix"
                                 /> £/j

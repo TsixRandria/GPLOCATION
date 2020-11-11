@@ -22,7 +22,7 @@ import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
 import TarifDetails from './pages/ConfigurationAgence/TarifDeBase/TarifDetail/TarifDetails';
 // import Table from './pages/Tableau/Table';
-import TarifApp from './pages/ConfigurationAgence/TarifDeBase/Detail/TarifApp';
+// import TarifApp from './pages/ConfigurationAgence/TarifDeBase/Detail/TarifApp';
 
 class App extends React.Component {
   render() {
@@ -46,13 +46,13 @@ class App extends React.Component {
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
-                    {/* <Route exact path="/tarifs" component={Tarifs} /> */}
-                    <Route exact path="/tarifs" component={TarifApp} />
+                    <Route exact path="/tarifs" component={Tarifs} />
+                    {/* <Route exact path="/tarifs" component={TarifApp} /> */}
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
                     <Route exact path="/categories" component={Categories} />
-                    {/* <Route exact path="/tarif_details" component={TarifDetails} /> */}
+                    <Route exact path="/tarifs/:id/tarif_details" component={TarifDetails} />
                   </Switch>
                 </div>
               </>
