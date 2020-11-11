@@ -39,9 +39,11 @@
 
 
     AdminUser.create(username: 'jean', email: 'jean@gmail.com', password: '1234')
-    Category.create(ref:'R01', category: 'CatA' )
-    Category.create(ref:'R02', category: 'CatB' )
-    Category.create(ref:'R03', category: 'CatC' )
+    Category.create(ref:'R01', category: 'Cat A' )
+    Category.create(ref:'R02', category: 'Cat B' )
+    Category.create(ref:'R03', category: 'Cat C' )
+    Category.create(ref:'R04', category: 'Cat D' )
+    Category.create(ref:'R05', category: 'Cat E' )
 
 
 # 5.times do

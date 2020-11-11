@@ -30,7 +30,7 @@ export default class DetailCategory extends Component {
         // Récupération de l'id depuis le route dynamique
         const id = this.props.match.params.id;
 
-        // Mise à jour de la category selon le champ modifié
+        // Mise à jour de la categorie selon le champ modifié
         let { category } = this.state;
         category[row] = value;
 

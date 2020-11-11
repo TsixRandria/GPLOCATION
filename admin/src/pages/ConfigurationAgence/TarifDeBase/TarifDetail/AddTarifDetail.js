@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik';
-import axios from '../../../axios';
+import axios from '../../../../axios';
 
+// const TarifDetailSchema = Yup.object().shape({
+//     prix: Yup.string()
+//         .required('Veuillez entrer le prix')
+// });
 
 class AddTarifDetail extends Component {
     render() {
@@ -10,6 +14,7 @@ class AddTarifDetail extends Component {
 
                 <Formik
                     initialValues={{
+                        duree: '',
                         prix: ''
                     }}
 
@@ -24,10 +29,19 @@ class AddTarifDetail extends Component {
                     }}
                 >
                     <Form>
-                        <label>
-                            prix :
-                        </label>
-                        <Field name="prix" />
+                        <div className="flex">
+                            <label>
+                                Tarif &nbsp; <Field
+                                    name="duree"
+                                /> Jour
+                            </label> &nbsp;
+                            <label>
+                                <Field
+                                    name="prix"
+                                /> £/j
+                            </label>
+
+                        </div>
                         <div className="flex justify-end">
                             <button type="submit" className="text-white px-4 py-2 bg-blue-500 hover:bg-blue-400">Sauvegarder</button>
                         </div>

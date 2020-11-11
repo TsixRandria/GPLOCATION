@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
 
   def category_params
       # whitelist params
-      params.permit(:ref, :category)
+      params.permit(:ref, :category, :prix)
   end
 
   def set_category

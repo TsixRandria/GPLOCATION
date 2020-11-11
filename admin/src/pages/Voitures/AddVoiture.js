@@ -242,6 +242,7 @@ class AddVoiture extends Component {
                                         Catégorie
                                     </label>
                                     <Field as="select" name="category">
+                                        <option value="null">--</option>
                                         {categories && categories.map(category => {
                                             return <option value={category.id}>{category.category}</option>
                                         })}

@@ -1,60 +1,56 @@
 class TarifDetailsController < ApplicationController
     before_action :set_tarif, only: [:show, :update, :destroy]
   
-    before_action :create do
-      unless self.prix.blank? then self.prix.gsub(/\D/, '').to_i end
-    end
+    # before_action :create do
+    #   unless self.prix.blank? then self.prix.gsub(/\D/, '').to_i end
+    # end
   
-    # GET /tarifs
+    # GET /tarif_details
     def index
-      @tarifs = Tarif.all
+      @tarif_details = Tarif.TarifDetail.all
   
-      render json: @tarifs
+      render json: @tarif_details
     end
   
-    # GET /tarifs/1
+    # GET /tarif_details/1
     def show
-      render json: @tarif
+      render json: @tarif_detail
     end
   
-    # POST /tarifs
+    # POST /tarif_details
     def create
-      @tarif = Tarif.new(tarif_params)
+      @tarif_detail = Tarif.TarifDetail.build(tarif_params)
      
   
-      if @tarif.save
-        render json: tarif, status: :created, location: @tarif
+      if @tarif_detail.save
+        render json: @tarif_detail, status: :created, location: @tarif_detail
       else
-        render json: @tarif.errors, status: :unprocessable_entity
+        render json: @tarif_detail.errors, status: :unprocessable_entity
       end
     end
   
-    def tarif
-      @tarif.to_i
-    end
-  
-    # PATCH/PUT /tarifs/1
+    # PATCH/PUT /tarif_details/1
     def update
-      if @tarif.update(tarif_params)
-        render json: @tarif
+      if @tarif_detail.update(tarif_params)
+        render json: @tarif_detail
       else
-        render json: @tarif.errors, status: :unprocessable_entity
+        render json: @tarif_detail.errors, status: :unprocessable_entity
       end
     end
   
-    # DELETE /tarifs/1
+    # DELETE /tarif_details/1
     def destroy
-      @tarif.destroy
+      @tarif_detail.destroy
     end
   
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_tarif
-        @tarif = Tarif.find(params[:id])
+        @tarif_detail = TarifDetail.find(params[:id])
       end
   
       # Only allow a trusted parameter "white list" through.
       def tarif_params
-        params.fetch(:tarif, {}).permit(:prix => [])
+       params.permit(:duree, :prix)
       end
   end

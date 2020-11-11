@@ -85,12 +85,10 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
   end
 
   create_table "tarif_details", force: :cascade do |t|
-    t.integer "prix"
     t.integer "duree"
-    t.bigint "tarif_id", null: false
+    t.integer "prix"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tarif_id"], name: "index_tarif_details_on_tarif_id"
   end
 
   create_table "tarif_supplementaires", force: :cascade do |t|
@@ -103,8 +101,12 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
   create_table "tarifs", force: :cascade do |t|
     t.date "date_debut"
     t.date "date_fin"
+    t.integer "duree"
+    t.integer "prix"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_tarifs_on_category_id"
   end
 
   create_table "voitures", force: :cascade do |t|
@@ -122,5 +124,4 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
     t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
-  add_foreign_key "tarif_details", "tarifs"
 end

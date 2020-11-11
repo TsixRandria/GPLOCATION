@@ -1,45 +1,34 @@
 import React, { Component } from 'react';
-import AddTarif from './AddTarif';
-import ListeTarif from './ListeTarif';
-import axios from '../../../axios';
+import AddTarifDetail from './AddTarifDetail';
+import ListeTarifDetail from './ListeTarifDetail';
+import axios from '../../../../axios';
 
 import Modal from 'react-modal';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
-class Tarifs extends Component {
+class TarifDetails extends Component {
     state = {
         addNew: false,
-        tarifs: [],
-        categories: []
-        // tarifDetail:[]
+        tarifDetails: []
     }
 
     action = {
         toggleModal: (value) => {
             this.setState({ addNew: value })
         },
-        getTarif: () => {
-            axios.get('/tarifs/').then(response => {
+        getTarifDetail: () => {
+            axios.get('/tarif_details').then(response => {
                 if (response.status === 200) {
                     this.setState({
-                        tarifs: response.data
+                        tarifDetails: response.data
                     })
                 }
             })
         },
-        deleteTarif: (tarif) => {
-            axios.delete(`/tarifs/${tarif.id}`).then(response => {
+        deleteTarifDetail: (tarifDetail) => {
+            axios.delete(`/tarif_details/${tarifDetail.id}`).then(response => {
                 if (response.status === 204) {
-                    this.action.getTarif();
-                }
-            })
-        },
-        getCategory: () => {
-            axios.get('/categories').then(response => {
-                if (response.status === 200) {
-                    this.setState({
-                        categories: response.data
-                    })
+                    this.action.getTarifDetail();
                 }
             })
         },
@@ -48,23 +37,23 @@ class Tarifs extends Component {
 
     render() {
         // Récupération de la variable tarif depuis le state
-        const { addNew, tarifs } = this.state;
+        const { addNew, tarifDetails } = this.state;
         return (
             <div className="p-5">
                 <h1 className="text-center">Gestion de Tarif de base</h1>
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
                     onClick={() => this.action.toggleModal(true)}>Nouveau tarif</button>
-                <ListeTarif
+                <ListeTarifDetail
                     action={{ ...this.action }}
-                    tarifs={tarifs} />
+                    tarifDetails={tarifDetails} />
                 <Modal
                     isOpen={addNew}
                     className="modal-modern">
                     <div className="modal-content">
                         <div className="modal-header">
                             <div className="modal-title">
-                                <h2>Insertion du nouveau tarif</h2>
+                                <h2>Insertion du nouveau détail du tarif</h2>
                             </div>
                             <div
                                 onClick={() => this.setState({ addNew: false })}
@@ -73,7 +62,7 @@ class Tarifs extends Component {
                         <hr className="my-4" />
 
 
-                        <AddTarif
+                        <AddTarifDetail
                             action={{ ...this.action }} />
                     </div>
                 </Modal>
@@ -83,4 +72,4 @@ class Tarifs extends Component {
 }
 
 
-export default Tarifs;
+export default TarifDetails;

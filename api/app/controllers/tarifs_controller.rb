@@ -10,7 +10,10 @@ class TarifsController < ApplicationController
 
   # POST /tarifs
   def create
-      @tarif = Tarif.create!(tarif_params)
+      @category = Category.find(tarif_params[:category])
+      @paramsmapped = tarif_params
+      @paramsmapped[:category] = @category
+      @tarif = Tarif.create!(@paramsmapped)
       json_response(@tarif, :created)
   end
 
@@ -35,7 +38,7 @@ class TarifsController < ApplicationController
 
   def tarif_params
       # whitelist params
-      params.permit(:date_debut, :date_fin)
+      params.permit(:date_debut, :date_fin, :duree, :prix, :category)
   end
 
   def set_tarif
