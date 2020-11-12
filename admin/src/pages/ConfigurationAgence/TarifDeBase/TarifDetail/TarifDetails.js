@@ -8,13 +8,13 @@ import Modal from 'react-modal';
 
 class TarifDetails extends Component {
     state = {
-        addNew: false,
+        addNewDetail: false,
         tarifDetails: []
     }
 
     action = {
         toggleModal: (value) => {
-            this.setState({ addNew: value })
+            this.setState({ addNewDetail: value })
         },
         getTarifDetail: () => {
             axios.get('/tarif_details').then(response => {
@@ -37,7 +37,7 @@ class TarifDetails extends Component {
 
     render() {
         // Récupération de la variable tarif depuis le state
-        const { addNew, tarifDetails } = this.state;
+        const { addNewDetail, tarifDetails } = this.state;
         return (
             <div className="p-5">
                 <h1 className="text-center">Gestion de Tarif de base</h1>
@@ -48,7 +48,7 @@ class TarifDetails extends Component {
                     action={{ ...this.action }}
                     tarifDetails={tarifDetails} />
                 <Modal
-                    isOpen={addNew}
+                    isOpen={addNewDetail}
                     className="modal-modern">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -56,7 +56,7 @@ class TarifDetails extends Component {
                                 <h2>Insertion du nouveau détail du tarif</h2>
                             </div>
                             <div
-                                onClick={() => this.setState({ addNew: false })}
+                                onClick={() => this.setState({ addNewDetail: false })}
                                 className="modal-close">X</div>
                         </div>
                         <hr className="my-4" />

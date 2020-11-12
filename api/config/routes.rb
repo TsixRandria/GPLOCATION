@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
 
   #routes tarifs de base
-  resources :tarifs
+  resources :tarifs do
   resources :tarif_details
-
+  end
 
   resources :contacts
   

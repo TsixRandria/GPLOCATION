@@ -19,10 +19,11 @@ class TarifDetailsController < ApplicationController
   
     # POST /tarif_details
     def create
-      @tarif_detail = Tarif.find(tarif_params[:tarif])
-        @paramsmapped = tarif_params
-        @paramsmapped[:tarif] = @tarif_detail
-        @voiture = Detail.create!(@paramsmapped)
+     @tarif = Tarif.find(tarif_params[:tarif_id])
+      @paramsmapped = tarif_params
+      @paramsmapped[:tarif] =@tarif
+      @tarif_detail = TarifDetail.create!(@paramsmapped)
+      json_response(@tarif_detail, :created)
     end
   
     # PATCH/PUT /tarif_details/1
@@ -47,6 +48,6 @@ class TarifDetailsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def tarif_params
-       params.permit(:duree, :prix, :tarif)
+       params.permit(:duree, :prix, :tarif_id)
       end
   end

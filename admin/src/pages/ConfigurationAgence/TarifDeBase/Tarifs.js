@@ -9,14 +9,19 @@ import { NavLink } from 'react-router-dom';
 class Tarifs extends Component {
     state = {
         addNew: false,
+        addNewDetail: false,
         tarifs: [],
         categories: [],
-        tarifDetail: []
+        tarifDetails: []
     }
 
     action = {
         toggleModal: (value) => {
             this.setState({ addNew: value })
+        },
+
+        toggleModal: (value) => {
+            this.setState({ addNewDetail: value })
         },
         getTarif: () => {
             axios.get('/tarifs/').then(response => {
@@ -54,7 +59,7 @@ class Tarifs extends Component {
                 <h1 className="text-center">Gestion de Tarif de base</h1>
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    onClick={() => this.action.toggleModal(true)}>Nouveau tarif</button>
+                    onClick={() => this.action.toggleModal(true)}>Autres périodes</button>
                 <ListeTarif
                     action={{ ...this.action }}
                     tarifs={tarifs} />

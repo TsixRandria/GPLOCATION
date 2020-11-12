@@ -19,16 +19,23 @@ export default class ListeTarif extends Component {
     }
 
     state = {
-        categories: []
+        categories: [],
+        // addNew: false,
+        // tarifDetails: []
     }
 
+    // action = {
+    //     toggleModal: (value) => {
+    //         this.setState({ addNewDetai: value })
+    //     },
+    // }
 
     render() {
         const { categories } = this.state;
         // console.log(this.props, categories)
         const { tarifs, action } = this.props;
         console.log(tarifs)
-
+        // const { addNewDetail, tarifDetails } = this.state;
         return (
             <div className="py-4">
                 <h2>Liste des tarifs</h2>
@@ -53,10 +60,9 @@ export default class ListeTarif extends Component {
                                             <NavLink to={`/tarifs/${tarif.id}/tarif_details`}>
                                                 <button
                                                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                                                    onClick={() => this.props.action.toggleModal(true)}>Ajouter un tarif</button>
-
+                                                >Nouveau tarif</button>
+                                                <span className="text-red-500 cursor-pointer" onClick={() => action.deleteTarif(tarif)}>Supprimer</span>
                                             </NavLink>
-                                            <span className="text-red-500 cursor-pointer" onClick={() => action.deleteTarif(tarif)}>Supprimer</span>
                                         </td>
                                     </tr>
 
