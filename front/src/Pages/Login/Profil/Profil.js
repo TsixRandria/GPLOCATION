@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './Profil.css';
 class Profil extends Component {
+
+
     render() {
+        let propos = this.props;
         return (
             <div>
 
                 <section className="b-contacts s-shadow">
                     <div className="container">
-                   
+                        {console.log(this.props.panjifa)}
                         <div className="row">
                             <div className="col-xs-6">
                                 <div className="b-contacts__form">
@@ -17,16 +20,16 @@ class Profil extends Component {
                                         <div className="contentTitle">
                                         <h2>Mes coordonnées</h2>
                                         </div>
-                                        <form id="contactForm" className="contactForm" novalidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
+                                        <form id="contactForm" className="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
                                             <div className="paddingp">
                                                 <b>Nom :</b>
-                                                <input type="text" class="cacheform" id="nom" name="nom" value="tsiory" />
+                                                <input type="text" className="cacheform" id="nom" name="nom" value="tsiory" />
                                                 <b>Prénom :</b>
-                                                <input type="text" class="cacheform cc_cursor" id="prenom" value="marco" name="prenom" />
+                                                <input type="text" className="cacheform cc_cursor" id="prenom" value="marco" name="prenom" />
                                                 <b>Email :</b>
-                                                <input type="text" class="cacheform hack_email_modifcompte cc_cursor" id="email1" value="tsiro@gmail.com" name="email1" />
+                                                <input type="text" className="cacheform hack_email_modifcompte cc_cursor" id="email1" value="tsiro@gmail.com" name="email1" />
                                                 <b>Téléphone :</b>
-                                                <input type="text" class="cacheform" id="telfixe" value="02400021" name="telfixe" />
+                                                <input type="text" className="cacheform" id="telfixe" value="02400021" name="telfixe" />
                                             </div>
                                         </form>
                                         </div>
@@ -42,7 +45,7 @@ class Profil extends Component {
                                         <div className="contentTitle">
                                         <h2>Modifier mon mot de passe</h2>
                                         </div>
-                                            <form id="contactForm" className="contactForm" novalidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
+                                            <form id="contactForm" className="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
                                                 <input type="text" placeholder="Nouveau Mot de passe*" value="" name="user-phone" id="user-phone" />
                                                 <input type="text" placeholder="Confirmation*" value="" name="user-phone" id="user-phone" />
                                                 

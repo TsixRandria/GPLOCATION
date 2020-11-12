@@ -36,6 +36,7 @@ class ClientsController < ApplicationController
     @client = Client.find_by_email(params[:email])
 
     if @client.password_digest == params[:password_digest]
+      
       token = encode_token({user_id: @client.id})
       render json: {client: @client, token: token, message: 'bonjour, bienvenue'}
       session[:current_user_id] = @client.id

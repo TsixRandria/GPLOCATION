@@ -46,6 +46,7 @@ function Reserver(propos) {
     const [modalShow, setModalShow] = React.useState(false);
     const [etat, setEtat] = useState(1);
     const [voiture, setVoiture] = React.useState([]);
+    const [client, setClient] = React.useState([])
 
     useEffect(() => {
         
@@ -143,7 +144,9 @@ function Reserver(propos) {
                                                 console.log("Test");
                                                 axios.post('/clients', values).then(response => {
                                                     if (response.status === 200) {
-                                                        resetForm();
+                                                        setClient({
+                                                            client: values
+                                                        })
                                                         console.log(values);
                                                         setEtat(3)
                                                         
@@ -215,7 +218,9 @@ function Reserver(propos) {
                                                 onSubmit={(values, { resetForm }) => {
                                                     axios.post('/client_login', values).then(response => {
                                                         if (response.status === 200) {
-                                                            resetForm();
+                                                            setClient({
+                                                                client: response.data.client
+                                                            })
                                                             console.log(values);
                                                             setEtat(3)
                                                         }
@@ -253,7 +258,7 @@ function Reserver(propos) {
                                 </div>
                             ) : null } 
                             { etat === 3 ? (
-                                <PaimentEtape1 />
+                                <PaimentEtape1 client={client}/>
                             ) : null } 
                         </div>
                     </div>
