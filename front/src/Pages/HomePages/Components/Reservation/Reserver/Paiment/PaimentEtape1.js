@@ -7,16 +7,17 @@ import DetailReserver from '../DetailReserver'
 
 import './paiment.css';
 import axios from '../../../../../../axios';
-function PaimentEtape1() {
-    const [data, setData] = useState({client: []})
-    useEffect(async () => {
+function PaimentEtape1(props) {
+    // const [data, setData] = useState({client: []})
+
+    // useEffect(async () => {
        
-        const client = await axios.get('http://localhost:4000/last_client')                                                                                                                                                                                                                                                                              
-            .then(response => console.log(response))
-            .then(client => setData(client.data))
-            .catch(error => console.error(error));
+    //     const client = await axios.get('http://localhost:4000/last_client')                                                                                                                                                                                                                                                                              
+    //         .then(response => console.log(response))
+    //         .then(client => setData(client.data))
+    //         .catch(error => console.error(error));
         
-    });
+    // });
     const [modalShow, setModalShow] = React.useState(false);
   
     return (
@@ -39,9 +40,9 @@ function PaimentEtape1() {
                                     </div>
                                 </div>
                             </form>
-                         
-                            <p class="petitp"><strong>Nom :</strong> raharison eric - <strong>Téléphone :</strong> 0341034314<br />
-                                    <strong>Email de réception de la réservation :</strong> ericlalainar@gmail.com</p>
+                            {console.log(props.client)}
+                            <p class="petitp"><strong>Nom :</strong> {(props.client.client.nom)} {(props.client.client.prenom)}- <strong>Téléphone :</strong> {(props.client.client.telephone)}<br />
+                                    <strong>Email de réception de la réservation :</strong>{(props.client.client.email)}</p>
                                     <fieldset id="fd_confirm">
                                         <label htmlFor="certifpermis">
                                         <p><input type="checkbox" id="certifpermis" checked="checked" name="certifpermis" /> Je certifie avoir 21 ans et deux ans de permis*
@@ -67,7 +68,7 @@ function PaimentEtape1() {
                                 <h3 class="paiementcarte cc_cursor">Paiement sécurisé par carte bancaire :</h3>
                                 <ul id="moyenpaiement">
                                     <li>
-                                        <a href="https://www.gplocation.fr/?fond=commande&amp;action=paiement&amp;type_paiement=51&amp;paiementpartiel=1">
+                                        <a href="https://mercanet.bnpparibas.net/cgis-payment-mercanet/prod/callpayment">
                                             <img className="img-responsive" src="media/750x300/carte-bancaire.png" alt="jaguar" /></a>
                                     </li>
                                 </ul>
