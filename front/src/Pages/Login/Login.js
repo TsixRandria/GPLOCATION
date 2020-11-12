@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -45,12 +45,16 @@ class Login extends React.Component {
 		super(propos);
 
 		this.state = {
-			message: null
+			message: null,
+			etape: '',
+			client: {}
 		}
 	}
 
 	render() {
 		const message = this.state.message;
+		const etape = this.state.etape;
+		const panjifa = this.state.client;
 		return (
 
 			<>
@@ -83,11 +87,18 @@ class Login extends React.Component {
 								onSubmit={(values, { resetForm }) => {
 									axios.post('/client_login', values).then(response => {
 										if (response.status === 200) {
-											resetForm();
+											
 											this.setState({
 												message: response.data.message
-											});
-											console.log(values);
+											})
+
+											this.setState({
+												etape: 2,
+												client: response.data.client
+											})
+
+											console.log(response.data.client)
+											
 										}
 
 									})
@@ -95,7 +106,7 @@ class Login extends React.Component {
 								}}
 								>
 								{({ errors, touched, handleSubmit }) => (
-									<Form id="contactForm"novalidate className="s-form wow zoomInUp" onSubmit={handleSubmit} >
+									<Form id="contactForm"noValidate className="s-form wow zoomInUp" onSubmit={handleSubmit} >
 										<div>
 											<Field type="email" placeholder="EMAIL"  name="email" className="email_field" />
 											<ErrorLogin errors={errors} touched={touched} row="email"/>
@@ -105,26 +116,26 @@ class Login extends React.Component {
 											<ErrorLogin errors={errors} touched={touched} row="password_digest"/>
 										</div>
 										<div className="boutton-login">
-										<Link to="/Profil" type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></Link><br/><br/>
+										<button type="submit" className="btn m-btn">Valider<span className="fa fa-angle-right"></span></button><br/><br/>
 										<span ><a href="#" className="oublier">Mot de passe oublié ?</a></span>
 										</div>
 									</Form>)}
 								</Formik>
-								</div>	
+								</div>
+									
 							</div>
 							<div className="content">
 								<div className="transaction text-justify">
 									<div className="content-title">
 										<h1 className="title-1">Sécurité de paiement</h1>
-
-
-				
 									</div>
+									<fieldset>
 									<p className="text-1">
 										<div className="col-sm-4"><img className="img-responsive" src="images/elements/1.png" alt="" /></div>Les transactions PayPlug sont effectuées sur un lien HTTPS établi entre le client et le serveur de paiement. Les données sensibles, telles que le numéro de carte bancaire du client et sa date d'expiration, sont entièrement cryptées et protégées grâce à un protocole SSL afin d'empêcher que les informations échangées puissent être interceptées en clair par un tiers au cours de la transaction.<br />
 										Les numéros de cartes sont cryptés instantanément et ne sont pas accessibles par GP Location. De plus, PayPlug ne conserve pas les numéros de carte et s'appuie sur une infrastructure sécurisée agréée par Visa, Mastercard, et le Groupement des Cartes Bancaires selon la norme PCI-DSS au même titre que les meilleures solutions de paiement proposées par les autres banques.<br />
 										Toutes les pages du site web PayPlug, ainsi que les liens de transmission sont sécurisés en SSL et bénéficient d'un certificat de sécurité Thawte Extended Validation.
 									</p>
+									</fieldset>
 								</div>
 							</div>
 
@@ -155,7 +166,13 @@ class Login extends React.Component {
 													resetForm();
 													this.setState({
 														message: response.data.message
+													});
+
+													this.setState({
+														etape: 2
 													})
+
+													// (<Redirect to='/profil'/>)
 												} else if (response.status === 202) {
 													this.setState({
 														message: response.data.message
@@ -190,10 +207,10 @@ class Login extends React.Component {
 												
 												<p>* Champs obligatoires</p>
 												<div className="boutton-login">
-													<Link to="/profil" type="submit" className="btn m-btn">
+													<button type="submit" className="btn m-btn">
 														Valider
 														<span className="fa fa-angle-right"></span>
-													</Link>
+													</button>
 												</div>
 													
 											</Form>)}
@@ -215,11 +232,11 @@ class Login extends React.Component {
 									</div>
 
 								</div>
-									
+							
 							</div>
 						</div>
 					</div>
-
+					{etape == 2 ? (<Redirect to='/profil' voila={panjifa}/>) : null}
 				</div>
 			</section>			
 

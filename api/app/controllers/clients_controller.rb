@@ -1,7 +1,9 @@
 class ClientsController < ApplicationController
   include BCrypt
+  
   before_action :set_client, only: [:show, :update, :destroy]
   # before_action :auto_login
+ 
 
   # GET /clients
   def index
@@ -22,7 +24,7 @@ class ClientsController < ApplicationController
     if @client.valid?
       token = encode_token({client_id: @client.id})
       render json: {user: @client, token: token, message: "felicitation, compte valider"}
-      session[:user_id] = @client.id
+      session[:current_user_id] = @client.id
     else
       render json: {message: 'compte invalide'}, status: :unprocessable_entity
     end
@@ -34,9 +36,10 @@ class ClientsController < ApplicationController
     @client = Client.find_by_email(params[:email])
 
     if @client.password_digest == params[:password_digest]
+      
       token = encode_token({user_id: @client.id})
       render json: {client: @client, token: token, message: 'bonjour, bienvenue'}
-      session[:user_id] = @client.id
+      session[:current_user_id] = @client.id
     else
       render json: {message: "Email ou mot de passe incorrect"}, status: 202
     end
@@ -44,8 +47,9 @@ class ClientsController < ApplicationController
   end
 
   def finder
-    @session = session[:user_id]
-    render json: {client: @session, message: "welcome to welcome, session"}
+    current_user = Client.find_by(session[:current_user_id])
+
+    render json: {client: current_user, message: "welcome to welcome, session"}
   end
 
 
@@ -60,7 +64,9 @@ class ClientsController < ApplicationController
 
   # DELETE /clients/1
   def destroy
-    @client.destroy
+    session[:current_user_id] = nil
+    render json: {message: "vous etes deconnecter"}
+    # @client.destroy
     head :no_content
   end
 
@@ -84,6 +90,8 @@ class ClientsController < ApplicationController
     def set_client
       @client = Client.find(params[:id])
     end
+
+   
 
     # Only allow a trusted parameter "white list" through.
     def client_params
