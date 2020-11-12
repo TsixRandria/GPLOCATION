@@ -38,8 +38,7 @@ export default class ListeTarif extends Component {
                             <tr>
                                 <th className="border px-4 py-2">Du:</th>
                                 <th className="border px-4 py-2">Au:</th>
-                                <th className="border px-4 py-2">Durée:</th>
-                                <th className="border px-4 py-2">Prix:</th>
+
                                 <th className="border px-4 py-2">Catégorie:</th>
                             </tr>
                         </thead>
@@ -49,14 +48,12 @@ export default class ListeTarif extends Component {
                                     <tr>
                                         <td className="border px-4 py-2">{tarif.date_debut}</td>
                                         <td className="border px-4 py-2">{tarif.date_fin}</td>
-                                        <td className="border px-4 py-2">{tarif.duree} jour(s)</td>
-                                        <td className="border px-4 py-2">{tarif.prix} £/j</td>
                                         <td className="border px-4 py-2">{tarif.category_id}</td>
                                         <td className="border px-4 py-2">
                                             <NavLink to={`/tarifs/${tarif.id}/tarif_details`}>
                                                 <button
                                                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                                                    onClick={() => this.action.toggleModal(true)}>Nouveau tarif</button>
+                                                    onClick={() => this.props.action.toggleModal(true)}>Ajouter un tarif</button>
 
                                             </NavLink>
                                             <span className="text-red-500 cursor-pointer" onClick={() => action.deleteTarif(tarif)}>Supprimer</span>

@@ -20,7 +20,7 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
-import TarifDetails from './pages/ConfigurationAgence/TarifDeBase/TarifDetail/TarifDetails';
+import AddTarifDetail from './pages/ConfigurationAgence/TarifDeBase/TarifDetail/AddTarifDetail';
 // import Table from './pages/Tableau/Table';
 // import TarifApp from './pages/ConfigurationAgence/TarifDeBase/Detail/TarifApp';
 
@@ -52,7 +52,7 @@ class App extends React.Component {
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
                     <Route exact path="/categories" component={Categories} />
-                    <Route exact path="/tarifs/:id/tarif_details" component={TarifDetails} />
+                    <Route exact path="/tarifs/:id/tarif_details" component={AddTarifDetail} />
                   </Switch>
                 </div>
               </>

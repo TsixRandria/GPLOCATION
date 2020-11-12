@@ -38,8 +38,6 @@ class AddTarif extends Component {
                     initialValues={{
                         date_debut: '',
                         date_fin: '',
-                        duree: '',
-                        prix: '',
                         categories: null
                     }}
                     validationSchema={TarifSchema}
@@ -70,24 +68,6 @@ class AddTarif extends Component {
                                 </div>
                             </div>
 
-                            <div className="mb-2 mr-4 flex">
-                                <label className="block text-gray-700 font-bold mb-1 md:mb-0 w-1/2">
-                                    Tarif
-                                            <Field
-                                        name="duree"
-                                        className="text-center bg-gray-200 appearance-none border-2 border-gray-200 rounded w-12 py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" /> jour(s)
-
-                                </label> &nbsp; &nbsp;
-
-                                <label className="block text-gray-700 font-bold mb-1 md:mb-0 w-1/2">
-                                    Montant:
-                                            <Field
-                                        name="prix"
-                                        className="text-center bg-gray-200 appearance-none border-2 border-gray-200 rounded w-16 py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" /> £/j
-
-                                </label>
-
-                            </div>
                             <div className="mb-2 ">
                                 <label className="block text-gray-700 font-bold mb-1 md:mb-0">
                                     Catégorie

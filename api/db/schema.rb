@@ -103,8 +103,6 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
   create_table "tarifs", force: :cascade do |t|
     t.date "date_debut"
     t.date "date_fin"
-    t.integer "duree"
-    t.integer "prix"
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

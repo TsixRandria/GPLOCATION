@@ -18,6 +18,7 @@ class AddTarifDetail extends Component {
         })
     }
 
+
     render() {
         const { tarif, action } = this.props;
         return (
@@ -26,7 +27,8 @@ class AddTarifDetail extends Component {
                 <Formik
                     initialValues={{
                         duree: '',
-                        prix: ''
+                        prix: '',
+                        tarif: this.props,
                     }}
 
                     onSubmit={(values, { resetForm }) => {

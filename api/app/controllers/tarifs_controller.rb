@@ -38,7 +38,7 @@ class TarifsController < ApplicationController
 
   def tarif_params
       # whitelist params
-      params.permit(:date_debut, :date_fin, :duree, :prix, :category)
+      params.permit(:date_debut, :date_fin, :category)
   end
 
   def set_tarif
