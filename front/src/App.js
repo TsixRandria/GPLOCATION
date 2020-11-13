@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Header from './Pages/Header/Header.js';
@@ -14,32 +14,54 @@ import Profil from './Pages/Login/Profil/Profil';
 import NotFound from './Pages/404/NotFound'
 
 import Mentions from './Pages/Mentions/Mentions.js';
+import axios from './axios';
 
 import Footer from './Pages/Footer/Footer.js';
 
 //import './App.scss';
+// import React, { Component } from 'react'
 
+export default class App extends Component {
+  state = [
+    
+  ];
 
-function App() {
-  return (
-    <BrowserRouter>
-        <Header /> 
-        <Switch>
-          <Route exact path='/' component={HomePages} />
-          <Route exact path='/contact' component={Contact} />
-          <Route exact path='/login' component={Login} />
-          {/* <Route exact path='/Signup' component={Signup} /> */}
-          <Route exact path='/aeroport' component={Aeroport}/>
-          <Route exact path='/sainte-marie' component={Saint}/>
-          <Route exact path='/condition' component={Condition}/>
-          <Route exact path='/mentions-legales' component={Mentions}/>
-          <Route exact path='/reserver/:date_depart/:date_retour/:id' component={Reserver}/>
-          <Route exact path='/profil' component={Profil}/>
-          <Route component={NotFound}/>
-        </Switch>
-        <Footer /> 
-    </BrowserRouter>
-  );
+  componentDidMount = () => {
+    axios.put(`/clients/${sessionStorage.id}`).then(response => {
+      if (response.status === 200) {
+        
+        this.setState({
+          user: response.data
+        })
+
+        console.log(response.data)
+      }
+      {console.log(this.state.user.nom)}
+    })
+  };
+  
+  render() {
+    return (
+      
+      <BrowserRouter>
+          <Header client={this.state.user}/> 
+          <Switch>
+            <Route exact path='/' component={HomePages} />
+            <Route exact path='/contact' component={Contact} />
+            <Route exact path='/login' component={Login} />
+            {/* <Route exact path='/Signup' component={Signup} /> */}
+            <Route exact path='/aeroport' component={Aeroport}/>
+            <Route exact path='/sainte-marie' component={Saint}/>
+            <Route exact path='/condition' component={Condition}/>
+            <Route exact path='/mentions-legales' component={Mentions}/>
+            <Route exact path='/reserver/:date_depart/:date_retour/:id' component={Reserver}/>
+            <Route exact path='/profil' component={() => <Profil client={this.state.user}/>} />
+            <Route component={NotFound}/>
+          </Switch>
+          <Footer /> 
+      </BrowserRouter>
+    )
+  }
 }
 
-export default App;
+
