@@ -20,9 +20,6 @@ class Tarifs extends Component {
             this.setState({ addNew: value })
         },
 
-        toggleModal: (value) => {
-            this.setState({ addNewDetail: value })
-        },
         getTarif: () => {
             axios.get('/tarifs/').then(response => {
                 if (response.status === 200) {

@@ -15,11 +15,11 @@ class AddTarifDetail extends Component {
         tarifDetails: []
     }
 
-    action = {
-        toggleModal: (value) => {
-            this.setState({ addNewDetail: value })
-        },
-    }
+    // action = {
+    //     toggleModal: (value) => {
+    //         this.setState({ addNewDetail: value })
+    //     },
+    // }
     render() {
         // const { tarif, action } = this.props;
         const { addNewDetail, tarifDetails } = this.state;
