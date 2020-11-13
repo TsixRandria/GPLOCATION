@@ -3,8 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 //import ImageUploader from 'react-images-upload';
 
-import ErrorField from '../../components/ErrorField/ErrorField';
-import axios from '../../axios';
+import ErrorField from '../../../components/ErrorField/ErrorField';
+import axios from '../../../axios';
 //import AddCategory from '../Category/AddCategory';
 
 const VoitureSchema = Yup.object().shape({

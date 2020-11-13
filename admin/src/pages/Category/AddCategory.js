@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-//import ImageUploader from 'react-images-upload';
-
 import ErrorField from '../../components/ErrorField/ErrorField';
 import axios from '../../axios';
-//import Category from '../Category/Category';
 
 const CategorySchema = Yup.object().shape({
     // image: Yup.string()

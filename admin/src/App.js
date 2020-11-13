@@ -6,11 +6,11 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
-import Voitures from './pages/Voitures/Voitures';
+import Voitures from './pages/Category/Voitures/Voitures';
 import Categories from './pages/Category/Categories';
-import Parcourir from './pages/Voitures/Parcourir/Parcourir';
+import Parcourir from './pages/Category/Voitures/Parcourir/Parcourir';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
-import DetailVoiture from './pages/Voitures/DetailVoiture';
+import DetailVoiture from './pages/Category/Voitures/DetailVoiture';
 import Login from './pages/Login/Login';
 import ClientMessage from './pages/Message/ClientMessage';
 import Tarif from './pages/ConfigurationAgence/Tarif/Tarif';
@@ -18,7 +18,7 @@ import TarifPersonnaliser from './pages/ConfigurationAgence/Tarif/TarifPeronnali
 import Planning from './pages/Planning/Planning';
 import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence';
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
-import Editer from './pages/Voitures/Parcourir/Editer/Editer';
+import Editer from './pages/Category/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
 // import Table from './pages/Tableau/Table';
 
@@ -37,7 +37,7 @@ class App extends React.Component {
                 <div className="main-container">
 
                   <Switch>
-                    <Route exact path="/voitures" component={Voitures} />
+                    <Route exact path="/vehicules" component={Categories} />
                     <Route exact path="/parcourir" component={Parcourir} />
                     <Route exact path="/editer" component={Editer} />
                     <Route exact path="/configuration_agence" component={ConfigurationAgence} />
@@ -49,7 +49,7 @@ class App extends React.Component {
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
-                    <Route exact path="/categories" component={Categories} />
+                    <Route exact path="/voitures" component={Voitures} />
                   </Switch>
                 </div>
               </>
