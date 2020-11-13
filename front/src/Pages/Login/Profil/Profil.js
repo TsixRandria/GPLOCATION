@@ -11,8 +11,9 @@ class Profil extends Component {
 
                 <section className="b-contacts s-shadow">
                     <div className="container">
-                        {console.log(this.props.panjifa)}
+                        
                         <div className="row">
+                        
                             <div className="col-xs-6">
                                 <div className="b-contacts__form">
                                     <div className="login">
@@ -20,18 +21,20 @@ class Profil extends Component {
                                         <div className="contentTitle">
                                         <h2>Mes coordonnées</h2>
                                         </div>
-                                        <form id="contactForm" className="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
-                                            <div className="paddingp">
-                                                <b>Nom :</b>
-                                                <input type="text" className="cacheform" id="nom" name="nom" value="tsiory" />
-                                                <b>Prénom :</b>
-                                                <input type="text" className="cacheform cc_cursor" id="prenom" value="marco" name="prenom" />
-                                                <b>Email :</b>
-                                                <input type="text" className="cacheform hack_email_modifcompte cc_cursor" id="email1" value="tsiro@gmail.com" name="email1" />
-                                                <b>Téléphone :</b>
-                                                <input type="text" className="cacheform" id="telfixe" value="02400021" name="telfixe" />
-                                            </div>
-                                        </form>
+                                        
+                                            <form id="contactForm" className="contactForm" noValidate className="s-form wow zoomInUp" data-wow-delay="0.5s">
+                                                <div className="paddingp">
+                                                    <b>Nom :</b>
+                                                    <input type="text" className="cacheform" id="nom" name="nom" value={this.props.client && this.props.client.nom} />
+                                                    <b>Prénom :</b>
+                                                    <input type="text" className="cacheform cc_cursor" id="prenom" value={this.props.client && this.props.client.prenom} name="prenom" />
+                                                    <b>Email :</b>
+                                                    <input type="text" className="cacheform hack_email_modifcompte cc_cursor" id="email1" value={this.props.client && this.props.client.email} name="email1" />
+                                                    <b>Téléphone :</b>
+                                                    <input type="text" className="cacheform" id="telfixe" value={this.props.client && this.props.client.telephone} name="telfixe" />
+                                                </div>
+                                            </form>
+                                        
                                         </div>
                                     </div>
                                 </div>
