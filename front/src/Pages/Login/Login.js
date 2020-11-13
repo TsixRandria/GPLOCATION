@@ -94,10 +94,13 @@ class Login extends React.Component {
 
 											this.setState({
 												etape: 2,
-												client: response.data.client
+												client: response.data
 											})
 
 											console.log(response.data.client)
+
+											localStorage.setItem('token', response.data.token)
+											sessionStorage.setItem('id', response.data.client.id)
 											
 										}
 
@@ -178,6 +181,8 @@ class Login extends React.Component {
 														message: response.data.message
 													})
 												} 
+
+												localStorage.setItem('token', response.data.token)
 											})
 										}}
 										>
@@ -236,7 +241,7 @@ class Login extends React.Component {
 							</div>
 						</div>
 					</div>
-					{etape == 2 ? (<Redirect to='/profil' voila={panjifa}/>) : null}
+					{etape == 2 ? (<Redirect to='/profil' />) : null}
 				</div>
 			</section>			
 
