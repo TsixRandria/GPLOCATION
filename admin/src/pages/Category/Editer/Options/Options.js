@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import AddCategory from './AddCategory';
-import ListeCategory from './ListeCategory';
-import axios from '../../axios';
+import axios from '../../../axios';
+import ListeOptions from './ListeOptions';
+import AddOption from './AddOption';
 
 import Modal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 
-class Categories extends Component {
+class Options extends Component {
     state = {
         addNew: false,
-        categories: []
+        categories: [],
+        options: []
     }
-
     action = {
         toggleModal: (value) => {
             this.setState({ addNew: value })
@@ -22,43 +22,52 @@ class Categories extends Component {
                     this.setState({
                         categories: response.data
                     })
-                    console.log(response)
                 }
             })
         },
-        deleteCategory: (category) => {
-            axios.delete(`/categories/${category.id}`).then(response => {
-                if (response.status === 204) {
-                    this.action.getCategory();
+        getOption: () => {
+            axios.get(`/categories/${category.id}/options`).then(response => {
+                if (response.status === 200) {
+                    this.setState({
+                        options: response.data
+                    })
                 }
             })
-        }
+        },
+        deleteOption: (option) => {
+            axios.delete(`/categories/${category.id}/options/${option.id}`).then(response => {
+                if (response.status === 204) {
+                    this.action.getOption();
+                }
+            })
+        },
+
     }
 
 
     render() {
-        // Récupération de la variable category depuis le state
-        const { addNew, categories } = this.state;
+        // Récupération de la variable voiture depuis le state
+        const { addNew, options } = this.state;
         return (
             <div className="p-5">
-                <h1 className="mb-2 text-center">Gestion des catégories</h1>
+                <NavLink to="/categories" >
+                    <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
+                </NavLink>
+                <h1 className="mb-2 text-center">Gestion des options</h1>
+
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    onClick={() => this.action.toggleModal(true)}>Nouvelle catégorie</button> &nbsp;
-
-                <NavLink to={`/voitures`}>
-                    <td className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded">Liste des voitures</td>
-                </NavLink>
-                <ListeCategory
+                    onClick={() => this.action.toggleModal(true)}>Nouvelle voiture</button>
+                <ListeOptions
                     action={{ ...this.action }}
-                    categories={categories} />
+                    options={options} />
                 <Modal
                     isOpen={addNew}
                     className="modal-modern">
                     <div className="modal-content">
                         <div className="modal-header">
                             <div className="modal-title">
-                                <h2>Insertion d'une nouvelle catégorie de voiture</h2>
+                                <h2>Ajouter une option</h2>
                             </div>
                             <div
                                 onClick={() => this.setState({ addNew: false })}
@@ -67,19 +76,14 @@ class Categories extends Component {
                         <hr className="my-4" />
 
 
-                        <AddCategory
+                        <AddOption
                             action={{ ...this.action }} />
                     </div>
                 </Modal>
-                {/* <NavLink to={'/parcourir'}>
-                    <button
-                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    >Parcourir</button>
-                </NavLink> */}
             </div>
         )
     }
 }
 
 
-export default Categories;
+export default Options;

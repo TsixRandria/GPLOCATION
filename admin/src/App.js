@@ -8,7 +8,6 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 import Voitures from './pages/Category/Voitures/Voitures';
 import Categories from './pages/Category/Categories';
-import Parcourir from './pages/Category/Voitures/Parcourir/Parcourir';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
 import DetailVoiture from './pages/Category/Voitures/DetailVoiture';
 import Login from './pages/Login/Login';
@@ -18,7 +17,7 @@ import TarifPersonnaliser from './pages/ConfigurationAgence/Tarif/TarifPeronnali
 import Planning from './pages/Planning/Planning';
 import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence';
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
-import Editer from './pages/Category/Voitures/Parcourir/Editer/Editer';
+import Editer from './pages/Category/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
 // import Table from './pages/Tableau/Table';
 
@@ -37,9 +36,7 @@ class App extends React.Component {
                 <div className="main-container">
 
                   <Switch>
-                    <Route exact path="/vehicules" component={Categories} />
-                    <Route exact path="/parcourir" component={Parcourir} />
-                    <Route exact path="/editer" component={Editer} />
+                    <Route exact path="/categories" component={Categories} />
                     <Route exact path="/configuration_agence" component={ConfigurationAgence} />
                     <Route exact path="/gestion_saison" component={GestionSaison} />
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
@@ -50,6 +47,7 @@ class App extends React.Component {
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
                     <Route exact path="/voitures" component={Voitures} />
+                    <Route exact path="/categories/:id" component={Editer} />
                   </Switch>
                 </div>
               </>

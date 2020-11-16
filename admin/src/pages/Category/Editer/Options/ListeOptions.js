@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Options extends Component {
+export default class ListeOptions extends Component {
     render() {
         return (
             <div>

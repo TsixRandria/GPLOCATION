@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   resources :reservations
 
   #routes categories
-  get '/categories', to: 'categories#index'
-  post '/categories', to: 'categories#create'
-  get '/categories/:id', to: 'categories#show'
-  put '/categories/:id', to: 'categories#update'
-  delete '/categories/:id', to: 'categories#destroy'
+  resources :categories do
+    #routes options
+    resources :options
+  end
 
+
+  
   #resources :categories do  
     resources :voitures 
   #end 
@@ -40,6 +41,5 @@ Rails.application.routes.draw do
 
   resources :tarif_supplementaires
   resources :tarifs
-  resources :reservation_options
   
 end

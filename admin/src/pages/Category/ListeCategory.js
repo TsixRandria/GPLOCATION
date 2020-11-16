@@ -37,7 +37,7 @@ export default class ListeCategory extends Component {
                                     <td className="px-4 text-center">
                                         <input name="plan" type="checkbox" />
                                     </td>
-                                    <NavLink to={`/vehicules/editer/${category.id}`}>
+                                    <NavLink to={`/categories/${category.id}`}>
                                         <td className=" border-b-2 border-gray-200 px-4 py-3 text-center text-blue-600">éditer</td>
                                     </NavLink>
                                     <td className="px-4 py-3 text-center text-gray-900">1</td>

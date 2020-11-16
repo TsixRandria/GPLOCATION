@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_105749) do
+ActiveRecord::Schema.define(version: 2020_11_16_072930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +26,6 @@ ActiveRecord::Schema.define(version: 2020_11_13_105749) do
   create_table "categories", force: :cascade do |t|
     t.string "ref"
     t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "category_options", force: :cascade do |t|
-    t.integer "quantity"
-    t.string "libelle"
-    t.integer "prix"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,14 +63,11 @@ ActiveRecord::Schema.define(version: 2020_11_13_105749) do
     t.index ["jti"], name: "index_jwt_blacklists_on_jti"
   end
 
-  create_table "reservation_options", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "tarif_supplementaire_id"
-    t.bigint "reservation_id"
+  create_table "options", force: :cascade do |t|
+    t.string "libelle"
+    t.integer "prix"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_reservation_options_on_reservation_id"
-    t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
   end
 
   create_table "reservations", force: :cascade do |t|

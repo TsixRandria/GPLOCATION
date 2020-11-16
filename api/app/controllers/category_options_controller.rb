@@ -1,2 +1,0 @@
-class CategoryOptionsController < ApplicationController
-end
