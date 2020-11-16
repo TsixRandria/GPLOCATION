@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from '../../../axios';
-import ListeOptions from './ListeOptions';
 import AddOption from './AddOption';
+import ListeOptions from './ListeOptions';
+import axios from '../../../../axios';
 
 import Modal from 'react-modal';
 import { NavLink } from 'react-router-dom';
@@ -9,58 +9,53 @@ import { NavLink } from 'react-router-dom';
 class Options extends Component {
     state = {
         addNew: false,
-        categories: [],
         options: []
     }
+
     action = {
         toggleModal: (value) => {
+
             this.setState({ addNew: value })
         },
-        getCategory: () => {
-            axios.get('/categories').then(response => {
-                if (response.status === 200) {
-                    this.setState({
-                        categories: response.data
-                    })
-                }
-            })
-        },
+
         getOption: () => {
-            axios.post(`/categories/${category.id}/options`).then(response => {
+            const params = this.props.ids
+            axios.get(`/categories/${params.id}/options`).then(response => {
                 if (response.status === 200) {
                     this.setState({
                         options: response.data
                     })
                 }
             })
+            console.log("params")
         },
-        deleteOption: (option) => {
-            axios.delete(`/categories/${category.id}/options/${option.id}`).then(response => {
+        deleteOption: (category) => {
+            const params = this.props.ids
+            axios.delete(`/categories/${params.id}/options/${params.id}`).then(response => {
                 if (response.status === 204) {
                     this.action.getOption();
                 }
             })
-        },
-
+        }
     }
 
 
     render() {
-        // Récupération de la variable voiture depuis le state
+        // Récupération de la variable category depuis le state
+        const params = this.props.ids
+
         const { addNew, options } = this.state;
         return (
             <div className="p-5">
-                <NavLink to="/categories" >
-                    <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
-                </NavLink>
                 <h1 className="mb-2 text-center">Gestion des options</h1>
-
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    onClick={() => this.action.toggleModal(true)}>Nouvelle voiture</button>
+                    onClick={() => this.action.toggleModal(true)}>Nouvelle option</button> &nbsp;
+
                 <ListeOptions
                     action={{ ...this.action }}
-                    options={options} />
+                    options={options}
+                    ids={params} />
                 <Modal
                     isOpen={addNew}
                     className="modal-modern">
@@ -77,9 +72,14 @@ class Options extends Component {
 
 
                         <AddOption
-                            action={{ ...this.action }} />
+                            action={{ ...this.action }} ids={params} />
                     </div>
                 </Modal>
+                {/* <NavLink to={'/parcourir'}>
+                    <button
+                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
+                    >Parcourir</button>
+                </NavLink> */}
             </div>
         )
     }

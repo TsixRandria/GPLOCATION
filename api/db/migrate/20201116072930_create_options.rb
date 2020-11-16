@@ -3,6 +3,7 @@ class CreateOptions < ActiveRecord::Migration[6.0]
     create_table :options do |t|
       t.string :libelle
       t.integer :prix
+      t.belongs_to :category, index:true
 
       t.timestamps
     end

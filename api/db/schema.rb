@@ -66,8 +66,10 @@ ActiveRecord::Schema.define(version: 2020_11_16_072930) do
   create_table "options", force: :cascade do |t|
     t.string "libelle"
     t.integer "prix"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_options_on_category_id"
   end
 
   create_table "reservations", force: :cascade do |t|

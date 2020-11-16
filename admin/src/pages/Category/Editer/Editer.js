@@ -16,9 +16,9 @@ export default class Editer extends Component {
         });
     }
 
-    //     onClick = {() => this.changerEtape(2)}
-    // { etape === 2 ? (<Caracteristique />) : null }
     render() {
+        //récupération de l'id de la catégorie
+        const { match: { params } } = this.props;
         const etape = this.state.etape
         return (
             <div><section className="text-gray-500 ">
@@ -64,7 +64,7 @@ export default class Editer extends Component {
 
 
                             <div className="flex rounded-lg h-full bg-gray-800 p-5 flex-col">
-                                <button onClick={() => this.changerEtape(4)}>
+                                <button onClick={() => this.changerEtape(3)}>
                                     <div className="flex items-center mb-3">
                                         <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
 
@@ -73,7 +73,8 @@ export default class Editer extends Component {
                                     </div>
 
                                 </button>
-                                {etape === 4 ? (<Options />) : null}
+                                {/* ids= id de la catégorie */}
+                                {etape === 3 ? (<Options ids={params} />) : null}
                             </div><br />
                         </div>
                     </div>

@@ -12,18 +12,7 @@ const OptionSchema = Yup.object().shape({
 });
 
 export default class AddOptions extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            libelle: '',
-            prix: '',
-            categories: []
-        }
-    }
 
-    componentDidMount() {
-        this.getCategory();
-    }
 
     render() {
         return (
@@ -32,11 +21,14 @@ export default class AddOptions extends Component {
                     initialValues={{
                         libelle: '',
                         prix: '',
+                        category_id: null
 
                     }}
                     validationSchema={OptionSchema}
                     onSubmit={(values, { resetForm }) => {
-                        axios.post(`/categories/${category.id}/options`, values).then(response => {
+                        // récupération de l'id dans editer.js
+                        const id = this.props.ids.id
+                        axios.post(`/categories/${id}/options`, values).then(response => {
                             const { action } = this.props;
                             if (response.status === 201) {
                                 action.toggleModal(false);
@@ -71,6 +63,8 @@ export default class AddOptions extends Component {
                                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
                                         <ErrorField errors={errors} touched={touched} row="prix" />
                                     </div>
+
+
                                 </div>
 
 

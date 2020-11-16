@@ -9,11 +9,11 @@ class OptionsController < ApplicationController
 
     # POST /categories/:category_id/options
     def create
-        # @category = Category.find(option_params[:category])
-        # @paramsmapped = option_params
-        # @paramsmapped[:category] = @category
+        @category = Category.find(params[:category_id])
+        @paramsmapped = option_params
+        @paramsmapped[:category] = @category
         @option = Option.create!(@paramsmapped)
-        json_response(options: @option, :created)
+        json_response(@option, :created)
     end
 
     # GET /categories/:category_id/options/:id
@@ -37,7 +37,7 @@ class OptionsController < ApplicationController
 
     def option_params
         # whitelist params
-        params.permit(:libelle, :prix)
+        params.require(:option).permit(:libelle, :prix, :category_id)
     end
 
     def set_option
