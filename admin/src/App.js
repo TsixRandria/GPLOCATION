@@ -20,10 +20,19 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
+import axios from './axios';
+import Reservation from './pages/Reservation/Reservation';
 // import Table from './pages/Tableau/Table';
 
 
 class App extends React.Component {
+  state = {
+    category: {},
+    tarif: [],
+    voiture: {}
+  }
+
+  
   render() {
     const { isAuthenticated } = this.props;
     return (
@@ -45,11 +54,12 @@ class App extends React.Component {
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
-                    <Route exact path="/tarif" component={Tarif} />
-                    <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
+                    <Route exact path="/tarif" component={()=> <Tarif />} />
+                    <Route exact path="/tarifpersonnalise" component={() => <TarifPersonnaliser />} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
                     <Route exact path="/categories" component={Categories} />
+                    <Route exact path="/reservations" component={Reservation} />
                   </Switch>
                 </div>
               </>

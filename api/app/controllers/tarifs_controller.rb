@@ -1,10 +1,7 @@
 class TarifsController < ApplicationController
   before_action :set_tarif, only: [:show, :update, :destroy]
 
-  before_action :create do
-    unless self.prix.blank? then self.prix.gsub(/\D/, '').to_i end
-  end
-
+  
   # GET /tarifs
   def index
     @tarifs = Tarif.all

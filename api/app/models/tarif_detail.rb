@@ -1,3 +1,3 @@
 class TarifDetail < ApplicationRecord
-  belongs_to :tarif
+  # belongs_to :tarif
 end

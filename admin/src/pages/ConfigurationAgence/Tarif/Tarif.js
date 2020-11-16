@@ -22,4 +22,4 @@ class Tarif extends Component {
     }
 }
 
-export default Tarif;
+export default Tarif

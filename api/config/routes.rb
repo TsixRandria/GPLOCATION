@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :admin_reservations
   #client sessio et registration
   resources :clients, only: [:create, :destroy, :update, :index]
   post "/client_login", to: "clients#login"
