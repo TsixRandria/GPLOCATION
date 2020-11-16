@@ -26,7 +26,7 @@ class Options extends Component {
             })
         },
         getOption: () => {
-            axios.get(`/categories/${category.id}/options`).then(response => {
+            axios.post(`/categories/${category.id}/options`).then(response => {
                 if (response.status === 200) {
                     this.setState({
                         options: response.data
