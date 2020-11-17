@@ -10,7 +10,7 @@ class Navbar extends Component {
         return (
             <>
                 <header className="navbar-block text-white body-font bg-black">
-                    <div className="flex flex-wrap p-5 flex-col md:flex-row items-center">
+                    <div className="flex flex-wrap p-10 flex-col md:flex-row items-center">
                         <nav className="md:ml-auto text-base justify-center">
                             <UserProfil user={user}/>
                         </nav>
