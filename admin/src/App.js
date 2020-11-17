@@ -6,6 +6,7 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
+import Accueil from './pages/Accueil/Accueil';
 import Voitures from './pages/Voitures/Voitures';
 import Categories from './pages/Category/Categories';
 import Parcourir from './pages/Voitures/Parcourir/Parcourir';
@@ -20,6 +21,7 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
+import GestionOF from './pages/ConfigurationAgence/GestionOF/GestionOF';
 // import Table from './pages/Tableau/Table';
 
 
@@ -37,6 +39,7 @@ class App extends React.Component {
                 <div className="main-container">
 
                   <Switch>
+                    <Route exact path="/" component={Accueil} />
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/parcourir" component={Parcourir} />
                     <Route exact path="/editer" component={Editer} />
@@ -46,6 +49,7 @@ class App extends React.Component {
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
                     <Route exact path="/tarif" component={Tarif} />
+                    <Route exact path="/ouverture" component={GestionOF} />
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
