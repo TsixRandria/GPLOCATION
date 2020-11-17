@@ -6,6 +6,7 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
+import Accueil from './pages/Accueil/Accueil';
 import Voitures from './pages/Voitures/Voitures';
 import Categories from './pages/Category/Categories';
 import Parcourir from './pages/Voitures/Parcourir/Parcourir';
@@ -38,6 +39,7 @@ class App extends React.Component {
                 <div className="main-container">
 
                   <Switch>
+                    <Route exact path="/" component={Accueil} />
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/parcourir" component={Parcourir} />
                     <Route exact path="/editer" component={Editer} />
