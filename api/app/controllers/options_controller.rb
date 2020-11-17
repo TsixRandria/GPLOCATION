@@ -3,7 +3,8 @@ class OptionsController < ApplicationController
 
     # GET /categories/:category_id/options
     def index
-        @options = Option.all
+        category = Category.find(params[:category_id])
+        @options = category.options
         json_response(@options)
     end
 
