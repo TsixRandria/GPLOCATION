@@ -33,7 +33,7 @@ class GestionOF extends Component {
 
                                 
                                     <div className="tableResponsive">
-                                    <table className="table table-striped jambo_table bulk_action" >
+                                    <table className="table table-striped jambo_table bulk_action">
                     
                                         <h2>Definition des jours d'ouvertures</h2>
 
@@ -43,49 +43,49 @@ class GestionOF extends Component {
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Lundi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="formControl"  placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                             
                                         </tr>
                                         <tr className="odd pointer">
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Mardi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="formControl" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="even pointer">
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Mercredi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="formControl"  placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="odd pointer">
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Jeudi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="formControl"placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="even pointer">
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Vendredi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span><input type="text" className="formControl"  placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span><input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                             
                                         </tr>
                                         <tr className="odd pointer">
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Samedi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span> <input type="text" className="formControl" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="even pointer">
                                             <td className="a-center ">
                                             <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Dimanche</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="formControl" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
                                             
                                         </tr>
                                         </tbody>
