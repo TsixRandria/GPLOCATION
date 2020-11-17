@@ -51,6 +51,19 @@ export default class EditOption extends Component {
                         style={{ flex: 'auto' }}
                         value={option.libelle} />
                 </div>
+                <div className="flex">
+                    Prix: &nbsp;
+                    <input type="number" value="prix" className="text-center w-16" /> &nbsp;
+                    <div>
+                        <select>
+                            <option>£/j</option>
+                            <option>£/location</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
             </div>
         )
     }
