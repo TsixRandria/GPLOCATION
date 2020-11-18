@@ -52,7 +52,7 @@ class Voitures extends Component {
         const { addNew, voitures } = this.state;
         return (
             <div className="p-5">
-                <NavLink to="/vehicules" >
+                <NavLink to="/categories" >
                     <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
                 </NavLink>
                 <h1 className="mb-2 text-center">Gestion des voitures</h1>
