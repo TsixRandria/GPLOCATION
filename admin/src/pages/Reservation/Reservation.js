@@ -38,7 +38,7 @@ export class Reservation extends Component {
 
         return (
             <div>
-                <center><h1>Reservation </h1></center>
+                <center><h1>Reservation     </h1></center>
                 <Formik 
                     initialValues={{
                         dateDepart: '',
