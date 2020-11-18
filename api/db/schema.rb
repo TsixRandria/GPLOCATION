@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 2020_11_16_084613) do
     t.index ["jti"], name: "index_jwt_blacklists_on_jti"
   end
 
+  create_table "options", force: :cascade do |t|
+    t.string "libelle"
+    t.integer "prix"
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_options_on_category_id"
+  end
+
   create_table "reservation_options", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "tarif_supplementaire_id"

@@ -29,8 +29,8 @@ class InlineEdit extends Component {
         const { value } = this.props;
         const { labelText } = this.state
         if (labelText !== value) {
-                this.setState({
-                    labelText: value
+            this.setState({
+                labelText: value
             });
         }
     }
@@ -73,7 +73,7 @@ class InlineEdit extends Component {
             value: defaultValue
         }, () => {
             this.toggleEdit();
-        })      
+        })
     }
 
     onSave = () => {
@@ -99,23 +99,23 @@ class InlineEdit extends Component {
         const { disabled, setEdit } = this.props;
 
         let defaultEdit = (
-                <>
-                    <div>
-                        <input 
-                            autoFocus
-                            type="text"
-                            className="bg-gray-200 appearance-none border-2 border-gray-200 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="inline-full-name" 
-                            value={value} 
-                            onChange={({target: {value}}) => this.handleChange(value)}/>
-                    </div>
-                    <button onClick={this.onSave} className="ml-1 py-2 px-3 text-white bg-blue-600">Sauver</button>
-                    <button onClick={this.cancelChange} className="ml-1 py-2 px-3 text-gray-700 bg-gray-400">Annuler</button>
-                </>);
+            <>
+                <div>
+                    <input
+                        autoFocus
+                        type="text"
+                        className="bg-gray-200 appearance-none border-2 border-gray-200 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500" id="inline-full-name"
+                        value={value}
+                        onChange={({ target: { value } }) => this.handleChange(value)} />
+                </div>
+                <button onClick={this.onSave} className="ml-1 py-2 px-3 text-white bg-blue-600">Valider</button>
+                <button onClick={this.cancelChange} className="ml-1 py-2 px-3 text-gray-700 bg-gray-400">Annuler</button>
+            </>);
 
         if (setEdit) {
             defaultEdit = setEdit({
                 handleChange: this.handleChange,
-                cancelChange: this.cancelChange, 
+                cancelChange: this.cancelChange,
                 onSave: this.onSave,
                 labelText: labelText,
                 value: value
@@ -123,19 +123,19 @@ class InlineEdit extends Component {
         }
 
         return (
-        <div className="flex">
-            { !isEdit ? (
-                // Champ initial / mode affichage
-                <>
-                    <div>{ labelText }</div> &nbsp;
-                    {
-                        !disabled ? (
-                            <div className="edit-action" onClick={this.toggleEdit} style={{color: 'blue', cursor: 'pointer'}}>Editer</div>
-                        ) : null
-                    }                    
-                </>
-            ) : defaultEdit }
-        </div>)
+            <div className="flex">
+                { !isEdit ? (
+                    // Champ initial / mode affichage
+                    <>
+                        <div>{labelText}</div> &nbsp;
+                        {
+                            !disabled ? (
+                                <div className="edit-action" onClick={this.toggleEdit} style={{ color: 'blue', cursor: 'pointer' }}>Editer</div>
+                            ) : null
+                        }
+                    </>
+                ) : defaultEdit}
+            </div>)
     }
 }
 

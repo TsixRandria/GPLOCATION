@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Caracteristique from './Caracteristique';
-import DureeLocation from './DureeLocation';
-import GestionTarifAgence from './GestionTarifAgence';
-import GestionOption from './GestionOption';
+import Caracteristique from '././Caracteristique/Caracteristique';
+import DureeLocation from '././DureeLocation/DureeLocation';
+import Options from './Options/Options';
 import { NavLink } from 'react-router-dom';
 
 
@@ -17,9 +16,10 @@ export default class Editer extends Component {
         });
     }
 
-    //     onClick = {() => this.changerEtape(2)}
-    // { etape === 2 ? (<Caracteristique />) : null }
     render() {
+        //récupération de l'id de la catégorie
+        const { match: { params } } = this.props;
+
         const etape = this.state.etape
         return (
             <div><section className="text-gray-500 ">
@@ -40,12 +40,6 @@ export default class Editer extends Component {
                                         </div>
 
                                     </button>
-                                    <button onClick={() => this.changerEtape(1)}>
-                                        <div>
-                                            <h2 className="text-red-500 text-lg title-font font-medium">Valider les modifications</h2>
-                                        </div>
-
-                                    </button>
                                 </div>
                                 {etape === 1 ? (<Caracteristique />) : null}
 
@@ -62,21 +56,10 @@ export default class Editer extends Component {
                                 {etape === 2 ? (<DureeLocation />) : null}
                             </div><br />
 
+
+
                             <div className="flex rounded-lg h-full bg-gray-800 p-5 flex-col">
                                 <button onClick={() => this.changerEtape(3)}>
-                                    <div className="flex items-center mb-3">
-                                        <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-
-                                        </div>
-                                        <h2 className="text-white text-lg title-font font-medium">Gestion des tarifs agence</h2>
-                                    </div>
-
-                                </button>
-                                {etape === 3 ? (<GestionTarifAgence />) : null}
-                            </div><br />
-
-                            <div className="flex rounded-lg h-full bg-gray-800 p-5 flex-col">
-                                <button onClick={() => this.changerEtape(4)}>
                                     <div className="flex items-center mb-3">
                                         <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
 
@@ -85,7 +68,9 @@ export default class Editer extends Component {
                                     </div>
 
                                 </button>
-                                {etape === 4 ? (<GestionOption />) : null}
+
+                                {/* ids= id de la catégorie */}
+                                {etape === 3 ? (<Options ids={params} />) : null}
                             </div><br />
                         </div>
                     </div>

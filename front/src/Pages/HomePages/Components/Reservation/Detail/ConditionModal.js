@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import '/home/rtsix/Bureau/gplocation/front/src/Pages/HomePages/Components/Reservation/Detail/conditonModal.css'
+import './conditonModal.css';
 
 function ConditionModal(props) {
     return (
