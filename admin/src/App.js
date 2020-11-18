@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
 import Voitures from './pages/Category/Voitures/Voitures';
+import Accueil from './pages/Accueil/Accueil';
 import Categories from './pages/Category/Categories';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
 import DetailVoiture from './pages/Category/Voitures/DetailVoiture';
@@ -19,6 +20,7 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Category/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
+import GestionOF from './pages/ConfigurationAgence/GestionOF/GestionOF';
 // import Table from './pages/Tableau/Table';
 
 
@@ -37,12 +39,18 @@ class App extends React.Component {
 
                   <Switch>
                     <Route exact path="/categories" component={Categories} />
+
+                    <Route exact path="/" component={Accueil} />
+                    <Route exact path="/voitures" component={Voitures} />
+                    <Route exact path="/parcourir" component={Parcourir} />
+                    <Route exact path="/editer" component={Editer} />
                     <Route exact path="/configuration_agence" component={ConfigurationAgence} />
                     <Route exact path="/gestion_saison" component={GestionSaison} />
                     <Route exact path="/voitures/detail/:id" component={DetailVoiture} />
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
                     <Route exact path="/tarif" component={Tarif} />
+                    <Route exact path="/ouverture" component={GestionOF} />
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
