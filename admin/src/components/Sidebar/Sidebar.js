@@ -13,9 +13,6 @@ export default class Sidebar extends Component {
                     GPLOCATION
                 </div>
                 <div className="app-menu">
-                    {/* <NavLink to="/" className="hover:text-white">
-                        <div className="menu-item">Accueil</div>
-                    </NavLink> */}
                     <NavLink to="/dashbord" className="hover:text-white">
                         <div className="menu-item">Tableau de bord</div>
                     </NavLink>
