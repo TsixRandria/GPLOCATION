@@ -210,6 +210,50 @@ class GestionOF extends Component {
                         </div>
                     </div>
                 </div>
+                <div class="row">
+              <div class="col-md-4">
+                <div class="x_pane">
+                  <div class="x_title">
+                    <h2>Jour de la  <small>Semaine</small></h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <p>Lundi</p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="x_pane">
+                  <div class="x_title">
+                    <h2>Tranche <small>Horraire</small></h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <p>Entre 20h35 et 23h45 </p>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="x_pane">
+                  <div class="x_title">
+                    <h2>Sur plus</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                    20£
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="x_pane">
+                  <div class="x_title">
+                    <h2>Actions</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <span className="number-text">X</span>
+                </div>
+              </div>
+            </div>
+          
             </div>
         );
     }
