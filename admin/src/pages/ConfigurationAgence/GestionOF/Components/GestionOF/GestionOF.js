@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
+import { Formik, Field, Form } from 'formik';
+import axios from '../../../../../axios';
+
 import './gestionOF.css'
 
 
 class GestionOF extends Component {
+  componentDidMount() {
+    axios.post('/gestion_temp').then(response => {
+        if (response.status === 200) {
+            this.setState({
+              ouverture: response.data
+            })
+        }
+    })
+}
     render() {
         return (
             <div>
@@ -34,64 +46,80 @@ class GestionOF extends Component {
                                 
                                     <div className="tableResponsive">
                                     <h2>Definition des jours d'ouvertures</h2>
+                                    <Formik
+                                          initialValues={{
+                                            jour:'',
+                                            surplus:''
+                                          }}
+                                          onSubmit={(values, { resetForm }) => {
+                                            axios.post('/gestion_temp', values).then(response => {
+                                                const { action } = this.props;
+                                                if (response.status === 201) {
+                                                    resetForm();
+                                                    action.getGestionTemp();
+                                                }
+                                            })
+                                        }
+                                        }
+                                          >
+                                            <Form
+                                            autoComplete="off">
                                     <table className="table table-striped jambo_table bulk_action">
-                    
-                                        
-
-
                                         <tbody>
                                         <tr className="even pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Lundi</span>
+                                            <Field type="checkbox" className="flat" name="Lundi" /> <span className="jourText">Lundi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <Field type="text" className="flat" name="Lundi" placeholder="0"/></td>
                                             
                                         </tr>
                                         <tr className="odd pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Mardi</span>
+                                            <Field type="checkbox" className="flat" name="Mardi" /> <span className="jourText">Mardi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <Field type="text" className="flat" name="Mardi" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="even pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Mercredi</span>
+                                            <Field type="checkbox" className="flat" name="Mercredi" /> <span className="jourText">Mercredi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <Field type="text" className="flat" name="mercredi" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="odd pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Jeudi</span>
+                                            <Field type="checkbox" className="flat" name="Jeudi" /> <span className="jourText">Jeudi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <Field type="text" className="flat" name="jeudi" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="even pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Vendredi</span>
+                                            <Field type="checkbox" className="flat" name="Vendredi" /> <span className="jourText">Vendredi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span><input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span><Field type="vendredi" className="flat" name="table_records" placeholder="0"/></td>
                                             
                                         </tr>
                                         <tr className="odd pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Samedi</span>
+                                            <Field type="checkbox" className="flat" name="Samedi" /> <span className="jourText">Samedi</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> <span className="plusEgale"> Surplus = </span> </span> <Field type="text" className="flat" name="samedi" placeholder="0"/></td>
                                         
                                         </tr>
                                         <tr className="even pointer">
                                             <td className="a-center ">
-                                            <input type="checkbox" className="flat" name="table_records" /> <span className="jourText">Dimanche</span>
+                                            <Field type="checkbox" className="flat" name="Dimanche" /> <span className="jourText">Dimanche</span>
                                             </td>
-                                            <td className=" "><span className="plusEgale"> Surplus = </span> <input type="text" className="flat" name="table_records" placeholder="0"/></td>
+                                            <td className=" "><span className="plusEgale"> Surplus = </span> <Field type="text" className="flat" name="dimanche" placeholder="0"/></td>
                                             
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <button className="btnValider">Valider</button>
+                                    <button type="submit" className="btnValider">Valider</button>
+                                    </Form>
+                                    </Formik> 
                                     </div>
                                             
                                         

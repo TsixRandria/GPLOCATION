@@ -1,0 +1,2 @@
+class GestionTemp < ApplicationRecord
+end

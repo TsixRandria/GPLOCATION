@@ -43,4 +43,6 @@ Rails.application.routes.draw do
   resources :tarif_supplementaires
   resources :tarifs
   
+  #gestion_temp
+  resources :gestion_temp
 end

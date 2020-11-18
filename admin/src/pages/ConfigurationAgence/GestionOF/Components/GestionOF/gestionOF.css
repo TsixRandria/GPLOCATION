@@ -13,7 +13,7 @@
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     overflow-x: hidden !important;
-    z-index: -1;
+
 }
 .right_col{
     overflow-x: hidden !important;
