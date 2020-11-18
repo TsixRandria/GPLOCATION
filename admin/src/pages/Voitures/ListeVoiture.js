@@ -15,6 +15,7 @@ export default class ListeVoiture extends Component {
                 <h2>Liste des voitures</h2>
                 <div className="mt-2">
                     <table className="table-auto">
+                        {console.log(voitures)}
                         <thead>
                             <tr>
                                 <th className="border px-4 py-2">  </th>

@@ -23,7 +23,7 @@ class ClientsController < ApplicationController
     @client.password_digest = params[:password_digest]
     if @client.valid?
       token = encode_token({client_id: @client.id})
-      render json: {user: @client, token: token, message: "felicitation, compte valider"}
+      render json: {client: @client, token: token, message: "felicitation, compte valider"}
       session[:current_user_id] = @client.id
     else
       render json: {message: 'compte invalide'}, status: :unprocessable_entity

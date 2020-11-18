@@ -9,6 +9,7 @@ import Modal from 'react-modal';
 class Categories extends Component {
     state = {
         addNew: false,
+        
         categories: []
     }
 

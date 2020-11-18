@@ -78,6 +78,7 @@ class Login extends React.Component {
 									<h2 className="s-titleDet wow zoomInUp" data-wow-delay="0.5s">J'ai déjà un compte</h2>
 								</div>
 								<div className="login">
+									
 								<Formik
 								initialValues={{
 									email: '',
@@ -181,8 +182,10 @@ class Login extends React.Component {
 														message: response.data.message
 													})
 												} 
+												console.log(response.data.client)
 
 												localStorage.setItem('token', response.data.token)
+												sessionStorage.setItem('id', response.data.client.id)
 											})
 										}}
 										>

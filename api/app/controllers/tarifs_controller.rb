@@ -1,15 +1,14 @@
 class TarifsController < ApplicationController
   before_action :set_tarif, only: [:show, :update, :destroy]
 
-  before_action :create do
-    unless self.prix.blank? then self.prix.gsub(/\D/, '').to_i end
-  end
-
+  
   # GET /tarifs
   def index
-    @tarifs = Tarif.all
+    @tarifs = Tarif.includes(:category).all
+    
+    # @category = Category.find
 
-    render json: @tarifs
+    render json: {tarifs: @tarifs}
   end
 
   # GET /tarifs/1
@@ -19,20 +18,18 @@ class TarifsController < ApplicationController
 
   # POST /tarifs
   def create
-    @tarif = Tarif.new(tarif_params)
-   
+    @tarif = Tarif.create(tarif_params)
+    @category = @tarif.category
+    @voiture = @category.voitures
 
     if @tarif.save
-      render json: tarif, status: :created, location: @tarif
+      render json: {tarif: @tarif, voiture: @voiture, status: :created, location: @tarif}
     else
       render json: @tarif.errors, status: :unprocessable_entity
     end
   end
 
-  def tarif
-    @tarif.to_i
-  end
-
+  
   # PATCH/PUT /tarifs/1
   def update
     if @tarif.update(tarif_params)
@@ -44,7 +41,7 @@ class TarifsController < ApplicationController
 
   # DELETE /tarifs/1
   def destroy
-    @tarif.destroy
+    @tarif.destroy 
   end
 
   private
@@ -55,6 +52,6 @@ class TarifsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tarif_params
-      params.fetch(:tarif, {}).permit(:prix => [])
+      params.fetch(:tarif, {}).permit(:date_debut, :name, :date_fin, :category_id, :prix1, :prix2, :prix3, :prix4, :prix5, :prix6)
     end
 end

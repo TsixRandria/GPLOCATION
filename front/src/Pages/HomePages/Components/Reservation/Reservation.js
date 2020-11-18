@@ -59,7 +59,7 @@ class Reservation extends Component {
                                                 <div className="b-items__cars-one-img">
                                                     <img className="img-responsive center-block" src={`http://localhost:4000/${voiture.image.url}`} alt="nissan" />
                                                     <br />
-                                                    <p className="laststock">Dernier véhicule en stock</p>
+                                                    <p className="laststock">Dernier véhicule en stock</p> 
                                                     <span className="confirm-tarif ">288.00 €</span>
                                                     <p className="montant-acompte">dont 100 € d'acompte</p>
                                                 </div>
@@ -67,7 +67,7 @@ class Reservation extends Component {
                                                     <header className="b-items__cars-one-info-header s-lineDownLeft">
                                                         <h2>{voiture.marque}</h2>
                                                         {/* <Link to="Reserver" className="locationVoiture" >Réserver</Link> */}
-                                                        <Link to={`/Reserver/${date_reservation.dateDepart}/${date_reservation.dateRetour}/${voiture.id}`} type="submit" className="btn m-btn" id="bouttonReserve">Réserver<span className="fa fa-angle-right" id="bgColor"></span></Link>
+                                                        <Link to={`/reserver/${date_reservation.dateDepart}/${date_reservation.dateRetour}/${voiture.id}`} type="submit" className="btn m-btn" id="bouttonReserve">Réserver<span className="fa fa-angle-right" id="bgColor"></span></Link>
                                                     </header>
                                                     <div className="b-blog__posts-one-info">
                                                         <div className="row">
