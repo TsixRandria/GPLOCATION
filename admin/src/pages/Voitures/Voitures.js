@@ -11,7 +11,7 @@ class Voitures extends Component {
         addNew: false,
         voitures: [],
         categories: []
-    }
+    } 
 
     action = {
         toggleModal: (value) => {

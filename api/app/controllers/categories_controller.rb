@@ -16,7 +16,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories/:id
   def show
-      json_response(@category)
+      @voitures = @category.voitures
+      render json: {category: @category, voitures: @voitures}
   end
 
   # PUT /categories/:id

@@ -21,11 +21,23 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
+import axios from './axios';
+import Reservation from './pages/Reservation/Reservation';
+import AddTarif from './pages/ConfigurationAgence/Tarif/AddTarif';
+import TarifDeBase from './pages/ConfigurationAgence/Tarif/TrifDeBase'
+
 import GestionOF from './pages/ConfigurationAgence/GestionOF/GestionOF';
+      
 // import Table from './pages/Tableau/Table';
 
 
 class App extends React.Component {
+  state = {
+    categories: [],
+    tarif: [],
+    voiture: []
+  }
+  
   render() {
     const { isAuthenticated } = this.props;
     return (
@@ -54,6 +66,9 @@ class App extends React.Component {
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
                     <Route exact path="/categories" component={Categories} />
+                    <Route exact path="/reservations" component={Reservation} />
+                    <Route path="/ajouter_un_tarif/:id" component={AddTarif } />
+                    <Route path="/tarif_de_base" component={TarifDeBase} />
                   </Switch>
                 </div>
               </>
