@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2020_11_16_084613) do
   create_table "admin_reservations", force: :cascade do |t|
     t.date "dateDepart"
     t.date "dateRetour"
-    t.time "heureDepart"
-    t.time "heureRetour"
-    t.string "description"
+    t.string "heureDepart"
+    t.string "heureRetour"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_084613) do
     t.date "dateRetour"
     t.time "heureDepart"
     t.time "heureRetour"
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -112,8 +111,15 @@ ActiveRecord::Schema.define(version: 2020_11_16_084613) do
   end
 
   create_table "tarifs", force: :cascade do |t|
-    t.datetime "date_debut"
-    t.datetime "date_fin"
+    t.date "date_debut"
+    t.date "date_fin"
+    t.string "prix1"
+    t.string "prix2"
+    t.string "prix3"
+    t.string "prix4"
+    t.string "prix5"
+    t.string "prix6"
+    t.text "name"
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

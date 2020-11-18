@@ -38,7 +38,7 @@ export class Reservation extends Component {
 
         return (
             <div>
-                <h1>revservation</h1>
+                <center><h1>Reservation </h1></center>
                 <Formik 
                     initialValues={{
                         dateDepart: '',
@@ -59,27 +59,27 @@ export class Reservation extends Component {
 
                         })
                     
-                    }}
+                    }} 
                 >
                     <Form>
                         <div className="flex flex-wrap mt-10 justify-center mx-10">
                             <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                            hover:border-blue-600 hover:bg-blue-600 hover:text-white shadow-md inline-flex items-center">
+                             shadow-md inline-flex items-center">
                                 <label>Date de depart:</label>
                             <Field type="date" name="dateDepart" />
                             </div>
                             <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                            hover:border-blue-600 hover:bg-blue-600 hover:text-white shadow-md inline-flex items-center">
+                             shadow-md inline-flex items-center">
                                 <label>heure de depart:</label>
                             <Field type="time" name="heureDepart" />
                             </div>
                             <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                            hover:border-blue-600 hover:bg-blue-600 hover:text-white shadow-md inline-flex items-center">
+                             shadow-md inline-flex items-center">
                                 <label>date retour:</label>
                             <Field type="date" name="dateRetour" />
                             </div>
                             <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                            hover:border-blue-600 hover:bg-blue-600 hover:text-white shadow-md inline-flex items-center">
+                             shadow-md inline-flex items-center">
                                 <labe>heure retour:</labe>
                             <Field type="time" name="heureRetour" />
                             </div>
@@ -99,9 +99,9 @@ export class Reservation extends Component {
                 </Formik>
 
                 <table className="min-w-full">
+                    
                     <tr>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 
-                        text-blue-500 tracking-wider">Heure</th>
+                       
                         <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 
                         text-blue-500 tracking-wider">Date de depart</th>
                         <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 
@@ -113,9 +113,9 @@ export class Reservation extends Component {
                     { this.state.reservations.map(reservation => {
                         return (
                         <tr className="bg-white">
-                            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.heureDepart} / {reservation.heureRetour}</td>
-                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.dateDepart}</td>
-                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.dateRetour}</td>
+                            
+                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.dateDepart} à {reservation.heureDepart}</td>
+                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.dateRetour} à {reservation.heureRetour}</td>
                         <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.description}</td>
                         <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                         <button
