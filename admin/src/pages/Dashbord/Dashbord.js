@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '/home/eric/Bureau/gplocation/admin/src/pages/Dashbord/Dashdord.css';
+import './Dashdord.css';
 
 
 export class Dashbord extends Component {

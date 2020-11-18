@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_115636) do
+ActiveRecord::Schema.define(version: 2020_11_16_084613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_reservations", force: :cascade do |t|
+    t.date "dateDepart"
+    t.date "dateRetour"
+    t.string "heureDepart"
+    t.string "heureRetour"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string "username"
@@ -101,8 +111,15 @@ ActiveRecord::Schema.define(version: 2020_11_07_115636) do
   end
 
   create_table "tarifs", force: :cascade do |t|
-    t.datetime "date_debut"
-    t.datetime "date_fin"
+    t.date "date_debut"
+    t.date "date_fin"
+    t.string "prix1"
+    t.string "prix2"
+    t.string "prix3"
+    t.string "prix4"
+    t.string "prix5"
+    t.string "prix6"
+    t.text "name"
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
