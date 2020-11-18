@@ -50,16 +50,13 @@ export default class EditOption extends Component {
                         onSave={(value) => this.updateOption('libelle', value)}
                         style={{ flex: 'auto' }}
                         value={option.libelle} />
-                </div>
+                </div> <br />
                 <div className="flex">
-                    Prix: &nbsp;
-                    <input type="number" value="prix" className="text-center w-16" /> &nbsp;
-                    <div>
-                        <select>
-                            <option>£/j</option>
-                            <option>£/location</option>
-                        </select>
-                    </div>
+                    Prix : &nbsp;
+                        <InlineEdit
+                        onSave={(value) => this.updateOption('prix', value)}
+                        style={{ flex: 'auto' }}
+                        value={option.prix} />
                 </div>
 
 

@@ -29,9 +29,9 @@ class Options extends Component {
             })
             console.log("params")
         },
-        deleteOption: (category) => {
+        deleteOption: (option) => {
             const params = this.props.ids
-            axios.delete(`/categories/${params.id}/options/${params.id}`).then(response => {
+            axios.delete(`/categories/${params.id}/options/${option.id}`).then(response => {
                 if (response.status === 204) {
                     this.action.getOption();
                 }
@@ -74,11 +74,7 @@ class Options extends Component {
                             action={{ ...this.action }} ids={params} />
                     </div>
                 </Modal>
-                {/* <NavLink to={'/parcourir'}>
-                    <button
-                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    >Parcourir</button>
-                </NavLink> */}
+
             </div>
         )
     }

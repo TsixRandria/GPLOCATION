@@ -24,6 +24,7 @@ class OptionsController < ApplicationController
 
     # PUT /categories/:category_id/options/:id
     def update
+        category = Category.find(params[:category_id])
         @option.update(option_params)
         head :no_content
     end
