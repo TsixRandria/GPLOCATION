@@ -1,0 +1,12 @@
+.panel-FE{
+    position: relative;
+    width: 98%;
+    margin-bottom: 10px;
+    padding: 10px 17px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease;
+}

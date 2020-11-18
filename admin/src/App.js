@@ -21,13 +21,16 @@ import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
 import Editer from './pages/Voitures/Parcourir/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
+
+import GestionTemp from './pages/ConfigurationAgence/GestionOF/GestionTemp'
+
 import axios from './axios';
 import Reservation from './pages/Reservation/Reservation';
 import AddTarif from './pages/ConfigurationAgence/Tarif/AddTarif';
 import TarifDeBase from './pages/ConfigurationAgence/Tarif/TrifDeBase'
 
-import GestionOF from './pages/ConfigurationAgence/GestionOF/GestionOF';
       
+
 // import Table from './pages/Tableau/Table';
 
 
@@ -61,7 +64,7 @@ class App extends React.Component {
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
                     <Route exact path="/tarif" component={Tarif} />
-                    <Route exact path="/ouverture" component={GestionOF} />
+                    <Route exact path="/ouverture" component={GestionTemp} />
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
