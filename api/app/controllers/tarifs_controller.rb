@@ -6,9 +6,9 @@ class TarifsController < ApplicationController
   def index
     @tarifs = Tarif.includes(:category).all
     
-    # @category = Category.find
+    @session = session[:reservation]
 
-    render json: {tarifs: @tarifs}
+    render json: {tarifs: @tarifs, reservation: @session}
   end
 
   # GET /tarifs/1
@@ -20,7 +20,10 @@ class TarifsController < ApplicationController
   def create
     @tarif = Tarif.create(tarif_params)
     @category = @tarif.category
-    @voiture = @category.voitures
+
+    @vehicules = @category.voitures
+
+    @voiture = @vehicules.last
 
     if @tarif.save
       render json: {tarif: @tarif, voiture: @voiture, status: :created, location: @tarif}
@@ -52,6 +55,6 @@ class TarifsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tarif_params
-      params.fetch(:tarif, {}).permit(:date_debut, :name, :date_fin, :category_id, :prix1, :prix2, :prix3, :prix4, :prix5, :prix6)
+      params.fetch(:tarif, {}).permit(:date_debut, :date_fin, :category_id, :prix1, :prix2, :prix3, :prix4, :prix5, :prix6)
     end
 end
