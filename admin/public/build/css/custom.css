@@ -729,9 +729,6 @@
 .glyphicon-menu-hamburger:before {
   content: "\e236"; }
 
-.glyphicon-modal-window:before {
-  content: "\e237"; }
-
 .glyphicon-oil:before {
   content: "\e238"; }
 
@@ -2582,8 +2579,8 @@ a.star {
 
 button,
 .buttons,
-.btn,
-.modal-footer .btn + .btn {
+.btn
+{
   margin-bottom: 5px;
   margin-right: 5px; }
 
@@ -4448,14 +4445,14 @@ fieldset {
 .cropper .docs-options .dropdown-menu > li > label {
   display: block; }
 
-.cropper .docs-cropped .modal-body {
+.cropper .docs-cropped {
   text-align: center; }
 
-.cropper .docs-cropped .modal-body > img,
-.cropper .docs-cropped .modal-body > canvas {
+.cropper .docs-cropped  > img,
+.cropper .docs-cropped > canvas {
   max-width: 100%; }
 
-.cropper .docs-diagram .modal-dialog {
+.cropper .docs-diagram {
   max-width: 352px; }
 
 .cropper .docs-cropped canvas {

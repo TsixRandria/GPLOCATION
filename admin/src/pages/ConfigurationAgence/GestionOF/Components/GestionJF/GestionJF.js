@@ -29,7 +29,7 @@ class GestionFE extends Component {
                                 </div>
                                     <div className="x_content">
                                         <div className="tableResponsive">
-                                            <div className="col-md-6 col-sm-12">
+                                            <div className="col-md-6 col-sm-6">
                                                 <div className="tableResponsive">
                                                     <table >
                                                         <thead>
@@ -187,7 +187,7 @@ class GestionFE extends Component {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="col-md-6 col-sm-12">
+                                            <div className="col-md-6 col-sm-6">
                                                 <div className="tableResponsive">
                                                     <table >
                                                         <thead>

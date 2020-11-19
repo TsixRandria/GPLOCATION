@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from '../../axios';
 import { Formik, Form, Field } from 'formik';
 
+import './reservation.css';
 export class Reservation extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +39,10 @@ export class Reservation extends Component {
 
         return (
             <div>
-                <center><h1>Reservation     </h1></center>
+                <h1 className="Titre-reservation">Reservation</h1>
+                
+                <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
                 <Formik 
                     initialValues={{
                         dateDepart: '',
@@ -62,74 +66,54 @@ export class Reservation extends Component {
                     }} 
                 >
                     <Form>
-                        <div className="flex flex-wrap mt-10 justify-center mx-10">
-                            <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                             shadow-md inline-flex items-center">
-                                <label>Date de depart:</label>
+                       
+                                <label className="part-date">Date de depart :</label>
                             <Field type="date" name="dateDepart" />
-                            </div>
-                            <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                             shadow-md inline-flex items-center">
-                                <label>heure de depart:</label>
+                          
+                                <label className="part-date">heure de depart :</label>
                             <Field type="time" name="heureDepart" />
-                            </div>
-                            <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                             shadow-md inline-flex items-center">
-                                <label>date retour:</label>
+                         
+                                <label className="part-date">date retour :</label>
                             <Field type="date" name="dateRetour" />
-                            </div>
-                            <div className="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 
-                             shadow-md inline-flex items-center">
+                          
                                 <labe>heure retour:</labe>
                             <Field type="time" name="heureRetour" />
-                            </div>
-                            <br/>
-                            <label>Description:</label>
-                            <div >
-                                <Field Component="textarea" name="description" type="text" className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"/>
-                            </div>
-                            <button
-                                type="submit"
-                                className="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 
-                                transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
-                            >Valider</button>
-                        </div>
+                         
+                            <label className="part-date">Description :</label>
+                                <Field Component="textarea" className="input-desc" name="description" type="text"/>
+                                <span className="bouton">
+                             <button type="submit" class="btn btn-secondary" id="bouton" data-toggle="tooltip" data-placement="left" title="Validation ">Valider</button>
+                             </span>
                     </Form>
 
                 </Formik>
+                  <div class="x_content">
+                    <div class="tab-content" id="myTabContent">
+                    <table class="table table-striped jambo_table bulk_action">
 
-                <table className="min-w-full">
-                    
-                    <tr>
-                       
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 
-                        text-blue-500 tracking-wider">Date de depart</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 
-                        text-blue-500 tracking-wider">Date de retour</th>
-                         <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 
-                        text-blue-500 tracking-wider">Description</th>
-                    </tr>
-                    
-                    { this.state.reservations.map(reservation => {
-                        return (
-                        <tr className="bg-white">
-                            
-                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.dateDepart} à {reservation.heureDepart}</td>
-                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.dateRetour} à {reservation.heureRetour}</td>
-                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{reservation.description}</td>
-                        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                        <button
-                            type="button"
-                            className="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition 
-                            duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
-                            onClick={() => this.deleteAdminReservation(reservation)} 
-                        >
-                            delete
-                        </button>
-                        </td>
-                        </tr>
-                    )})}
-                </table>
+                            <tr className="teble-title">
+                                <th>Date de depart</th>
+                                <th>Date de retour</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                            { this.state.reservations.map(reservation => {
+                            return (
+                            <tr>
+                                <td>{reservation.dateDepart} à {reservation.heureDepart}</td>
+                                <td>{reservation.dateRetour} à {reservation.heureRetour}</td>
+                                <td>{reservation.description}</td>
+                                <td><button className="bouton-cur" type="button" onClick={() => this.deleteAdminReservation(reservation)} >
+                                    delete
+                                </button>
+                                </td>
+                            </tr>
+                            )})}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
         )
     }

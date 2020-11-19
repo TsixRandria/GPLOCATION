@@ -14,41 +14,56 @@ export default class ListeCategory extends Component {
         const { categories, action } = this.props;
         return (
             <div className="py-4">
-                <table className="table-auto w-full text-center whitespace-no-wrap">
-                    <thead>
-                        <tr>
-                            <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl"></th>
-                            <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl">Ref</th>
-                            <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">Titre du produit</th>
-                            <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">Stock</th>
-                            <th className="px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br">En ligne</th>
-                            <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200"></th>
-                            <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">Classement</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="x_content">
+                         <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                          
+                            <th class="column-title"> </th>
+                            <th class="column-title">ref </th>
+                            <th class="column-title">Titre du produit </th>
+                            <th class="column-title">Stock</th>
+                            <th class="column-title">En ligne </th>
+                            <th class="column-title"> </th>
+                            <th class="column-title no-link last">Classement</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
                         {categories && categories.map(category => {
                             return (
-                                <tr>
-                                    <td className="border-t-2 border-gray-200 px-4 py-3">{category.id}</td>
-                                    <td className="px-4 py-3">{category.ref}</td>
-                                    <td className="px-4 py-3">{category.category}</td>
-                                    <td className="px-4 py-3">12</td>
-                                    <td className="px-4 text-center">
-                                        <input name="plan" type="checkbox" />
-                                    </td>
+                            <tr class="even pointer">
+                                <td class=" ">{category.id} </td>
+                                <td class=" ">{category.ref} <i class="success fa fa-long-arrow-up"></i></td>
+                                <td class=" ">{category.category}</td>
+                                <td class=" ">12</td>
+                                <td>
+                                    <span><input name="plan" type="checkbox" /></span>
+                                </td>
+                                <td > 
                                     <NavLink to={`/categories/${category.id}`}>
-                                        <td className=" border-b-2 border-gray-200 px-4 py-3 text-center text-blue-600">éditer</td>
+                                        éditer
                                     </NavLink>
-                                    <td className="px-4 py-3 text-center text-gray-900">1</td>
-
-                                </tr>
-                            )
-                        })}
-
-                    </tbody>
-                </table>
-
+                                    </td>
+                            
+                               
+                                <td class=" last">
+                                    <a href="#">1</a>
+                                </td>
+                            </tr>
+                                  )
+                              })}
+                        </tbody>
+                      </table>
+                    </div>
+							
+						
+                  </div>
+                </div>
+              </div>
             </div>
         )
     }

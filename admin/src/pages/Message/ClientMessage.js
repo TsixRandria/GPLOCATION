@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from '../../axios';
 
 import Modal from 'react-modal';
-
+import './message.css'
 
 class ClientMessage extends Component {
     constructor(props) {
@@ -42,57 +42,44 @@ class ClientMessage extends Component {
         
         return (
             <div>
-            
-            <section claName="text-gray-700 body-font">
-                <div claName="container px-5 mx-auto">
-                    <div claName="flex flex-col text-center w-full mb-10">
-                        <h1 claName="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">MESSAGE DES CLIENTS</h1>
-
-                    </div>
-                    <div claName="w-full mx-manual overflow-auto width=100px height=100px">
-                        <table claName=" w-full text-left ">
-                            <thead>
-                            <tr>
-                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl">DATE</th>
-                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">PRENOM</th>
-                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">EMAIL</th>
-                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">TELEPHONE</th>
-                                <th claName="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200" >MESSAGE</th>
-                                <th claName="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                { this.state.contacts.map(contact => {
-                                    return (
-                                        <tr>
-                                            <td className="border px-4 py-2">{ contact.created_at }</td>
-                                            <td className="border px-4 py-2">{ contact.prenom }</td>
-                                            <td className="border px-4 py-2">{ contact.email}</td>
-                                            <td className="border px-4 py-2">{ contact.telephone}</td>
-                                            <td className="border px-4 py-2">{contact.message} 
-                                            </td> 
-                                            <td className="border px-4 py-2">
-                                                <button
-                                                    onClick={() => this.deleteMessage(contact)} 
-                                                    claName="flex ml-auto text-red bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                                                    Supprimer
-                                                </button>
-                                            </td>  
-                                            
-                                        </tr>                           
-                                       
-                                    )
-                                }) }
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="col-md-12">
+              <div class="contient-g">
+                <div class="x_title">
+                  <h2>MESSAGE DES CLIENTS</h2>
+                 
+                  <div class="clearfix"></div>
                 </div>
-            </section>
-               
-                   
-               
-               
+                <div class="x_content">
+                  <ul class="list-unstyled msg_list">
+                  { this.state.contacts.map(contact => {
+                                    return (
+                    <li>
+                      <a>
+                        <span>
+                          <span>Prenom : { contact.prenom } </span><br/>
+                          <span>Email : { contact.email}</span><br/>
+                          <span>Télephone : { contact.telephone}</span><br />
+                          <span>Date : { contact.created_at }</span>
+                        </span>
+                        <span>Message :</span>
+                        <span class="message">
+                        
+                        {contact.message} 
+                        </span>
+                      </a>
+                      <button
+                        onClick={() => this.deleteMessage(contact)} 
+                        claName="bouton">
+                        Supprimer
+                    </button>
+                    </li>
+                       )
+                    }) }
+                  </ul>
+                </div>
+              </div>
             </div>
+         </div>
         )
     }
 }
