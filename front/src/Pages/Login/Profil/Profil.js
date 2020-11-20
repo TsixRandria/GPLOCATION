@@ -6,6 +6,9 @@ class Profil extends Component {
 
     render() {
         let propos = this.props;
+        if(this.props.client){
+            
+        }
         return (
             <div>
 

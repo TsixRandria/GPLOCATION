@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-
 import ErrorLogin from './ErrorLogin';
 import axios from '../../axios'
 import './Login.css';
@@ -47,9 +46,11 @@ class Login extends React.Component {
 		this.state = {
 			message: null,
 			etape: '',
-			client: {}
+			client: {},
+			
 		}
 	}
+
 
 	render() {
 		const message = this.state.message;
@@ -96,6 +97,10 @@ class Login extends React.Component {
 											this.setState({
 												etape: 2,
 												client: response.data
+											})
+
+											this.setState({
+												loading: true
 											})
 
 											console.log(response.data.client)
@@ -172,6 +177,11 @@ class Login extends React.Component {
 														message: response.data.message
 													});
 
+													
+													this.setState({
+														loading: true
+													})
+
 													this.setState({
 														etape: 2
 													})
@@ -240,11 +250,11 @@ class Login extends React.Component {
 									</div>
 
 								</div>
-							
+								
 							</div>
 						</div>
 					</div>
-					{etape == 2 ? (<Redirect to='/profil' />) : null}
+					{etape == 2 ? (<Redirect to='/profil'/>) : null}
 				</div>
 			</section>			
 
