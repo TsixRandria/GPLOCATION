@@ -74,12 +74,12 @@ class App extends React.Component {
                     <Route exact path="/reservations" component={Reservation} />
                     <Route path="/ajouter_un_tarif/:id" component={AddTarif} />
                     <Route path="/tarif_de_base" component={TarifDeBase} />
-<<<<<<< HEAD
+
                     <Route path="/tarif_list" component={TarifList} />
-=======
+
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/categories/:id" component={Editer} />
->>>>>>> development
+
                   </Switch>
                 </div>
               </>
