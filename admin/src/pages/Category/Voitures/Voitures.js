@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import AddVoiture from './AddVoiture';
 import ListeVoiture from './ListeVoiture';
-import axios from '../../axios';
+
+import ListeCategory from '../ListeCategory';
+import axios from '../../../axios';
 
 import Modal from 'react-modal';
 import { NavLink } from 'react-router-dom';
@@ -50,7 +52,11 @@ class Voitures extends Component {
         const { addNew, voitures } = this.state;
         return (
             <div className="p-5">
-                <h1 className="mb-2">Gestion des voitures</h1>
+                <NavLink to="/categories" >
+                    <button class="text-white bg-indigo-500 border-0 hover:bg-indigo-600 font-bold py-2 px-4 rounded">Retour</button>
+                </NavLink>
+                <h1 className="mb-2 text-center">Gestion des voitures</h1>
+
                 <button
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
                     onClick={() => this.action.toggleModal(true)}>Nouvelle voiture</button>
@@ -77,11 +83,6 @@ class Voitures extends Component {
                     </div>
                     
                 </Modal>
-                <NavLink to={'/parcourir'}>
-                    <button
-                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
-                    >Parcourir</button>
-                </NavLink>
             </div>
         )
     }

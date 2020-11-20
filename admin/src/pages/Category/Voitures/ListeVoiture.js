@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
+
+
 export default class ListeVoiture extends Component {
     componentDidMount() {
         const { action } = this.props;
         action.getVoiture();
+        action.getCategory();
     }
 
     render() {
-        const { voitures, action } = this.props;
+        const { voitures, categories, action } = this.props;
+        console.log(categories)
+
         return (
             <div className="py-4">
                 <h2>Liste des voitures</h2>
@@ -56,8 +61,14 @@ export default class ListeVoiture extends Component {
                     </table>
                 </div>
 
-                { voitures && voitures.length === 0 ? (<>Aucune voiture disponible pour le moment.</>) : null}
+                <center>{voitures && voitures.length === 0 ? (<>Aucune voiture disponible pour le moment.</>) : null}</center>
+
             </div>
+
+
+
+
+
         )
     }
 }

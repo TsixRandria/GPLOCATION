@@ -33,9 +33,10 @@ class GestionOF extends Component {
 
                                 
                                     <div className="tableResponsive">
+                                    <h2>Definition des jours d'ouvertures</h2>
                                     <table className="table table-striped jambo_table bulk_action">
                     
-                                        <h2>Definition des jours d'ouvertures</h2>
+                                        
 
 
                                         <tbody>

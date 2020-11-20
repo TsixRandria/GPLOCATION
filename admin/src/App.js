@@ -6,12 +6,11 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar'
 
+import Voitures from './pages/Category/Voitures/Voitures';
 import Accueil from './pages/Accueil/Accueil';
-import Voitures from './pages/Voitures/Voitures';
 import Categories from './pages/Category/Categories';
-import Parcourir from './pages/Voitures/Parcourir/Parcourir';
 import Utilisateurs from './pages/Utilisateurs/Utilisateurs';
-import DetailVoiture from './pages/Voitures/DetailVoiture';
+import DetailVoiture from './pages/Category/Voitures/DetailVoiture';
 import Login from './pages/Login/Login';
 import ClientMessage from './pages/Message/ClientMessage';
 import Tarif from './pages/ConfigurationAgence/Tarif/Tarif';
@@ -19,16 +18,19 @@ import TarifPersonnaliser from './pages/ConfigurationAgence/Tarif/TarifPeronnali
 import Planning from './pages/Planning/Planning';
 import ConfigurationAgence from './pages/ConfigurationAgence/ConfigurationAgence';
 import GestionSaison from './pages/ConfigurationAgence/GestionSaison/GestionSaison';
-import Editer from './pages/Voitures/Parcourir/Editer/Editer';
+import Editer from './pages/Category/Editer/Editer';
 import Dashbord from './pages/Dashbord/Dashbord';
+
+import GestionTemp from './pages/ConfigurationAgence/GestionOF/GestionTemp'
+
 import axios from './axios';
 import Reservation from './pages/Reservation/Reservation';
 import AddTarif from './pages/ConfigurationAgence/Tarif/AddTarif';
 import TarifDeBase from './pages/ConfigurationAgence/Tarif/TrifDeBase';
 import TarifList from './pages/ConfigurationAgence/Tarif/TarifList';
 
-import GestionOF from './pages/ConfigurationAgence/GestionOF/GestionOF';
-      
+
+
 // import Table from './pages/Tableau/Table';
 
 
@@ -38,7 +40,7 @@ class App extends React.Component {
     tarif: [],
     voiture: []
   }
-  
+
   render() {
     const { isAuthenticated } = this.props;
     return (
@@ -52,9 +54,11 @@ class App extends React.Component {
                 <div className="main-container">
 
                   <Switch>
+                    <Route exact path="/categories" component={Categories} />
+
                     <Route exact path="/" component={Accueil} />
                     <Route exact path="/voitures" component={Voitures} />
-                    <Route exact path="/parcourir" component={Parcourir} />
+                    {/* <Route exact path="/parcourir" component={Parcourir} /> */}
                     <Route exact path="/editer" component={Editer} />
                     <Route exact path="/configuration_agence" component={ConfigurationAgence} />
                     <Route exact path="/gestion_saison" component={GestionSaison} />
@@ -62,15 +66,20 @@ class App extends React.Component {
                     <Route exact path="/utilisateurs" component={Utilisateurs} />
                     <Route exact path="/ClientMessage" component={ClientMessage} />
                     <Route exact path="/tarif" component={Tarif} />
-                    <Route exact path="/ouverture" component={GestionOF} />
+                    <Route exact path="/ouverture" component={GestionTemp} />
                     <Route exact path="/tarifpersonnalise" component={TarifPersonnaliser} />
                     <Route exact path="/planning" component={Planning} />
                     <Route exact path="/dashbord" component={Dashbord} />
                     <Route exact path="/categories" component={Categories} />
                     <Route exact path="/reservations" component={Reservation} />
-                    <Route path="/ajouter_un_tarif/:id" component={AddTarif } />
+                    <Route path="/ajouter_un_tarif/:id" component={AddTarif} />
                     <Route path="/tarif_de_base" component={TarifDeBase} />
+<<<<<<< HEAD
                     <Route path="/tarif_list" component={TarifList} />
+=======
+                    <Route exact path="/voitures" component={Voitures} />
+                    <Route exact path="/categories/:id" component={Editer} />
+>>>>>>> development
                   </Switch>
                 </div>
               </>
