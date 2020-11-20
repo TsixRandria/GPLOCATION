@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Button from 'react-bootstrap/Button';
+
 import './detail.css';
 
 
@@ -11,9 +11,9 @@ function Detail(useState) {
       <>
             <section className="b-more" >
                   
-                        <Button onClick={() => setModalShow(true)} className="titre-15">
-                        Conditions générales de location
-                          </Button>
+                       <center><button onClick={() => setModalShow(true)} className="btn m-btn" style={{background:'gray', color:'white'}}>
+                        Conditions générales de location<span className="fa fa-angle-right" id="bgDetail"></span>
+                          </button></center> 
 
                           <ConditionModal
                             show={modalShow}

@@ -3,7 +3,7 @@
     font-family: 600 14px 'Open Sans',sans-serif;
 }
 .pbig{
-    padding: 0 8px;
+    padding: 0 19px;
     text-align: left;
 }
 .bouttonDeja{
@@ -11,8 +11,15 @@ position: absolute;
 width: 100%;
 display: flex;
 justify-content: right;
-margin: -56px 374px;
+margin: -56px 294px;
 }
+.bouttonDej{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin: -56px 273px;
+    }
 .bouttonModif{
     position: absolute;
     width: 100%;

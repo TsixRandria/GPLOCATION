@@ -45,7 +45,9 @@ export default class ListeCategory extends Component {
                                 </td>
                                 <td > 
                                     <NavLink to={`/categories/${category.id}`}>
-                                        éditer
+                                    <a class="btn btn-app">
+                                      <i class="fa fa-edit"></i> Edit
+                                    </a>
                                     </NavLink>
                                     </td>
                             

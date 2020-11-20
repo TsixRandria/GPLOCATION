@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+
 
 import PaimentEtape1 from './Paiment/PaimentEtape1';
 import './Reserver.css';
@@ -91,11 +91,7 @@ function Reserver(propos) {
                                                 </div>
                                             </div>
                                             <p className="center mtop10">
-                                                
-                                                <Button variant="primary" onClick={() => setModalShow(true)} className="mored">
-                                                Détails
-                                                </Button>
-
+                                                <button type="submit" onClick={() => setModalShow(true)} className="btn m-btn" >Détails<span className="fa fa-angle-right"></span></button>
                                                 <DetailReserver
                                                     show={modalShow}
                                                     onHide={() => setModalShow(false)}
@@ -126,7 +122,9 @@ function Reserver(propos) {
                                                                                                                             
                                                 <p className="pbig">
                                                     <b className="textRempli">Remplissez vos coordonnées et<br/> accédez au paiement de votre <br/>réservation.</b>
-                                                    <div className="bouttonDeja"><button onClick={() => setEtat(2)} className="dejaClient">Déjà client ?</button></div>
+                                                    <div className="bouttonDeja">
+                                                    <button onClick={() => setEtat(2)}  className="btn m-btn" style={{background:'#228dcb', color:'white'}}>Déjà client !<span className="fa fa-angle-right"></span></button>
+                                                    </div>
                                                 </p>
                                                 
                                             </div>
@@ -205,7 +203,9 @@ function Reserver(propos) {
                                                     <p className="pbig">
                                                         
                                                         <b className="textRempli">Connectez-vous à votre compte et <br/> accédez au paiement de votre réservation.</b>
-                                                        <div className="bouttonDeja"><button onClick={() => setEtat(1)} className="dejaClient">Nouveau client ?</button></div>
+                                                        <div className="bouttonDej">
+                                                        <button onClick={() => setEtat(1)} className="btn m-btn" style={{background:'#228dcb', color:'white'}}>Nouveau client ?<span className="fa fa-angle-right"></span></button>
+                                                        </div>
                                                     </p>
                                                     
                                                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+
 
 import './conditonModal.css';
 
@@ -138,7 +138,7 @@ function ConditionModal(props) {
                     </p>
                 </div>
                 <Modal.Footer>
-                    <Button onClick={props.onHide}>Fermer</Button>
+                    <button onClick={props.onHide} className="btn m-btn" style={{background:'gray', color:'white'}}>Fermer <span className="fa fa-angle-right" id="bgDetail"></span></button>
                 </Modal.Footer>
             </Modal>
         </div>
