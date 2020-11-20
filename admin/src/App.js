@@ -26,7 +26,8 @@ import GestionTemp from './pages/ConfigurationAgence/GestionOF/GestionTemp'
 import axios from './axios';
 import Reservation from './pages/Reservation/Reservation';
 import AddTarif from './pages/ConfigurationAgence/Tarif/AddTarif';
-import TarifDeBase from './pages/ConfigurationAgence/Tarif/TrifDeBase'
+import TarifDeBase from './pages/ConfigurationAgence/Tarif/TrifDeBase';
+import TarifList from './pages/ConfigurationAgence/Tarif/TarifList';
 
 
 
@@ -73,8 +74,12 @@ class App extends React.Component {
                     <Route exact path="/reservations" component={Reservation} />
                     <Route path="/ajouter_un_tarif/:id" component={AddTarif} />
                     <Route path="/tarif_de_base" component={TarifDeBase} />
+
+                    <Route path="/tarif_list" component={TarifList} />
+
                     <Route exact path="/voitures" component={Voitures} />
                     <Route exact path="/categories/:id" component={Editer} />
+
                   </Switch>
                 </div>
               </>

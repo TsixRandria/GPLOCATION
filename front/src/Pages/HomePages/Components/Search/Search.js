@@ -25,7 +25,8 @@ export default class Search extends React.Component {
 	state = {
 		etape: 1,
 		voitures: [],
-		date_reservation: {}
+		date_reservation: {},
+		message: null
 	}
 
 	changerEtape = (newEtape) => {
@@ -37,9 +38,10 @@ export default class Search extends React.Component {
 	
 	render() {
 		const { etape, date_reservation } = this.state;
+		const message = this.state.message;
 		return (
 			<>
-
+				
 				<div className="container">
 
 					<div className="b-search__main wow zoomInUp" data-wow-delay="0.3s">
@@ -64,9 +66,13 @@ export default class Search extends React.Component {
 										date_reservation: values
 									});
 
-								} else if (response.status === 204) {
-									console.log(response.data);
+								} else if (response.status === 200) {
+									
+									this.setState({
+										message: response.data.message
+									})
 								}
+								console.log(this.state.message);
 							})
 						}}
 						>
@@ -125,14 +131,17 @@ export default class Search extends React.Component {
 											<button type="submit" className="btn m-btn">LOUER<span className="fa fa-angle-right"></span></button>
 										</div>
 									</div>
+									
 								</div>
 							</Form>)}
 						</Formik>
-					
+						
 					</div>
 					{etape === 2 ? (<Reservation date_reservation={date_reservation} />) : null}
+					<div>{ message ? (<div className="alert_message"><h4>{message}</h4></div>) : null }</div>
 				</div>
-
+							
+							
 
 			</>
 		);

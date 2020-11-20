@@ -9,7 +9,7 @@ class CreateTarifs < ActiveRecord::Migration[6.0]
       t.string :prix4
       t.string :prix5
       t.string :prix6
-      t.text :name
+     
       t.belongs_to :category, index: true
       
       t.timestamps

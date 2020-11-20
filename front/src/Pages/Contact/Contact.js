@@ -18,10 +18,10 @@ const ContactSchema = Yup.object().shape({
 		.min(4, 'Prenom invalide')
 		.matches(/([a-z-A-Z])/, 'Le prenom ne doit contenir que des lettres'),
 	telephone: Yup.string()
-		.required('le Numero de telephone ne doit pas être vide')
-		.min(8, 'Numero telephone incomplet')
-		.max(15, 'Numero inconnue')
-		.matches(/([0-9])/, 'Le numero de telephone ne doit contenir que des chiffres'),
+		.required('le numero de téléphone ne doit pas être vide')
+		.min(8, 'Numero téléphone incomplet')
+		.max(15, 'Numero iconnu')
+		.matches(/([0-9])/, 'Le numero de téléphone ne doit contenir que des chiffres'),
 	email: Yup.string()
 		.email('Email invalide,merci de vouloire completé')
 		.required('l \' email ne doit pas être vide')
@@ -92,7 +92,7 @@ class Contact extends React.Component {
 												<ErrorField errors={errors} touched={touched} row="telephone"/>
 											</div>
 											<div>
-												<textarea type="text" id="user-message" name="message" placeholder="message" ></textarea>
+												<Field type="text" className="ctextarea" name="message" placeholder="message" />
 												
 											</div>
 											

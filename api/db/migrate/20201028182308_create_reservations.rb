@@ -7,7 +7,8 @@ class CreateReservations < ActiveRecord::Migration[6.0]
       t.date :dateRetour
       t.time :heureDepart
       t.time :heureRetour
-      
+
+      t.belongs_to :tarif
 
 
       t.timestamps

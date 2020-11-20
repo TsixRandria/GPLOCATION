@@ -81,6 +81,7 @@ class Voitures extends Component {
                         <AddVoiture
                             action={{ ...this.action }} />
                     </div>
+                    
                 </Modal>
             </div>
         )

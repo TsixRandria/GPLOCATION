@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../../axios'
 import AddTarif from './AddTarif'
+import TariList from './TarifList';
 
 
 class Tarif extends Component {
@@ -10,7 +11,7 @@ class Tarif extends Component {
         this.state = {
             lire: false,
             categories: [],
-            category: {},
+            category: [],
             tarifs: []
         };
     }
@@ -33,16 +34,7 @@ class Tarif extends Component {
 		})
     }
 
-    apiCategory = () => {
-        axios.get(`/categories/${this.state.tarifs.category_id}`).then(response => {
-            if (response.status === 200) {
-                this.setState({
-                    category: response.data
-                })
-                
-            }
-        })
-    }
+    
    
     getTarif = (props) => {
         axios.get(`/tarifs`)
@@ -63,7 +55,8 @@ class Tarif extends Component {
     
     
     render() {
-        console.log(this.state.tarifs);      
+        console.log(this.state.tarifs);
+        
         return (
             <>
                 <div>
@@ -84,12 +77,11 @@ class Tarif extends Component {
                         );
                     })}
                     </center>
+                    
                 </div>
                 <br/>
                 <div>
-                { this.state.tarifs.map(tarif => {
-                    
-                    console.log(this.state.categories)
+                { this.state.tarifs && this.state.tarifs.map(tarif => {
                     return (
                     <div>
                         <p>Du: {tarif.date_debut} Au: {tarif.date_fin}</p>
@@ -115,7 +107,7 @@ class Tarif extends Component {
                                 <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{tarif.prix5} £</td>
                                 <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{tarif.prix6} £</td>
                                 <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{
-                                      tarif.category_id
+                                      <TariList category={tarif.category_id}/>
                                 }</td>
                                 <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                 <button

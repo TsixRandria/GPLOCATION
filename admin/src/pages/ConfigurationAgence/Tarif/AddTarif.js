@@ -57,7 +57,7 @@ class AddTarif extends Component {
                             prix4: '',
                             prix5: '',
                             prix6: '',
-                            name: '',
+                            
                             category_id: `${this.props.match.params.id}`
                         }}
 
@@ -141,16 +141,7 @@ class AddTarif extends Component {
                                 <Field className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded 
                                 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="prix6" type="number"/>
                             </div>
-
-                            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                                    categorie :
-                                </label>
-                                <Field className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded 
-                                py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="name" value={category && category.category}/>
-                            </div>
-                           
-                            
+                
                             <button
                                 type="submit"
                                 className="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 
