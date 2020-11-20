@@ -8,7 +8,9 @@ class VoituresController < ApplicationController
     # GET /voitures
     def index
         @voitures = Voiture.all
-        json_response(@voitures)
+        render json: @voitures
+        # json_response(@voitures)
+
     end
 
     # POST /categories/:category_id/voitures
@@ -24,7 +26,9 @@ class VoituresController < ApplicationController
     # GET /categories/:category_id/voitures/:id
     # GET /voitures/:id
     def show
-        json_response(@voiture)
+        @category = @voiture.category
+        @options = @category.options
+        render json: {voitures: @voitures, options: @options}
     end
 
     # PUT /categories/:category_id/voitures/:id

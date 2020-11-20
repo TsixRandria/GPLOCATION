@@ -42,7 +42,8 @@
     Category.create(ref:'R01', category: 'CatA' )
     Category.create(ref:'R02', category: 'CatB' )
     Category.create(ref:'R03', category: 'CatC' )
-
+    Category.create(ref:'R04', category: 'CatD' )
+    Category.create(ref:'R05', category: 'CatE' )
 
 # 5.times do
 #     c=  Tarif.create(prix: '1000')

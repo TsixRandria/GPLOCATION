@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_084613) do
+ActiveRecord::Schema.define(version: 2020_11_20_121837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2020_11_16_084613) do
     t.index ["telephone"], name: "index_clients_on_telephone", unique: true
   end
 
+  create_table "configuration_options", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "prix"
+    t.bigint "option_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_configuration_options_on_option_id"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "nom"
     t.string "prenom"
@@ -80,16 +89,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_084613) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_options_on_category_id"
-  end
-
-  create_table "reservation_options", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "tarif_supplementaire_id"
-    t.bigint "reservation_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_reservation_options_on_reservation_id"
-    t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
   end
 
   create_table "reservations", force: :cascade do |t|
