@@ -67,10 +67,10 @@ export class Reservation extends Component {
                 >
                     <Form>
                        
-                                <label className="part-date">Date de depart :</label>
+                                <label className="part-date">Date de départ :</label>
                             <Field type="date" name="dateDepart" />
                           
-                                <label className="part-date">heure de depart :</label>
+                                <label className="part-date">heure de départ :</label>
                             <Field type="time" name="heureDepart" />
                          
                                 <label className="part-date">date retour :</label>
@@ -92,7 +92,7 @@ export class Reservation extends Component {
                     <table class="table table-striped jambo_table bulk_action">
 
                             <tr className="teble-title">
-                                <th>Date de depart</th>
+                                <th>Date de départ</th>
                                 <th>Date de retour</th>
                                 <th>Description</th>
                                 <th></th>
@@ -104,7 +104,7 @@ export class Reservation extends Component {
                                 <td>{reservation.dateRetour} à {reservation.heureRetour}</td>
                                 <td>{reservation.description}</td>
                                 <td><button className="bouton-cur" type="button" onClick={() => this.deleteAdminReservation(reservation)} >
-                                    delete
+                                    Suprimer
                                 </button>
                                 </td>
                             </tr>

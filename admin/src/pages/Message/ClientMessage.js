@@ -56,22 +56,27 @@ class ClientMessage extends Component {
                     <li>
                       <a>
                         <span>
-                          <span>Prenom : {contact.nom} { contact.prenom } </span><br/>
-                          <span>Email : { contact.email}</span><br/>
-                          <span>Télephone : { contact.telephone}</span><br />
-                          <span>Date : { contact.created_at }</span>
+                          <span> <span className="Name-contact"> Nom : </span>{contact.nom} </span><br/>
+                          <span> <span className="Name-contact"> Prénom : </span>{ contact.prenom } </span><br/>
+                          <span> <span className="Name-contact">Email : </span> { contact.email}</span><br/>
+                          <span> <span className="Name-contact"> Téléphone :</span> { contact.telephone}</span><br />
+                          <span> <span className="Name-contact"> Date :</span> { contact.created_at }</span><br />
                         </span>
-                        <span>Message :</span>
-                        <span class="message">
+                        <span className="Name-contact"> Message : </span>
+                        <span className="message">
                         
                         {contact.message} 
                         </span>
                       </a>
-                      <button
+                      <span
                         onClick={() => this.deleteMessage(contact)} 
-                        claName="bouton">
-                        X
-                    </button>
+                        className="delete">
+                          <i>
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="red" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg>
+                          </i> 
+                      </span>
                     </li>
                        )
                     }) }
