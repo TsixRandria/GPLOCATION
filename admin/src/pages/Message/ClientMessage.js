@@ -56,7 +56,7 @@ class ClientMessage extends Component {
                     <li>
                       <a>
                         <span>
-                          <span>Prenom : { contact.prenom } </span><br/>
+                          <span>Prenom : {contact.nom} { contact.prenom } </span><br/>
                           <span>Email : { contact.email}</span><br/>
                           <span>Télephone : { contact.telephone}</span><br />
                           <span>Date : { contact.created_at }</span>
@@ -70,7 +70,7 @@ class ClientMessage extends Component {
                       <button
                         onClick={() => this.deleteMessage(contact)} 
                         claName="bouton">
-                        Supprimer
+                        X
                     </button>
                     </li>
                        )
