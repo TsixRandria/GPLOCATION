@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :update, :destroy]
+  before_action :tarif_id, only: [:create]
   
   # GET /reservations
   def index
@@ -13,9 +14,14 @@ class ReservationsController < ApplicationController
     render json: @reservation
   end
 
+  def tarif_id
+    @reservation = Reservation.create(reservation_params)
+    
+  end
+
   # POST /reservations
   def create
-    @reservation = Reservation.create(reservation_params)                                                                                                                                                                                                           
+                                                                                                                                                                                                              
 
     if @reservation.dateDepart === @reservation.dateRetour
       # return @reservation.delete
