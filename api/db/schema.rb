@@ -82,16 +82,6 @@ ActiveRecord::Schema.define(version: 2020_11_19_165208) do
     t.index ["category_id"], name: "index_options_on_category_id"
   end
 
-  create_table "reservation_options", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "tarif_supplementaire_id"
-    t.bigint "reservation_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_reservation_options_on_reservation_id"
-    t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.string "lieuDepart"
     t.string "lieuRetour"
