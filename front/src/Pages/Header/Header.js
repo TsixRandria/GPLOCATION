@@ -7,9 +7,9 @@ class Header extends React.Component {
 	render() {
 		let log;
 		if(this.props.client){
-			log = (<li><Link to="/" onClick={() => sessionStorage.clear() } >Se deconnecter</Link></li>)
+			log = (<li><Link to="/" onClick={() => sessionStorage.clear(window.location.reload(<Link to='/'/>)) } >Se deconnecter</Link></li>)
 		}else{
-			log = (<li><Link to="/Login">Espace client</Link></li>)
+			log = (<li><Link to="/login">Espace client</Link></li>)
 		}
 
 		console.log(this.props.client);
